@@ -4,8 +4,12 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "shopify theme dev --store librairie-sans-titre-2 & vite build & npx tailwindcss -i ./style.css -o ./assets/style-vite.css --watch",
+    "dev": "concurrently --names \"SHOPIFY,VITE,TAILWIND\" \"shopify theme dev --store librairie-sans-titre-2\" \"vite build --watch\" \"npx tailwindcss -i ./style.css -o ./assets/style-vite.css --watch\"",
     "vite:dev": "vite dev",
+    "tailwind:dev": "npx @tailwindcss/cli -i ./style.css -o ./assets/style-vite.css --watch",
+    "tailwind:build": "npx @tailwindcss/cli -i ./style.css -o ./assets/style-vite.css",
+    "shopify:dev": "shopify theme dev --store librairie-sans-titre-2",
+    "shopify:build": "shopify theme build --store librairie-sans-titre-2",
     "vite:build": "vite build",
     "push": "shopify theme push --ignore ./docs/*",
     "pull": "shopify theme pull --ignore ./docs/*",
@@ -15,11 +19,12 @@
   },
   "devDependencies": {
     "@tailwindcss/forms": "^0.5.7",
+    "@tailwindcss/postcss": "^4.1.14",
     "@tailwindcss/typography": "^0.5.13",
-    "autoprefixer": "^10.4.19",
     "chokidar": "^3.6.0",
+    "concurrently": "^9.2.1",
     "postcss": "^8.4.38",
-    "tailwindcss": "^3.4.3",
+    "tailwindcss": "^4.1.14",
     "vite": "^5.2.0",
     "vitepress": "^1.6.3"
   },

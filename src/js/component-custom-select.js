@@ -31,7 +31,7 @@ export default (function () {
     t.customOptions = t.dropdown.getElementsByClassName('js-select__item');
 
     // hide default select
-    t.select.classList.add('lst-hidden');
+    t.select.classList.add('lst:hidden');
     if (t.arrowIcon.length > 0) t.arrowIcon[0].style.display = 'none';
 
     // store drowpdown min-width
@@ -180,7 +180,7 @@ export default (function () {
       label +
       '" aria-expanded="false" aria-controls="' +
       t.selectId +
-      '-dropdown"><span aria-lst-="true" class="js-select__label select__label">' +
+      '-dropdown"><span aria-lst:="true" class="js-select__label select__label">' +
       t.selectedOption +
       '</span>';
     if (t.arrowIcon.length > 0 && t.arrowIcon[0].outerHTML) {
@@ -220,7 +220,7 @@ export default (function () {
   function getSelectLabelSR(t) {
     if (t.label) {
       return (
-        '<p class="lst-sr-only lst-px-2 lst-text-xs" id="' +
+        '<p class="lst:sr-only lst:px-2 lst:text-xs" id="' +
         t.selectId +
         '-description">' +
         t.label.textContent +

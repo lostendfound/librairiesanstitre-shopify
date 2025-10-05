@@ -1,9 +1,9 @@
-<div class="lst-border-b lst-border-black">
+<div class="lst:border-b lst:border-black">
   <div>
-    <div class="lst-px-3 lg:lst-px-5 lst-py-5 lst-border-b lst-border-black lst-text-left lst-uppercase">
+    <div class="lst:px-3 lst:lg:px-5 lst:py-5 lst:border-b lst:border-black lst:text-center lst:before:content-[''] ">
       <h2 class="h2">{{ section.settings.title }}</h2>
     </div>
-    <div class="lst-grid lst-grid-cols-2 lg:lst-grid-cols-4 lst-divide-x lst-divide-black">
+    <div class="lst:grid lst:grid-cols-2 lst:lg:grid-cols-4 lst:divide-x lst:divide-black">
       {% for block in section.blocks %}
         {% case block.type %}
           {% when 'product' %}

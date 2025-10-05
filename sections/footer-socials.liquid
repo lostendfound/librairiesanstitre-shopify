@@ -5,15 +5,15 @@
 {{ 'component-list-payment.css' | asset_url | stylesheet_tag }}
 {{ 'component-list-social.css' | asset_url | stylesheet_tag }}
 
-<section class="lst-flex lst-flex-col lst-justify-between lst-h-full lst-bg-black lst-text-white">
-  <div class="lst-px-3 lg:lst-px-5 lst-py-2">
-    <div class="lst-flex lst-gap-5">
+<section class="lst:flex lst:flex-col lst:justify-between lst:h-full lst:bg-black lst:text-white">
+  <div class="lst:px-3 lst:lg:px-5 lst:py-2">
+    <div class="lst:flex lst:gap-5">
       {% for block in section.blocks %}
         {% case block.type %}
           {% when 'social_link' %}
             <a
               href="{{ block.settings.social_link_url }}"
-              class="lst-flex h4 lst-items-center lst-justify-center lst-text-white lst-pl-5 lst-border-l lst-border-white lst-py-1"
+              class="lst:flex h4 lst:items-center lst:justify-center lst:text-white lst:pl-5 lst:border-l lst:border-white lst:py-1"
             >
               {{ block.settings.social_link_text }}
             </a>

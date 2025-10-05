@@ -15,9 +15,9 @@
 {%- endstyle -%}
 
 <div class="color-{{ section.settings.color_scheme }} gradient">
-  <div class="contact page-width lst-max-w-5xl lst-px-5 section-{{ section.id }}-padding">
-    <div class="lst-grid sm:lst-grid-cols-2 lst-divide-y sm:lst-divide-y-0 sm:lst-divide-x lst-divide-black  contact_wrapper">
-      <div class="lst-p-2">
+  <div class="contact page-width lst:max-w-5xl lst:px-5 section-{{ section.id }}-padding">
+    <div class="lst:grid lst:sm:grid-cols-2 lst:divide-y lst:sm:divide-y-0 lst:sm:divide-x lst:divide-black  contact_wrapper">
+      <div class="lst:p-2">
         {%- if section.settings.heading != blank -%}
           <h2 class="title title-wrapper--no-top-margin inline-richtext {{ section.settings.heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
             {{ section.settings.heading }}
@@ -133,12 +133,12 @@
           </div>
         {%- endform -%}
       </div>
-      <div class="lst-p-2 lst-flex lst-justify-between lst-flex-col">
+      <div class="lst:p-2 lst:flex lst:justify-between lst:flex-col">
         <div>
-          <a class="lst-block lst-text-lg sm:lst-text-2xl" href="info@librairiesanstitre.com"
+          <a class="lst:block lst:text-lg lst:sm:text-2xl" href="info@librairiesanstitre.com"
             >info@librairiesanstitre.com</a
           >
-          <a class="lst-block lst-text-lg sm:lst-text-2xl" href="tel:+33 (0)1 48 07 51 34">+33 (0)1 48 07 51 34</a>
+          <a class="lst:block lst:text-lg lst:sm:text-2xl" href="tel:+33 (0)1 48 07 51 34">+33 (0)1 48 07 51 34</a>
         </div>
         <div>
           <img

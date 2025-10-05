@@ -6,17 +6,17 @@
 {% assign current_page = params.page | default: 1 | to_integer %}
 {% assign offset = current_page | minus: 1 | times: page_size %}
 
-<div class="lst-px-3 md:lst-px-5 lst-sr-only">
+<div class="lst:px-3 lst:md:px-5 lst:sr-only">
   <h1>{{ page.title }}</h1>
 </div>
-<div class="events-container lst-grid lg:lst-grid-cols-2 lst-divide-x lst-divide-black">
+<div class="events-container lst:grid lst:lg:grid-cols-2 lst:divide-x lst:divide-black">
   {% for event in events %}
-    <div class="event-item lst-bg-[#F7F2EB] lst-border-b lst-border-black">
-      <a href="{{ event.system.url }}" class="lst-px-4 lst-pt-4">
+    <div class="event-item lst:bg-[#F7F2EB] lst:border-b lst:border-black">
+      <a href="{{ event.system.url }}" class="lst:px-4 lst:pt-4">
         {% if event.image.value %}
           <img
             src="{{ event.image.value | image_url: width: 1000, height: 600, crop: 'center' }}"
-            class="lst-h-full lst-w-full lst-object-cover lst-aspect-[1000/600]"
+            class="lst:h-full lst:w-full lst:object-cover lst:aspect-1000/600"
             alt="{{ event.title.value }}"
             width="1000px"
             height="600px"
@@ -24,11 +24,11 @@
           >
         {% endif %}
       </a>
-      <div class="lst-grid lst-grid-cols-2">
-        <h2 class="lst-col-span-2 lst-text-base lst-text-black lst-p-2 lst-border-b lst-border-black lst-px-4">
+      <div class="lst:grid lst:grid-cols-2">
+        <h2 class="lst:col-span-2 lst:text-base lst:text-black lst:p-2 lst:border-b lst:border-black lst:px-4">
           {{ event.title.value }}
         </h2>
-        <div class="lst-text-base lst-text-black lst-py-2 lst-px-4 lst-border-r lst-border-black">
+        <div class="lst:text-base lst:text-black lst:py-2 lst:px-4 lst:border-r lst:border-black">
           {% if event.location.value %}
             <p>Location: {{ event.location.value }}</p>
           {% endif %}
@@ -36,7 +36,7 @@
             <p>Time: {{ event.start_date_time.value | date: '%B %d, %Y' }}</p>
           {% endif %}
         </div>
-        <a class="lst-text-base lst-text-black lst-p-2 hover:lst-bg-primary" href="{{ event.system.url }}">Infos +</a>
+        <a class="lst:text-base lst:text-black lst:p-2 lst:hover:bg-primary" href="{{ event.system.url }}">Infos +</a>
       </div>
     </div>
   {% endfor %}

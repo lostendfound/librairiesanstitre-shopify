@@ -1,6 +1,6 @@
 <section
   id="MainProduct-{{ section.id }}"
-  class="section-{{ section.id }}-padding gradient !lst-py-0 color-{{ section.settings.color_scheme }}"
+  class="section-{{ section.id }}-padding gradient lst:py-0! color-{{ section.settings.color_scheme }}"
   data-section="{{ section.id }}"
 >
   {{ 'section-main-product.css' | asset_url | stylesheet_tag }}
@@ -69,10 +69,10 @@
   {% assign variant_images = product.images | where: 'attached_to_variant?', true | map: 'src' %}
   <div>
     <div class="product product--{{ section.settings.media_size }} product--{{ section.settings.media_position }} product--{{ section.settings.gallery_layout }} product--mobile-{{ section.settings.mobile_thumbnails }} grid grid--1-col {% if product.media.size > 0 %}grid--2-col-tablet{% else %}{% endif %}">
-      <div class="grid__item product__media-wrapper lst-overflow-hidden">
+      <div class="grid__item product__media-wrapper lst:overflow-hidden">
         {% if product.media.size == 0 %}
           <div class="product__media">
-            <div class="lst-aspect-video lst-bg-primary w-full block lst-max-w-none">
+            <div class="lst:aspect-video lst:bg-primary w-full block lst:max-w-none">
               <span></span>
             </div>
           </div>
@@ -80,19 +80,19 @@
           {% render 'product-media-lst', variant_images: variant_images %}
         {% endif %}
       </div>
-      <div class="product__info-wrapper !lst-px-0 grid__item{% if settings.page_width > 1400 and section.settings.media_size == "small" %} product__info-wrapper--extra-padding{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+      <div class="product__info-wrapper lst:px-0! grid__item{% if settings.page_width > 1400 and section.settings.media_size == "small" %} product__info-wrapper--extra-padding{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
         <product-info
           id="ProductInfo-{{ section.id }}"
           data-section="{{ section.id }}"
           data-url="{{ product.url }}"
-          class="product__info-container lst-w-full lst-border-l lst-border-b lst-border-black lst-flex lst-h-full {% if section.settings.enable_sticky_info %} product__column-sticky{% endif %} "
+          class="product__info-container lst:w-full lst:border-l lst:border-b lst:border-black lst:flex lst:h-full {% if section.settings.enable_sticky_info %} product__column-sticky{% endif %} "
         >
-          <div class="lst-w-full">
+          <div class="lst:w-full">
             {%- assign product_form_id = 'product-form-' | append: section.id -%}
             {%- for block in section.blocks -%}
               {%- case block.type -%}
                 {%- when 'price' -%}
-                  <div class="lst-bg-[#F7F2EB] lst-border-b lst-py-1 lst-border-t lg:lst-border-l-0 lg:lst-border-t-0 lst-border-black lst-flex lst-flex-col lst-items-center lst-justify-center py-2">
+                  <div class="lst:bg-[#F7F2EB] lst:border-b lst:py-1 lst:border-t lst:lg:border-l-0 lst:lg:border-t-0 lst:border-black lst:flex lst:flex-col lst:items-center lst:justify-center py-2">
                     <div
                       id="price-{{ section.id }}"
                       role="status"
@@ -106,11 +106,11 @@
                       -%}
                     </div>
                     {%- if product.quantity_price_breaks_configured? -%}
-                      <div class="volume-pricing-note lst-text-sm" id="Volume-Note-{{ section.id }}">
+                      <div class="volume-pricing-note lst:text-sm" id="Volume-Note-{{ section.id }}">
                         <span>{{ 'products.product.volume_pricing.note' | t }}</span>
                       </div>
                     {%- endif -%}
-                    <div class="rte lst-text-sm">
+                    <div class="rte lst:text-sm">
                       {%- if cart.taxes_included -%}
                         {{ 'products.product.include_taxes' | t }}
                       {%- endif -%}
@@ -123,7 +123,7 @@
                       {%- form 'product',
                         product,
                         id: product_form_installment_id,
-                        class: 'installment caption lst-text-sm'
+                        class: 'installment caption lst:text-sm'
                       -%}
                         <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
                         {{ form | payment_terms }}
@@ -131,7 +131,7 @@
                     </div>
                   </div>
                 {%- when 'buy_buttons' %}
-                  <div style="--buttons-border-width--top: 0px" class="lst-sticky lst-top-[53px] lst-z-[1]">
+                  <div style="--buttons-border-width--top: 0px" class="lst:sticky lst:top-[53px] lst:z-1">
                     {% render 'add-to-cart-button', product: product, section_id: section.id %}
                   </div>
                   {%- if false -%}
@@ -142,7 +142,7 @@
                     -%}
 
                     <pickup-availability
-                      class="product__pickup-availabilities quick-add-hidden lst-col-span-2"
+                      class="product__pickup-availabilities quick-add-hidden lst:col-span-2"
                       {% if product.selected_or_first_available_variant.available and pick_up_availabilities.size > 0 %}
                         available
                       {% endif %}
@@ -169,7 +169,7 @@
               {%- endcase -%}
             {%- endfor -%}
 
-            <div class="lst-px-3 lg:lst-px-5 lst-sticky lst-top-0 js-product-info-content">
+            <div class="lst:px-3 lst:lg:px-5 lst:sticky lst:top-0 js-product-info-content">
               {%- for block in section.blocks -%}
                 {%- case block.type -%}
                   {%- when '@app' -%}
@@ -182,8 +182,8 @@
                       {{- block.settings.text -}}
                     </p>
                   {%- when 'title' -%}
-                    <div class="product__title md:lst-pt-52 lst-pt-6" {{ block.shopify_attributes }}>
-                      <h1 class="lst-text-2xl lg:lst-text-4xl">{{ product.title | escape }}</h1>
+                    <div class="product__title lst:md:pt-52 lst:pt-6" {{ block.shopify_attributes }}>
+                      <h1 class="lst:text-2xl lst:lg:text-4xl">{{ product.title | escape }}</h1>
                       <a href="{{ product.url }}" class="product__title">
                         <h2 class="h1">
                           {{ product.title | escape }}
@@ -250,7 +250,7 @@
                     {%- if product.description != blank -%}
                       <div class="js-fold"></div>
                       <div
-                        class="product__description lst-text-base lst-text-black lst-prose prose lst-max-w-none rte quick-add-hidden"
+                        class="product__description lst:text-base lst:text-black lst:prose prose lst:max-w-none rte quick-add-hidden"
                         {{ block.shopify_attributes }}
                       >
                         {{ product.description }}

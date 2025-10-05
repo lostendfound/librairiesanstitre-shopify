@@ -96,12 +96,12 @@
       }
 
       :root {
-        --font-body-family: Fabriga, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-        --font-body-style: {{ settings.type_body_font.style }};
-        --font-body-weight: {{ settings.type_body_font.weight }};
-        --font-body-weight-bold: {{ settings.type_body_font.weight | plus: 300 | at_most: 1000 }};
+        --font-body-family: Vermeille, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+        --font-body-style: normal;
+        --font-body-weight: 500;
+        --font-body-weight-bold: 700;
 
-        --font-heading-family: {{ settings.type_header_font.family }}, {{ settings.type_header_font.fallback_families }};
+        --font-heading-family: Vermeille, ui-sans-serif, system-ui, sans-serif;
         --font-heading-style: {{ settings.type_header_font.style }};
         --font-heading-weight: {{ settings.type_header_font.weight }};
 
@@ -218,19 +218,10 @@
         --variant-pills-shadow-blur-radius: {{ settings.variant_pills_shadow_blur }}px;
       }
       @font-face {
-        font-family: 'Fabriga';
-        src: url("{{ 'Fabriga-Bold.woff2' | asset_url }}") format("woff2"),
-              url("{{ 'Fabriga-Bold.woff' | asset_url }}") format("woff") ;
-        font-weight: bold;
-        font-style: normal;
-        font-display: swap;
-      }
-
-      @font-face {
-        font-family: 'Fabriga';
-        src: url({{ 'Fabriga.woff2' | asset_url }}) format("woff2"),
-        url({{ 'Fabriga.woff' | asset_url }}) format("woff");
-        font-weight: normal;
+        font-family: 'Vermeille';
+        src: url("{{ 'Vermeille-Medium.woff2' | asset_url }}") format("woff2"),
+              url("{{ 'Vermeille-Medium.woff' | asset_url }}") format("woff");
+        font-weight: 500;
         font-style: normal;
         font-display: swap;
       }
@@ -275,6 +266,7 @@
     {% endstyle %}
     {{ 'base.css' | asset_url | stylesheet_tag }}
     {{ 'style-vite.css' | asset_url | stylesheet_tag }}
+    {{ 'main-vite.css' | asset_url | stylesheet_tag }}
 
     {%- unless settings.type_body_font.system? -%}
       {% comment %}theme-check-disable AssetPreload{% endcomment %}
@@ -327,7 +319,7 @@
       {{ content_for_layout }}
     </main>
 
-    <footer class="lst-grid md:lst-grid-cols-2 lst-border-y lst-border-black">
+    <footer class="lst:grid lst:md:grid-cols-2 lst:border-y lst:border-black">
       {% sections 'footer-group' %}
     </footer>
 

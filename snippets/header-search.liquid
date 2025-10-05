@@ -15,17 +15,15 @@
       aria-haspopup="dialog"
       aria-label="{{ 'general.search.search' | t }}"
     >
-      <span>
-        <svg class="modal__toggle-open icon icon-search !lst-h-8 !lst-w-8" aria-hidden="true" focusable="false">
-          <use href="#icon-search">
-        </svg>
-        <svg class="modal__toggle-close icon icon-close" aria-hidden="true" focusable="false">
-          <use href="#icon-close">
-        </svg>
-      </span>
+      <svg class="modal__toggle-open icon icon-search" aria-hidden="true" focusable="false">
+        <use href="#icon-search">
+      </svg>
+      <svg class="modal__toggle-close icon icon-close" aria-hidden="true" focusable="false">
+        <use href="#icon-close">
+      </svg>
     </summary>
     <div
-      class="search-modal modal__content gradient lst-top-[var(--header-height)]"
+      class="search-modal modal__content gradient lst:top-(--header-height)"
       role="dialog"
       aria-modal="true"
       aria-label="{{ 'general.search.search' | t }}"
@@ -43,7 +41,7 @@
         <form action="{{ routes.search_url }}" method="get" role="search" class="search search-modal__form">
           <div class="field search__field">
             <input
-              class="search__input field__input focus:lst-ring-0"
+              class="search__input field__input lst:focus:ring-0"
               id="{{ input_id }}"
               type="search"
               name="q"
@@ -90,7 +88,7 @@
         {%- endif -%}
         <button
           type="button"
-          class="search-modal__close-button modal__close-button link link--text focus-inset lst-absolute"
+          class="search-modal__close-button modal__close-button link link--text focus-inset lst:absolute"
           aria-label="{{ 'accessibility.close' | t }}"
         >
           <svg class="icon icon-close" aria-hidden="true" focusable="false">

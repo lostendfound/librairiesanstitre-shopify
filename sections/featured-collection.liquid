@@ -67,16 +67,16 @@
 -%}
 
 <div
-  class="color-{{ section.settings.color_scheme }} isolate gradient lst-border-b lst-border-black"
+  class="color-{{ section.settings.color_scheme }} isolate gradient lst:border-b lst:border-black"
 >
   <div
     class="collection{% if section.settings.quick_add == 'bulk' %} collection-quick-add-bulk{% endif %} section-{{ section.id }}-padding{% if section.settings.full_width %} collection--full-width{% endif %}"
     id="collection-{{ section.id }}"
     data-id="{{ section.id }}"
   >
-    <div class="lst-px-3 lg:lst-px-5 lst-py-5 lst-border-b lst-border-black lst-text-left lst-uppercase lst-flex lst-items-center lst-justify-between {% if show_mobile_slider %} title-wrapper--self-padded-tablet-down{% endif %}{% if show_desktop_slider %} collection__title--desktop-slider{% endif %}">
+    <div class="lst:px-3 lst:lg:px-5 lst:py-5 lst:border-b lst:border-black lst:text-center lst:before:content-['']  lst:flex lst:items-center lst:justify-center {% if show_mobile_slider %} title-wrapper--self-padded-tablet-down{% endif %}{% if show_desktop_slider %} collection__title--desktop-slider{% endif %}">
       {%- if section.settings.title != blank -%}
-        <h2 class="h2 {{ section.settings.heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+        <h2 class="h2 lst:grow {{ section.settings.heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
           {{ section.settings.title }}
         </h2>
         {%- if section.settings.show_view_all and more_in_collection -%}
@@ -106,27 +106,27 @@
     </div>
 
     <div
-      class=" carousel lst-flex lst-flex-col js-carousel"
+      class=" carousel lst:flex lst:flex-col js-carousel"
       data-drag="{% if section.settings.swipe_on_mobile %}on{% else %}off{% endif %}"
       data-autoplay="{% if section.settings.enable_desktop_slider %}on{% else %}off{% endif %}"
       data-autoplay-interval="5000"
       data-loop="{% if section.settings.enable_desktop_slider %}on{% else %}off{% endif %}"
       data-navigation="on"
     >
-      <p class="lst-sr-only">{{ 'general.slider.name' | t }}</p>
+      <p class="lst:sr-only">{{ 'general.slider.name' | t }}</p>
       {% if show_desktop_slider %}
-        <nav class="lst-order-1 no-js:lst-hidden">
+        <nav class="lst:order-1 no-js:lst:hidden">
           <ul>
             <li class="carousel__control js-carousel__control">
-              <button class="carousel__btn js-tab-focus lst-transform lst-rotate-180">
-                <span class="lst-sr-only">Show previous slide</span>
+              <button class="carousel__btn js-tab-focus lst:transform lst:rotate-180">
+                <span class="lst:sr-only">Show previous slide</span>
                 →
               </button>
             </li>
 
             <li class="carousel__control js-carousel__control">
               <button class="carousel__btn js-tab-focus">
-                <span class="lst-sr-only">Show next slide</span>
+                <span class="lst:sr-only">Show next slide</span>
                 →
               </button>
             </li>
@@ -134,7 +134,7 @@
         </nav>
       {% endif %}
 
-      <div class="carousel__wrapper lst-overflow-hidden">
+      <div class="carousel__wrapper lst:overflow-hidden">
         <ul
           id="Slider-{{ section.id }}"
           class="carousel__list"
@@ -192,8 +192,8 @@
       </div>
 
       {%- if show_mobile_slider or show_desktop_slider -%}
-        <div class="lst-mt-4 lst-text-center lst-sr-only">
-          <div class="carousel__counter lst-inline-flex lst-items-center lst-gap-2">
+        <div class="lst:mt-4 lst:text-center lst:sr-only">
+          <div class="carousel__counter lst:inline-flex lst:items-center lst:gap-2">
             <span class="js-carousel__counter">1</span>
             <span aria-hidden="true">/</span>
             <span class="visually-hidden">{{ 'general.slider.of' | t }}</span>

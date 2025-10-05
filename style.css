@@ -1,26 +1,43 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss' prefix(lst);
 
-@layer components {
-  .button {
-    @apply lst-bg-primary lst-text-black lst-border lst-border-black lst-uppercase lst-border-transparent lst-py-2 lst-px-4  hover:lst-bg-primary/90;
-  }
-  .h1 {
-    @apply lst-text-[48px] lst-leading-tight;
-  }
-  .h2 {
-    @apply lst-text-[32px] lst-leading-tight;
-  }
-  .h3 {
-    @apply lst-text-2xl lst-leading-tight;
-  }
-  .h3 {
-    @apply lst-text-xl lst-leading-tight;
-  }
+@config './tailwind.config.js';
 
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+    *,
+    ::after,
+    ::before,
+    ::backdrop,
+    ::file-selector-button {
+        border-color: var(--color-gray-200, currentcolor);
+    }
 }
 
-[id*="footer_socials"], [id$="_footer"] {
-    @apply md:lst-col-span-2;
+@utility button {
+    @apply lst:bg-primary lst:text-black lst:border lst:border-black lst:uppercase lst:border-transparent lst:py-2 lst:px-4  lst:hover:bg-primary/90;
+}
+
+@utility h1 {
+    @apply lst:text-[48px] lst:leading-tight;
+}
+
+@utility h2 {
+    @apply lst:text-[32px] lst:leading-tight;
+}
+
+@utility h3 {
+    @apply lst:text-2xl lst:leading-tight;
+    @apply lst:text-xl lst:leading-tight;
+}
+
+[id*='footer_socials'],
+[id$='_footer'] {
+    @apply lst:md:col-span-2;
 }

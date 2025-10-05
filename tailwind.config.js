@@ -2,15 +2,15 @@
 const defaultTheme = require('tailwindcss/defaultTheme');
 
 export default {
-  prefix: 'lst-',
+  prefix: 'lst',
   content: ['./sections/**/*', './snippets/**/*', './layout/**/*', './templates/**/*', './src/**/*'],
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Fabriga', ...defaultTheme.fontFamily.sans],
+        sans: ['Vermeille', ...defaultTheme.fontFamily.sans],
       },
       colors: {
-        primary: '#FFFF00',
+        primary: '#FFED00',
       },
       animation: {
         blink: 'blink 1s step-end infinite',

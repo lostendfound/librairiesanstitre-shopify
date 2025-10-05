@@ -123,7 +123,7 @@
               {%- endfor -%}
             </ul>
           </nav>
-          <div class="menu-drawer__utility-links lst-px-12">
+          <div class="menu-drawer__utility-links lst:px-12">
             {%- if localization.available_countries or localization.available_languages -%}
               <div class="menu-drawer__localization header-localization">
                 <!--
@@ -158,9 +158,9 @@
             {%- if shop.customer_accounts_enabled -%}
               <a
                 href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}"
-                class="menu-drawer__account link focus-inset h5 lst-block lg:lst-hidden"
+                class="menu-drawer__account link focus-inset h5 lst:block lst:lg:hidden"
               >
-                <account-icon class="lst-mr-3">
+                <account-icon class="lst:mr-3">
                   {%- if customer and customer.has_avatar? -%}
                     {{ customer | avatar }}
                   {%- else -%}

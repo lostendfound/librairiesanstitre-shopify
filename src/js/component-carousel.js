@@ -548,7 +548,7 @@ Util.extend = function () {
     if (!carousel.options.ariaLive) return;
     // create an element that will be used to announce the new visible slide to SR
     var srLiveArea = document.createElement('div');
-    srLiveArea.setAttribute('class', 'lst-sr-only js-carousel__aria-live');
+    srLiveArea.setAttribute('class', 'lst:sr-only js-carousel__aria-live');
     srLiveArea.setAttribute('aria-live', 'polite');
     srLiveArea.setAttribute('aria-atomic', 'true');
     carousel.element.appendChild(srLiveArea);
@@ -590,9 +590,9 @@ Util.extend = function () {
     var closestHidden = carousel.listWrapper.closest('.sr-only');
     if (closestHidden) {
       // carousel is inside an .sr-only (visually hidden) element
-      closestHidden.classList.remove('lst-sr-only');
+      closestHidden.classList.remove('lst:sr-only');
       computedWidth = carousel.listWrapper.offsetWidth;
-      closestHidden.classList.add('lst-sr-only');
+      closestHidden.classList.add('lst:sr-only');
     } else if (isNaN(computedWidth)) {
       computedWidth = getHiddenParentWidth(carousel.element, carousel);
     }
@@ -669,7 +669,7 @@ Util.extend = function () {
 
     var dotsNr = Math.ceil(carousel.items.length / carousel.visibItemsNb),
       selectedDot = getSelectedDot(carousel),
-      indexClass = carousel.options.navigationPagination ? '' : 'lst-sr-only';
+      indexClass = carousel.options.navigationPagination ? '' : 'lst:sr-only';
     for (var i = 0; i < dotsNr; i++) {
       var className =
         i == selectedDot

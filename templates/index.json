@@ -12,56 +12,20 @@
     "carousel_BJXnET": {
       "type": "carousel",
       "blocks": {
-        "slide_hMRVnt": {
+        "slide_PhcJgp": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/banniere1_5e12fd02-a2d5-46db-b822-c06e0b4fd19c.jpg",
-            "heading": "Lancement \"Petit Bois\" de Marianne Tricot",
+            "image": "shopify://shop_images/banniere_886b19c5-dac9-412a-9c77-9137c7f07c9e.jpg",
+            "heading": "Lancement PASÉ BÉL TAN : FRANCOPHONIES AND CREOLITIES IN LOUISIANA",
             "heading_size": "h1",
-            "subheading": "Jeudi 11 septembre de 18h à 20h",
-            "button_label": "",
-            "link": ""
-          }
-        },
-        "slide_DWWwhc": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/banner2.jpg",
-            "heading": "FROM XS TO XXL",
-            "heading_size": "h1",
-            "subheading": "COLLECTING BOOKS IS HOT",
-            "button_label": "T-SHIRT",
-            "link": "https://librairiesanstitre.com/products/t-shirt-collecting-book-is-hot-gris-bleu?utm_source=copyToPasteBoard&utm_medium=product-links&utm_content=web"
-          }
-        },
-        "slide_QNWJ3U": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/banner3.jpg",
-            "heading": "FROM XS TO XXL",
-            "heading_size": "h1",
-            "subheading": "COLLECTING BOOKS IS HOT",
-            "button_label": "T-SHIRT",
-            "link": "https://librairiesanstitre.com/products/t-shirt-collecting-book-is-hot-blanc-rouge?utm_source=copyToPasteBoard&utm_medium=product-links&utm_content=web"
-          }
-        },
-        "slide_h4qhxW": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/banner1.jpg",
-            "heading": "FROM XS TO XXL",
-            "heading_size": "h1",
-            "subheading": "COLLECTING BOOKS IS HOT",
-            "button_label": "T-SHIRT",
-            "link": "https://librairiesanstitre.com/products/t-shirt-collecting-books-is-hot-noir-jaune?utm_source=copyToPasteBoard&utm_medium=product-links&utm_content=web"
+            "subheading": "Vendredi 26 septembre de 18h à 21h",
+            "button_label": "Plus d'infos",
+            "link": "shopify://blogs/events/lancement-session-decoute-pour-le-livre-pase-bel-tan-francophonies-et-creolites-en-louisiane"
           }
         }
       },
       "block_order": [
-        "slide_hMRVnt",
-        "slide_DWWwhc",
-        "slide_QNWJ3U",
-        "slide_h4qhxW"
+        "slide_PhcJgp"
       ],
       "settings": {}
     },

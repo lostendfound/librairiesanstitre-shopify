@@ -45,11 +45,11 @@
           <div
             id="FacetsWrapperDesktop"
             {% if filter_type == 'horizontal' %}
-              class="facets__wrapper lst-divide-x lst-divide-black"
+              class="facets__wrapper lst:divide-x lst:divide-black"
             {% endif %}
           >
             {%- if filter_type == 'horizontal' and results.filters != empty -%}
-              <h2 class="facets__heading lst-text-xs" id="verticalTitle" tabindex="-1">
+              <h2 class="facets__heading lst:text-xs" id="verticalTitle" tabindex="-1">
                 {{ 'products.facets.filter_by_label' | t }}
               </h2>
             {%- endif -%}
@@ -59,7 +59,7 @@
                 <div class="active-facets-vertical-filter">
                   {%- unless results.filters == empty -%}
                     <h2
-                      class="facets__heading facets__heading--vertical lst-text-xs"
+                      class="facets__heading facets__heading--vertical lst:text-xs"
                       id="verticalTitle"
                       tabindex="-1"
                     >
@@ -123,7 +123,7 @@
                 {% when 'boolean', 'list' %}
                   <details
                     id="Details-{{ filter.param_name | escape }}-{{ section.id }}"
-                    class="{% if filter_type == 'horizontal' %}disclosure-has-popup facets__disclosure{% else %} facets__disclosure-vertical{% endif %} js-filter last:!lst-border-r"
+                    class="{% if filter_type == 'horizontal' %}disclosure-has-popup facets__disclosure{% else %} facets__disclosure-vertical{% endif %} js-filter lst:last:border-r!"
                     data-index="{{ forloop.index }}"
                     {% if filter_type == 'vertical' and forloop.index == 1 %}
                       open
@@ -176,10 +176,10 @@
                       <fieldset class="facets-wrap parent-wrap {% if filter_type == 'vertical' %} facets-wrap-vertical{% endif %}">
                         <legend class="visually-hidden">{{ filter.label | escape }}</legend>
                         {%- if filter.param_name contains 'author' or filter.param_name contains 'publisher' -%}
-                          <div class="facet-filter__search lst-mx-3 lst-mb-4">
+                          <div class="facet-filter__search lst:mx-3 lst:mb-4">
                             <input
                               type="text"
-                              class="facet-filter__search-input lst-w-full lst-px-3 lst-py-2 lst-border lst-border-gray-300 lst-rounded lst-text-sm"
+                              class="facet-filter__search-input lst:w-full lst:px-3 lst:py-2 lst:border lst:border-gray-300 lst:rounded lst:text-sm"
                               placeholder="{% if filter.param_name contains 'author' %}{{ 'products.facets.filter_search_placeholder' | t }}{% else %}{{ 'products.facets.filter_search_publishers_placeholder' | t }}{% endif %}"
                               data-facet-filter-search
                             >
@@ -211,7 +211,7 @@
                             {%- endcapture -%}
 
                             {%- capture text_value -%}
-                              <span class="facet-checkbox__text lst-text-xs lst-leading-[1.6rem] " aria-hidden="true">
+                              <span class="facet-checkbox__text lst:text-xs lst:leading-[1.6rem] " aria-hidden="true">
                                 <span class="facet-checkbox__text-label">{{- value.label | escape }}</span> ({{- value.count -}})
                               </span>
                               <span class="visually-hidden">
@@ -324,7 +324,7 @@
                 {% when 'price_range' %}
                   <details
                     id="Details-{{ filter.param_name | escape }}-{{ section.id }}"
-                    class="{% if filter_type == 'horizontal' %}disclosure-has-popup facets__disclosure{% else %} facets__disclosure-vertical{% endif %} js-filter last:!lst-border-r"
+                    class="{% if filter_type == 'horizontal' %}disclosure-has-popup facets__disclosure{% else %} facets__disclosure-vertical{% endif %} js-filter lst:last:border-r!"
                     data-index="{{ forloop.index }}"
                     {% if filter_type == 'vertical' and forloop.index == 1 %}
                       open
@@ -426,7 +426,7 @@
           {%- if enable_sorting -%}
             <div class="facet-filters sorting caption">
               <div class="facet-filters__field">
-                <h2 class="facet-filters__label lst-text-xs">
+                <h2 class="facet-filters__label lst:text-xs">
                   <label for="SortBy">{{ 'products.facets.sort_by_label' | t }}</label>
                 </h2>
                 <div class="inline-flex items-baseline"></div>
@@ -458,7 +458,7 @@
                     {%- endfor -%}
                   </select>
                   <svg
-                    class="icon lst-inline-block lst-text-inherit lst-fill-current lst-leading-none lst-shrink-0 lst-w-[8px] lst-h-[8px] lst-ml-1.5 lg:lst-ml-2"
+                    class="icon lst:inline-block lst:text-inherit lst:fill-current lst:leading-none lst:shrink-0 lst:w-[8px] lst:h-[8px] lst:ml-1.5 lst:lg:ml-2"
                     viewBox="0 0 8 8"
                   >
                     <path d="M7.934,1.251A.5.5,0,0,0,7.5,1H.5a.5.5,0,0,0-.432.752l3.5,6a.5.5,0,0,0,.864,0l3.5-6A.5.5,0,0,0,7.934,1.251Z"/>
@@ -599,7 +599,7 @@
                               {%- endcapture -%}
 
                               {%- capture text_value -%}
-                                <span class="facet-checkbox__text lst-text-xs lst-leading-[1.6rem]" aria-hidden="true">
+                                <span class="facet-checkbox__text lst:text-xs lst:leading-[1.6rem]" aria-hidden="true">
                                   <span class="facet-checkbox__text-label ">{{- value.label | escape }}</span> ({{- value.count -}})
                                 </span>
                                 <span class="visually-hidden">
@@ -865,7 +865,7 @@
       <form id="FacetSortDrawerForm" class="facets__form">
         <div class="facet-filters sorting caption small-hide">
           <div class="facet-filters__field">
-            <h2 class="facet-filters__label lst-text-xs">
+            <h2 class="facet-filters__label lst:text-xs">
               <label for="SortBy">{{ 'products.facets.sort_by_label' | t }}</label>
             </h2>
             <div
@@ -874,7 +874,7 @@
             >
               <select
                 name="sort_by"
-                class="facet-filters__sort select__select lst-hidden"
+                class="facet-filters__sort select__select lst:hidden"
                 id="SortBy"
                 aria-describedby="a11y-refresh-page-message"
               >
@@ -890,7 +890,7 @@
                 {%- endfor -%}
               </select>
               <svg
-                class="icon lst-inline-block lst-text-inherit lst-fill-current lst-leading-none lst-shrink-0 lst-w-[8px] lst-h-[8px] lst-ml-1.5 lg:lst-ml-2"
+                class="icon lst:inline-block lst:text-inherit lst:fill-current lst:leading-none lst:shrink-0 lst:w-[8px] lst:h-[8px] lst:ml-1.5 lst:lg:ml-2"
                 viewBox="0 0 8 8"
               >
                 <path d="M7.934,1.251A.5.5,0,0,0,7.5,1H.5a.5.5,0,0,0-.432.752l3.5,6a.5.5,0,0,0,.864,0l3.5-6A.5.5,0,0,0,7.934,1.251Z"/>
@@ -914,7 +914,7 @@
     class="product-count light{% if filter_type == 'vertical' or filter_type == 'horizontal' %} medium-hide large-up-hide{% endif %}"
     role="status"
   >
-    <h2 class="product-count__text lst-text-xs">
+    <h2 class="product-count__text lst:text-xs">
       <span id="ProductCount">
         {%- if results.results_count -%}
           {{ 'templates.search.results_with_count' | t: terms: results.terms, count: results.results_count }}

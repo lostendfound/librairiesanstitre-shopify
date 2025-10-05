@@ -1,3 +1,4 @@
+@reference "../../style.css";
 /* --------------------------------
 
 File#: _2_carousel
@@ -7,199 +8,205 @@ Usage: codyhouse.co/license
 
 -------------------------------- */
 :root {
-  --carousel-grid-gap: 0rem;
-  --carousel-item-auto-size: 260px;
-  --carousel-transition-duration: 0.5s;
+    --carousel-grid-gap: 0rem;
+    --carousel-item-auto-size: 260px;
+    --carousel-transition-duration: 0.5s;
 }
 @media (min-width: 64rem) {
-  :root {
-    --carousel-grid-gap: 0rem;
-  }
+    :root {
+        --carousel-grid-gap: 0rem;
+    }
 }
 
 .carousel {
-  position: relative;
+    position: relative;
 }
 
 .carousel__wrapper {
-
 }
 
 .carousel__list {
-  display: flex;
-  flex-wrap: nowrap;
-  will-change: transform;
+    display: flex;
+    flex-wrap: nowrap;
+    will-change: transform;
 }
 
 .carousel__item {
-  flex-shrink: 0;
-  width: var(--carousel-item-auto-size);
-  margin-right: var(--carousel-grid-gap);
-  margin-bottom: var(--carousel-grid-gap);
+    flex-shrink: 0;
+    width: var(--carousel-item-auto-size);
+    margin-right: var(--carousel-grid-gap);
+    margin-bottom: var(--carousel-grid-gap);
 }
 
 .carousel__list--animating {
-  transition-property: -webkit-transform;
-  transition-property: transform;
-  transition-property: transform, -webkit-transform;
-  transition-duration: var(--carousel-transition-duration);
-  transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    transition-property: -webkit-transform;
+    transition-property: transform;
+    transition-property:
+        transform,
+        -webkit-transform;
+    transition-duration: var(--carousel-transition-duration);
+    transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 .carousel__item {
-  opacity: 0;
-  margin-bottom: 0;
+    opacity: 0;
+    margin-bottom: 0;
 }
 .carousel--loaded .carousel__item {
-  opacity: 1;
+    opacity: 1;
 }
-.carousel:not(.carousel--is-dragging) .carousel__list:not(.carousel__list--animating) .carousel__item[tabindex="-1"] > * {
-  visibility: hidden;
+.carousel:not(.carousel--is-dragging)
+    .carousel__list:not(.carousel__list--animating)
+    .carousel__item[tabindex='-1']
+    > * {
+    visibility: hidden;
 }
-.carousel[data-drag=on] .carousel__item {
-  user-select: none;
+.carousel[data-drag='on'] .carousel__item {
+    user-select: none;
 }
-.carousel[data-drag=on] .carousel__item img {
-  pointer-events: none;
+.carousel[data-drag='on'] .carousel__item img {
+    pointer-events: none;
 }
 
 .carousel__control {
-  display: block;
-  position: absolute;
-  z-index: 4;
-  top: 50%;
-  transform: translateY(-50%);
+    display: block;
+    position: absolute;
+    z-index: 4;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 .carousel__control:first-of-type {
-  left: var(--carousel-btn-offset, 0.5rem);
+    left: var(--carousel-btn-offset, 0.5rem);
 }
 
 .carousel__control:last-of-type {
-  right: var(--carousel-btn-offset, 0.5rem);
+    right: var(--carousel-btn-offset, 0.5rem);
 }
 
 @media (min-width: 64rem) {
-  .carousel[data-swipe=on] .carousel__control {
-    display: block;
-  }
+    .carousel[data-swipe='on'] .carousel__control {
+        display: block;
+    }
 }
 
 .carousel__btn {
-  display: block;
-  @apply lst-bg-gray-900/75;
-  height: var(--carousel-btn-height, 3.2em);
-  width: var(--carousel-btn-width, 1.6em);
-  @apply lst-rounded;
-  cursor: pointer;
-  transition: background 0.2s, transform 0.2s;
+    display: block;
+    @apply lst:bg-gray-900/75;
+    height: var(--carousel-btn-height, 3.2em);
+    width: var(--carousel-btn-width, 1.6em);
+    @apply lst:rounded;
+    cursor: pointer;
+    transition:
+        background 0.2s,
+        transform 0.2s;
 }
 
-
 .carousel__btn .icon {
-  display: block;
-  width: var(--carousel-btn-icon-size, 1.6em);
-  height: var(--carousel-btn-icon-size, 1.6em);
-  margin: 0 auto;
-  transition: color 0.2s;
-  @apply lst-text-white;
+    display: block;
+    width: var(--carousel-btn-icon-size, 1.6em);
+    height: var(--carousel-btn-icon-size, 1.6em);
+    margin: 0 auto;
+    transition: color 0.2s;
+    @apply lst:text-white;
 }
 
 @supports (grid-area: auto) {
-  .carousel__btn {
-    background-color: transparent;
-  }
-  .carousel__btn .icon {
-    @apply lst-text-gray-900;
-  }
+    .carousel__btn {
+        background-color: transparent;
+    }
+    .carousel__btn .icon {
+        @apply lst:text-gray-900;
+    }
 }
 
-.carousel[data-controls=hover] .carousel__control {
-  opacity: 0;
-  transition: opacity 0.3s;
+.carousel[data-controls='hover'] .carousel__control {
+    opacity: 0;
+    transition: opacity 0.3s;
 }
 
-.carousel[data-controls=hover]:hover .carousel__control {
-  opacity: 1;
+.carousel[data-controls='hover']:hover .carousel__control {
+    opacity: 1;
 }
 
-.carousel[data-swipe=on] .carousel__control {
-  display: none;
+.carousel[data-swipe='on'] .carousel__control {
+    display: none;
 }
 
 .carousel__navigation {
-  width: 100%;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, 10px);
-  @apply lst-gap-2 lg:lst-gap-3;
-  justify-content: center;
-  align-items: center;
-  @apply lst-my-3 lg:lst-my-5;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 10px);
+    @apply lst:gap-2 lst:lg:gap-3;
+    justify-content: center;
+    align-items: center;
+    @apply lst:my-3 lst:lg:my-5;
 }
 
 .carousel__nav-item {
-  display: inline-block;
-  @apply lst-my-0 lst-mx-1 lg:lst-mx-1.5;
+    display: inline-block;
+    @apply lst:my-0 lst:mx-1 lst:lg:mx-1.5;
 }
 @supports (grid-area: auto) {
-  .carousel__nav-item {
-    margin: 0;
-  }
+    .carousel__nav-item {
+        margin: 0;
+    }
 }
 .carousel__nav-item button {
-  display: block;
-  position: relative;
-  font-size: 10px;
-  height: 1em;
-  width: 1em;
-  border-radius: 50%;
-  @apply lst-bg-gray-700;
-  opacity: 0.4;
-  cursor: pointer;
-  transition: background 0.3s;
+    display: block;
+    position: relative;
+    font-size: 10px;
+    height: 1em;
+    width: 1em;
+    border-radius: 50%;
+    @apply lst:bg-gray-700;
+    opacity: 0.4;
+    cursor: pointer;
+    transition: background 0.3s;
 }
 .carousel__nav-item button::before {
-  content: "";
-  position: absolute;
-  top: calc(50% - 0.5em);
-  left: calc(50% - 0.5em);
-  font-size: 16px;
-  height: 1em;
-  width: 1em;
-  border-radius: inherit;
-  @apply lst-border lst-border-gray-700;
-  opacity: 0;
-  transform: scale(0);
-  transition: 3s;
+    content: '';
+    position: absolute;
+    top: calc(50% - 0.5em);
+    left: calc(50% - 0.5em);
+    font-size: 16px;
+    height: 1em;
+    width: 1em;
+    border-radius: inherit;
+    @apply lst:border lst:border-gray-700;
+    opacity: 0;
+    transform: scale(0);
+    transition: 3s;
 }
 .carousel__nav-item button:focus {
-  outline: none;
+    outline: none;
 }
 .carousel__nav-item button:focus::before {
-  opacity: 1;
-  transform: scale(1);
+    opacity: 1;
+    transform: scale(1);
 }
 
 .carousel__nav-item--selected button {
-  opacity: 1;
+    opacity: 1;
 }
 
 .carousel__navigation--pagination {
-  grid-template-columns: repeat(auto-fit, 24px);
+    grid-template-columns: repeat(auto-fit, 24px);
 }
 .carousel__navigation--pagination .carousel__nav-item button {
-  width: 24px;
-  height: 24px;
-  @apply lst-text-white;
-  font-size: 12px;
-  line-height: 24px;
-  @apply lst-rounded;
-  text-align: center;
+    width: 24px;
+    height: 24px;
+    @apply lst:text-white;
+    font-size: 12px;
+    line-height: 24px;
+    @apply lst:rounded;
+    text-align: center;
 }
 .carousel__navigation--pagination .carousel__nav-item button:focus {
-  @apply lst-outline lst-outline-indigo-700;
-  outline-offset: 2px;
+    @apply lst:outline lst:outline-indigo-700;
+    outline-offset: 2px;
 }
 
-.carousel--hide-controls .carousel__navigation, .carousel--hide-controls .carousel__control {
-  display: none;
+.carousel--hide-controls .carousel__navigation,
+.carousel--hide-controls .carousel__control {
+    display: none;
 }

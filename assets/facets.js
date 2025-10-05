@@ -28,7 +28,7 @@ const CustomSelect = (function () {
     this.trigger = this.element.querySelector('.js-select__button');
     this.customOptions = this.dropdown ? this.dropdown.querySelectorAll('.js-select__item') : [];
     this.selectedOption = this.getSelectedOption();
-    this.select.classList.add('lst-hidden');
+    this.select.classList.add('lst:hidden');
     if (this.arrowIcon.length > 0) this.arrowIcon[0].style.display = 'none';
     if (this.dropdown) {
       this.placeDropdown();
@@ -103,7 +103,7 @@ const CustomSelect = (function () {
     if (this.minWidth < triggerBoundingRect.width) {
       this.dropdown.setAttribute(
         'style',
-        'max-height: ' + maxHeight + 'px; min-width: ' + triggerBoundingRect.width + 'px;'
+        'max-height: ' + maxHeight + 'px; min-width: ' + triggerBoundingRect.width + 'px;',
       );
     } else {
       this.dropdown.setAttribute('style', 'max-height: ' + maxHeight + 'px;');
@@ -187,7 +187,7 @@ const CustomSelect = (function () {
       label +
       '" aria-expanded="false" aria-controls="' +
       this.selectId +
-      '-dropdown"><span aria-lst-="true" class="js-select__label select__label">' +
+      '-dropdown"><span aria-lst:="true" class="js-select__label select__label">' +
       (selectedOption ? selectedOption.innerHTML : '') +
       '</span>';
     if (this.arrowIcon.length > 0 && this.arrowIcon[0].outerHTML) {
@@ -224,7 +224,7 @@ const CustomSelect = (function () {
 
   CustomSelect.prototype.getSelectLabelSR = function () {
     return this.label
-      ? '<p class="lst-sr-only lst-px-3 lg:lst-px-4 lst-text-xs" id="' +
+      ? '<p class="lst:sr-only lst:px-3 lst:lg:px-4 lst:text-xs" id="' +
           this.selectId +
           '-description">' +
           this.label.textContent +
@@ -386,7 +386,7 @@ class FacetFiltersForm extends HTMLElement {
     console.log('renderFilters called');
     const parsedHTML = new DOMParser().parseFromString(html, 'text/html');
     const facetDetailsElements = parsedHTML.querySelectorAll(
-      '#FacetFiltersForm .js-filter, #FacetFiltersFormMobile .js-filter, #FacetFiltersPillsForm .js-filter'
+      '#FacetFiltersForm .js-filter, #FacetFiltersFormMobile .js-filter, #FacetFiltersPillsForm .js-filter',
     );
     console.log('facetDetailsElements:', facetDetailsElements);
 

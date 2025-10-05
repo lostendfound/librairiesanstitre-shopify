@@ -14,7 +14,7 @@
 
 <section
   id="MainEvent-{{ section.id }}"
-  class="section-{{ section.id }}-padding gradient !lst-py-0 color-{{ section.settings.color_scheme }}"
+  class="section-{{ section.id }}-padding gradient lst:py-0! color-{{ section.settings.color_scheme }}"
   data-section="{{ section.id }}"
 >
   {{ 'section-main-event.css' | asset_url | stylesheet_tag }}
@@ -27,8 +27,8 @@
     <script id="EnableZoomOnHover" src="{{ 'magnify.js' | asset_url }}" defer="defer"></script>
   {% endif %}
 
-  <div class="lst-grid md:lst-grid-cols-2">
-    <div class="event__media-wrapper lst-overflow-hidden md:lst-col-start-2 md:lst-row-start-1">
+  <div class="lst:grid lst:md:grid-cols-2">
+    <div class="event__media-wrapper lst:overflow-hidden lst:md:col-start-2 lst:md:row-start-1">
       {% if article.image != blank %}
         <div class="event__media">
           <img
@@ -57,19 +57,19 @@
         </div>
       {% endif %}
     </div>
-    <div class="event__info-wrapper lst-bg-[#F7F2EB] md:lst-col-start-1 md:lst-row-start-1 !lst-px-0 {% if settings.page_width > 1400 and section.settings.media_size == "small" %} event__info-wrapper--extra-padding{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+    <div class="event__info-wrapper lst:bg-[#F7F2EB] lst:md:col-start-1 lst:md:row-start-1 lst:px-0! {% if settings.page_width > 1400 and section.settings.media_size == "small" %} event__info-wrapper--extra-padding{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
       <event-info
         id="EventInfo-{{ section.id }}"
         data-section="{{ section.id }}"
-        class="event__info-container lst-w-full md:lst-border-r lst-border-b lst-border-black lst-flex lst-h-full {% if section.settings.enable_sticky_info %} event__column-sticky{% endif %}"
+        class="event__info-container lst:w-full lst:md:border-r lst:border-b lst:border-black lst:flex lst:h-full {% if section.settings.enable_sticky_info %} event__column-sticky{% endif %}"
       >
-        <div class="lst-w-full">
+        <div class="lst:w-full">
           {%- for block in section.blocks -%}
             {%- case block.type -%}
               {%- when '@app' -%}
                 {% render block %}
               {%- when 'title' -%}
-                <div class="event__title lst-px-4 lst-pt-6" {{ block.shopify_attributes }}>
+                <div class="event__title lst:px-4 lst:pt-6" {{ block.shopify_attributes }}>
                   <h1>{{ article.title | escape }}</h1>
                   {% if block.settings.blog_show_date %}
                     <span class="event__date caption-with-letter-spacing">
@@ -83,19 +83,19 @@
                   {% endif %}
                 </div>
               {%- when 'event_details' -%}
-                <div class="event-details-container lst-p-4 lst-mb-3 lst-mt-6 lst-border-y lst-border-black">
+                <div class="event-details-container lst:p-4 lst:mb-3 lst:mt-6 lst:border-y lst:border-black">
                   {% if article.metafields.blog_event.start_date_time %}
                     {%- assign start_date = article.metafields.blog_event.start_date_time.value | date: '%d %b %Y' -%}
                     {%- assign end_date = article.metafields.blog_event.end_date_time.value | date: '%d %b %Y' -%}
 
-                    <div class="lst-grid lst-grid-cols-2">
+                    <div class="lst:grid lst:grid-cols-2">
                       {%- if start_date == end_date -%}
                         <div>
-                          <strong class="lst-text-black">{{ 'blogs.article.event_details.date_label' | t }} : </strong>
+                          <strong class="lst:text-black">{{ 'blogs.article.event_details.date_label' | t }} : </strong>
                           <span>{{ start_date }}</span>
                         </div>
-                        <div class="lst-text-right">
-                          <strong class="lst-text-black">{{ 'blogs.article.event_details.time_label' | t }} : </strong>
+                        <div class="lst:text-right">
+                          <strong class="lst:text-black">{{ 'blogs.article.event_details.time_label' | t }} : </strong>
                           <span>
                             {% assign start_time = article.metafields.blog_event.start_date_time.value
                               | date: '%-H:%M'
@@ -106,8 +106,8 @@
                           </span>
                         </div>
                       {% else %}
-                        <div class="lst-col-span-2">
-                          <strong class="lst-text-black">{{ 'blogs.article.event_details.date_label' | t }} : </strong>
+                        <div class="lst:col-span-2">
+                          <strong class="lst:text-black">{{ 'blogs.article.event_details.date_label' | t }} : </strong>
                           <span>{{ start_date }} — {{ end_date }}</span>
                         </div>
                       {%- endif -%}
@@ -115,17 +115,17 @@
                   {% endif %}
                 </div>
               {%- when 'content' -%}
-                <div class="lst-px-3 lg:lst-px-5 lst-sticky lst-top-0 js-event-info-content lst-pb-8">
+                <div class="lst:px-3 lst:lg:px-5 lst:sticky lst:top-0 js-event-info-content lst:pb-8">
                   <div class="js-fold"></div>
                   <div
-                    class="event__content lst-text-base lst-text-black lst-prose prose lst-max-w-none rte"
+                    class="event__content lst:text-base lst:text-black lst:prose prose lst:max-w-none rte"
                     {{ block.shopify_attributes }}
                   >
                     {{ article.content }}
                   </div>
                 </div>
               {%- when 'share' -%}
-                <div class="event__share lst-px-4 lst-py-2" {{ block.shopify_attributes }}>
+                <div class="event__share lst:px-4 lst:py-2" {{ block.shopify_attributes }}>
                   {% render 'share-button', block: block %}
                   <script src="{{ 'share.js' | asset_url }}" defer="defer"></script>
                 </div>

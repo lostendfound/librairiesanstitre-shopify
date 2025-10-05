@@ -5,8 +5,8 @@
   {% render 'header-mega-menu' %}
 {% endcomment %}
 
-<nav class="lst-justify-center lst-items-center lst-grow lst-hidden lg:lst-flex">
-  <ul class="list-menu list-menu--inline" role="list">
+<nav class="lst:justify-between lst:items-center lst:grow lst:hidden lst:lg:flex">
+  <ul class="list-menu list-menu--inline lst:justify-between lst:w-full" role="list">
     {%- for link in section.settings.menu.links -%}
       <li>
         {%- if link.links != blank -%}
@@ -21,7 +21,7 @@
                   <a
                     href="{{ link.url }}"
                     class="
-                      header__menu-item lst-text-sm list-menu__item link focus-inset
+                      header__menu-item lst:text-[1.25rem] list-menu__item link link--text focus-inset
                       {%- if link.child_active %}
                        header__active-menu-item
                       {% endif %}
@@ -32,7 +32,7 @@
                     </span>
                   </a>
                 {% else %}
-                  <span>
+                  <span class="header__menu-item lst:text-[1.25rem] list-menu__item link link--text focus-inset">
                     {{- link.title | escape -}}
                   </span>
                 {% endif %}
@@ -88,7 +88,7 @@
           <a
             id="HeaderMenu-{{ link.handle }}"
             href="{{ link.url }}"
-            class="header__menu-item lst-text-sm list-menu__item link link--text focus-inset"
+            class="header__menu-item lst:text-[1.25rem] list-menu__item link link--text focus-inset"
             {% if link.current %}
               aria-current="page"
             {% endif %}
