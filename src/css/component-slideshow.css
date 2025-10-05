@@ -336,44 +336,47 @@ Usage: codyhouse.co/license
 }
 
 .slideshow__navigation {
-    /* position: absolute; */
     z-index: 4;
-    bottom: 0;
-    width: 100%;
-    height: 32px;
+    height: auto;
     display: flex;
     justify-content: center;
     align-items: center;
     background: transparent;
+    gap: 0.75rem;
 }
 
 .slideshow__nav-item {
     display: inline-block;
-    @apply lst:my-0 lst:mx-1 lst:lg:mx-1.5;
 }
 .slideshow__nav-item button {
     display: block;
     position: relative;
-    font-size: 8px;
-    @apply lst:text-gray-700;
+    font-size: 10px;
+    @apply lst:text-white;
     height: 1em;
     width: 1em;
     border-radius: 50%;
     background-color: currentColor;
-    opacity: 0.4;
+    opacity: 0.5;
     cursor: pointer;
-    transition: background 0.3s;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
 }
+
+.slideshow__nav-item button:hover {
+    opacity: 0.8;
+    transform: scale(1.1);
+}
+
 .slideshow__nav-item button::before {
     content: '';
     position: absolute;
-    top: calc(50% - 0.5em);
-    left: calc(50% - 0.5em);
-    height: 1em;
-    width: 1em;
-    font-size: 14px;
+    top: calc(50% - 0.6em);
+    left: calc(50% - 0.6em);
+    height: 1.2em;
+    width: 1.2em;
     border-radius: inherit;
-    @apply lst:border lst:border-gray-700;
+    @apply lst:border-2 lst:border-white;
     opacity: 0;
     transform: scale(0);
     transition: 0.3s;
@@ -388,17 +391,15 @@ Usage: codyhouse.co/license
 
 .slideshow__nav-item--selected button {
     opacity: 1;
+    transform: scale(1.2);
 }
 
 @media (min-width: 64rem) {
     .slideshow__navigation {
-        height: 45px;
+        gap: 1rem;
     }
 
     .slideshow__nav-item button {
-        font-size: 10px;
-    }
-    .slideshow__nav-item button::before {
-        font-size: 16px;
+        font-size: 12px;
     }
 }
