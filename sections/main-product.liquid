@@ -131,7 +131,7 @@
                     </div>
                   </div>
                 {%- when 'buy_buttons' %}
-                  <div style="--buttons-border-width--top: 0px" class="lst:sticky lst:top-0 lst:z-1">
+                  <div style="--buttons-border-width--top: 0px" class="lst:sticky lst:top-[2.2500rem] lst:z-1">
                     {% render 'add-to-cart-button', product: product, section_id: section.id %}
                   </div>
                   {%- if false -%}
@@ -169,7 +169,7 @@
               {%- endcase -%}
             {%- endfor -%}
 
-            <div class="lst:px-3 lst:lg:px-5 lst:sticky lst:top-0 js-product-info-content">
+            <div class="lst:px-3 lst:lg:px-5 lst:sticky lst:top-[4.5rem] js-product-info-content">
               {%- for block in section.blocks -%}
                 {%- case block.type -%}
                   {%- when '@app' -%}
@@ -182,13 +182,17 @@
                       {{- block.settings.text -}}
                     </p>
                   {%- when 'title' -%}
-                    <div class="product__title" {{ block.shopify_attributes }}>
-                      <h1 class="lst:text-2xl lst:lg:text-4xl">{{ product.title | escape }}</h1>
-                      <a href="{{ product.url }}" class="product__title">
-                        <h2 class="h1">
-                          {{ product.title | escape }}
-                        </h2>
-                      </a>
+                    <div class="lst:grid lst:grid-cols-2 lst:gap-4 lst:pt-[2.2909rem]" {{ block.shopify_attributes }}>
+                      <div class="product__title">
+                        <h1 style="font-size: 1.2273rem;">{{ product.title | escape }}</h1>
+                      </div>
+                      <ul class="product__metafields" style="font-size: 0.8182rem;">
+                        {%- for metafield_block in section.blocks -%}
+                          {%- if metafield_block.type == 'metafield_info' -%}
+                            {% render 'metafield-info', block: metafield_block %}
+                          {%- endif -%}
+                        {%- endfor -%}
+                      </ul>
                     </div>
                   {%- when 'price' -%}
                   {%- when 'inventory' -%}
@@ -688,7 +692,7 @@
                       {%- endif -%}
                     </product-recommendations>
                   {%- when 'metafield_info' -%}
-                    {% render 'metafield-info', block: block %}
+                    {%- comment -%}Metafields are now rendered inside the title block{%- endcomment -%}
                   {%- when 'icon-with-text' -%}
                     {% render 'icon-with-text', block: block %}
                 {%- endcase -%}
@@ -2414,7 +2418,7 @@
   ]
 }
 {% endschema %}
-{% if product.images.size > 1 %}
+{% if false %}
   <script>
     class ProductInfo extends HTMLElement {
       constructor() {
