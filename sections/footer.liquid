@@ -2,8 +2,18 @@
 {{ 'section-footer.css' | asset_url | stylesheet_tag }}
 
 {%- style -%}
-  .footer {
-    margin-top: {{ section.settings.margin_top | times: 0.75 | round: 0 }}px;
+  {% comment %}.footer {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      left: 0;
+      height: 21.9rem;
+    overflow: hidden;
+    transition: height 0.2s ease-in-out;
+  }{% endcomment %}
+
+  .footer:hover {
+    height: auto;
   }
 
   @media screen and (min-width: 750px) {
@@ -13,7 +23,7 @@
   }
 {%- endstyle -%}
 
-<footer class="footer lst:bg-[#E6E6E6] lst:pt-12 lst:pb-0">
+<footer class="footer lst:bg-white lst:pt-[2.6182rem] lst:pb-0  lst:group-hover:bg-[#ECECEC] lst:transition-colors">
   <div class="page-width">
     {%- comment -%} Newsletter Section with Social Links {%- endcomment -%}
     <div class="footer__newsletter-section lst:flex lst:flex-col lst:items-center lst:mb-10">
@@ -44,9 +54,9 @@
       {%- comment -%} Newsletter curved text SVG {%- endcomment -%}
       <div class="footer__newsletter-svg lst:mb-8 lst:max-w-full lst:w-full">
         {% if request.locale.iso_code == 'en' %}
-          {{ 'newsletter-en.svg' | asset_url | img_tag: '', 'lst:w-full lst:h-auto lst:max-w-[1300px] lst:mx-auto' }}
+          {{ 'newsletter-en.svg' | asset_url | img_tag: '', 'lst:w-full lst:h-auto lst:max-w-[62.5909rem] lst:mx-auto' }}
         {% else %}
-          {{ 'newsletter-fr.svg' | asset_url | img_tag: '', 'lst:w-full lst:h-auto lst:max-w-[1300px] lst:mx-auto' }}
+          {{ 'newsletter-fr.svg' | asset_url | img_tag: '', 'lst:w-full lst:h-auto lst:max-w-[62.5909rem] lst:mx-auto' }}
         {% endif %}
       </div>
 
@@ -175,6 +185,7 @@
     </div>
   </div>
 </footer>
+
 
 {% schema %}
 {

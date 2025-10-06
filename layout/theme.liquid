@@ -300,7 +300,7 @@
     </script>
   </head>
 
-  <body class="gradient{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}">
+  <body class="lst:relative gradient{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}">
     <a class="skip-to-content-link button visually-hidden" href="#MainContent">
       {{ 'accessibility.skip_to_text' | t }}
     </a>
@@ -315,11 +315,11 @@
       {% sections 'header-group' %}
     {% endif %}
 
-    <main id="MainContent" class="content-for-layout focus-none" role="main" tabindex="-1">
+    <main id="MainContent" class="content-for-layout focus-none lst:mb-[18.4273rem]" role="main" tabindex="-1">
       {{ content_for_layout }}
     </main>
 
-    <footer class="lst:grid lst:md:grid-cols-2 lst:border-y lst:border-black lst:pb-0!">
+    <footer class="lst:grid lst:md:grid-cols-2 lst:absolute lst:max-h-[8.4273rem] lst:bottom-0 lst:hover:max-h-screen lst:overflow-hidden lst:transition-all lst:duration-500 lst:w-full lst:group ">
       {% sections 'footer-group' %}
     </footer>
 
