@@ -131,7 +131,7 @@
                     </div>
                   </div>
                 {%- when 'buy_buttons' %}
-                  <div style="--buttons-border-width--top: 0px" class="lst:sticky lst:top-[53px] lst:z-1">
+                  <div style="--buttons-border-width--top: 0px" class="lst:sticky lst:top-0 lst:z-1">
                     {% render 'add-to-cart-button', product: product, section_id: section.id %}
                   </div>
                   {%- if false -%}
@@ -182,7 +182,7 @@
                       {{- block.settings.text -}}
                     </p>
                   {%- when 'title' -%}
-                    <div class="product__title lst:md:pt-52 lst:pt-6" {{ block.shopify_attributes }}>
+                    <div class="product__title" {{ block.shopify_attributes }}>
                       <h1 class="lst:text-2xl lst:lg:text-4xl">{{ product.title | escape }}</h1>
                       <a href="{{ product.url }}" class="product__title">
                         <h2 class="h1">

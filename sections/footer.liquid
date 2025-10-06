@@ -28,7 +28,7 @@
     {%- comment -%} Newsletter Section with Social Links {%- endcomment -%}
     <div class="footer__newsletter-section lst:flex lst:flex-col lst:items-center lst:mb-10">
       {%- comment -%} Social Links {%- endcomment -%}
-      <div class="footer__social-links lst:flex lst:gap-12 lst:mb-6 lst:text-[1.2273rem]">
+      <div class="footer__social-links lst:flex lst:gap-12 lst:mb-[1.1045rem] lst:text-[1.2273rem]">
         {% if section.settings.email_link != blank %}
           <a href="mailto:{{ section.settings.email_link }}" class="lst:no-underline lst:text-black lst:hover:underline">
             e-mail
@@ -62,7 +62,7 @@
 
       {%- comment -%} Newsletter Form {%- endcomment -%}
       {% if section.settings.newsletter_enable %}
-        <div class="footer__newsletter-form lst:flex lst:gap-3 lst:max-w-[480px] lst:w-full">
+        <div class="footer__newsletter-form lst:flex lst:gap-3 lst:w-full lst:max-w-[70.9364rem] lst:mt-[-6rem]">
           {% form 'customer', class: 'newsletter-form lst:flex lst:gap-3 lst:w-full' %}
             <input type="hidden" name="contact[tags]" value="newsletter">
             <div class="lst:flex-1">
@@ -70,7 +70,7 @@
                 id="NewsletterForm--{{ section.id }}"
                 type="email"
                 name="contact[email]"
-                class="lst:rounded-[0.9rem]!"
+                class="lst:rounded-[0.9rem]! lst:w-[19.7182rem]"
                 value="{{ form.email }}"
                 aria-required="true"
                 autocorrect="off"
@@ -89,7 +89,7 @@
             </div>
             <button
               type="submit"
-              class="button button--primary"
+              class="button button--primary lst:w-[19.7182rem]"
               name="commit"
               aria-label="{{ 'newsletter.button_label' | t }}"
             >
@@ -113,23 +113,23 @@
     </div>
 
     {%- comment -%} Store Information Section {%- endcomment -%}
-    <div class="footer__info-section lst:text-center lst:mb-8 lst:text-xs lst:space-y-3">
-      <p>
+    <div class="footer__info-section lst:mt-[5.1955rem] lst:flex lst:justify-between lst:gap-x-2 lst:text-[0.8182rem] lst:px-[1rem]">
+      <p class="lst:text-black">
         {{ section.settings.store_address | default: 'Librairie sans titre, 2 rue Auguste Barbier — 75011 Paris, France' }}
       </p>
-      <div class="footer__hours lst:flex lst:justify-center lst:gap-8 lst:flex-wrap">
+      <div class="footer__hours lst:flex lst:justify-center lst:gap-2 lst:flex-wrap lst:text-black">
         <span>{{ section.settings.hours_monday | default: 'lundi FERMÉ' }}</span>
         <span>{{ section.settings.hours_weekday | default: 'mardi → samedi 10:30–19:30' }}</span>
         <span>{{ section.settings.hours_sunday | default: 'dimanche 12:00–18:00' }}</span>
       </div>
-      <p class="footer__contact lst:space-x-3">
+      <p class="footer__contact lst:space-x-3 lst:text-black">
         {% if section.settings.contact_email != blank %}
           <a href="mailto:{{ section.settings.contact_email }}" class="lst:no-underline lst:text-black lst:hover:underline">
             {{ section.settings.contact_email }}
           </a>
         {% endif %}
         {% if section.settings.contact_phone != blank %}
-          <span>{{ section.settings.contact_phone }}</span>
+          <span class="lst:text-black">{{ section.settings.contact_phone }}</span>
         {% endif %}
       </p>
     </div>

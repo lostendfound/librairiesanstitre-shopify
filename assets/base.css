@@ -1264,6 +1264,24 @@ deferred-media {
     transition: background-color 0.3s ease !important;
 }
 
+.button--default {
+    background-color: #000 !important;
+    color: #fff !important;
+    border-radius: 0.9rem !important;
+    padding: 0.75rem 1.3091rem !important;
+    font-size: 1.2273rem !important;
+    font-weight: 500 !important;
+    border: none !important;
+    transition: background-color 0.3s ease !important;
+    transition: color 0.3s ease !important;
+    transition: background-color 0.3s ease !important;
+}
+
+.button--default:hover {
+    background-color: #fff !important;
+    color: #000 !important;
+}
+
 .button--primary:hover {
     background-color: #000 !important;
     color: #ffed00 !important;
@@ -2323,6 +2341,7 @@ product-info .loading__spinner:not(.hidden) ~ *,
 
 .localization-wrapper .localization-selector + .disclosure__list-wrapper {
     animation: animateMenuOpen var(--duration-default) ease;
+    right: 0;
 }
 
 .utility-bar .localization-wrapper .disclosure .localization-form__select,

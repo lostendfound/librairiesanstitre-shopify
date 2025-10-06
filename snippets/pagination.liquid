@@ -16,15 +16,15 @@
 {%- if paginate.parts.size > 0 -%}
   <div class="pagination-wrapper lst:my-10">
     <nav class="pagination" role="navigation" aria-label="{{ 'general.pagination.label' | t }}">
-      <ul class="pagination__list lst:gap-x-4 list-unstyled" role="list">
+      <ul class="pagination__list lst:gap-x-4 list-unstyled items-center" role="list">
         {%- if paginate.previous -%}
-          <li>
+          <li class="lst:inline-flex">
             <a
               href="{{ paginate.previous.url }}{{ anchor }}"
-              class="pagination__item pagination__item--next pagination__item-arrow link motion-reduce"
+              class="pagination__item pagination__item--next pagination__item-arrow lst:border-[#808080] lst:border! lst:rounded-full lst:h-[2.2909rem] lst:w-[2.2909rem] lst:flex lst:justify-center lst:items-center link motion-reduce"
               aria-label="{{ 'general.pagination.previous' | t }}"
             >
-              <span class="icon-wrap lst:ml-2 lst:group-hover:ml-4 lst:transition-all lst:transform lst:rotate-90">
+              <span class="lst:transform lst:rotate-90 ">
                 {%- render 'icon-arrow' -%}
               </span>
             </a>
@@ -32,7 +32,7 @@
         {%- endif -%}
 
         {%- for part in paginate.parts -%}
-          <li>
+          <li class="lst:inline-flex">
             {%- if part.is_link -%}
               <a
                 href="{{ part.url }}{{ anchor }}"
@@ -60,13 +60,13 @@
         {%- endfor -%}
 
         {%- if paginate.next -%}
-          <li>
+          <li class="lst:inline-flex">
             <a
               href="{{ paginate.next.url }}{{ anchor }}"
-              class="pagination__item pagination__item--prev pagination__item-arrow link motion-reduce"
+              class="pagination__item pagination__item--prev pagination__item-arrow lst:border-[#808080] lst:border! lst:rounded-full lst:h-[2.2909rem] lst:w-[2.2909rem] lst:flex lst:justify-center lst:items-center link motion-reduce"
               aria-label="{{ 'general.pagination.next' | t }}"
             >
-              <span class="icon-wrap lst:ml-2 lst:group-hover:ml-4 lst:transition-all lst:transform lst:rotate-90">
+              <span class="lst:transform lst:rotate-90 ">
                 {%- render 'icon-arrow' -%}
               </span>
             </a>
