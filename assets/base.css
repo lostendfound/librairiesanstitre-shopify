@@ -1241,12 +1241,34 @@ deferred-media {
 .button--secondary {
     background-color: #e5e7eb !important;
     color: #000000 !important;
-    border-radius: 0.9000rem !important;
+    border-radius: 0.9rem !important;
     padding: 0.75rem 1.3091rem !important;
     font-size: 1.2273rem !important;
     font-weight: 500 !important;
     border: none !important;
     transition: background-color 0.3s ease !important;
+}
+
+.button--primary {
+    background-color: #ffed00 !important;
+    color: #000 !important;
+    border-radius: 0.9rem !important;
+    padding: 0.75rem 1.3091rem !important;
+    font-size: 1.2273rem !important;
+    font-weight: 500 !important;
+    border: none !important;
+    transition: background-color 0.3s ease !important;
+    transition: color 0.3s ease !important;
+    transition: background-color 0.3s ease !important;
+}
+
+.button--primary:hover {
+    background-color: #000 !important;
+    color: #ffed00 !important;
+}
+
+.button--primary:hover::after {
+    display: none !important;
 }
 
 .button--secondary::after {
