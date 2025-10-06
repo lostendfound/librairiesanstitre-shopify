@@ -110,6 +110,13 @@ Usage: codyhouse.co/license
     @apply lst:text-white;
 }
 
+@media (max-width: 1023px) {
+    .carousel__btn {
+        width: 3rem;
+        height: 3rem;
+    }
+}
+
 @supports (grid-area: auto) {
     .carousel__btn {
         background-color: transparent;

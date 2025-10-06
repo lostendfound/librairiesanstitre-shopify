@@ -12,13 +12,13 @@
           {% if block.settings.image != blank %}
             <img
               src="{{ block.settings.image | img_url: 'master'  }}"
-              class="lst:w-full lst:aspect-[1920/852] lst:object-cover"
+              class="lst:w-full lst:aspect-square lst:lg:aspect-[1920/852] lst:object-cover"
               width="1920"
               height="852"
               alt="{{ block.settings.heading | default: 'Carousel image' }}"
             >
           {% else %}
-            <div class="lst:w-full lst:aspect-[1920/852] lst:bg-black lst:flex lst:items-center lst:justify-center">
+            <div class="lst:w-full lst:aspect-square lst:lg:aspect-[1920/852] lst:bg-black lst:flex lst:items-center lst:justify-center">
               <p class="lst:text-white lst:text-2xl">No image selected</p>
             </div>
           {% endif %}
@@ -31,7 +31,7 @@
             {%- comment -%} Main content centered {%- endcomment -%}
             <div class="lst:text-center lst:max-w-4xl">
               {% if block.settings.heading != blank %}
-                <h2 class="lst:text-5xl lst:md:text-[5.5227rem]! lst:!text-white">
+                <h2 class="lst:text-5xl lst:lg:text-[5.5227rem]! lst:!text-white">
                   {{ block.settings.heading }}
                 </h2>
               {% endif %}

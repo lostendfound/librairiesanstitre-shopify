@@ -12,9 +12,11 @@
     transition: height 0.2s ease-in-out;
   }{% endcomment %}
 
-  .footer:hover {
-    height: auto;
-  }
+
+    .footer:hover {
+      height: auto;
+    }
+
 
   @media screen and (min-width: 750px) {
     .footer {
@@ -28,7 +30,7 @@
     {%- comment -%} Newsletter Section with Social Links {%- endcomment -%}
     <div class="footer__newsletter-section lst:flex lst:flex-col lst:items-center lst:mb-10">
       {%- comment -%} Social Links {%- endcomment -%}
-      <div class="footer__social-links lst:flex lst:gap-12 lst:mb-[1.1045rem] lst:text-[1.2273rem]">
+      <div class="footer__social-links lst:px-[1rem] lst:lg:px-0 lst:flex lst:flex-wrap lst:gap-12 lst:mb-[1.1045rem] lst:lg:text-[1.2273rem]">
         {% if section.settings.email_link != blank %}
           <a href="mailto:{{ section.settings.email_link }}" class="lst:no-underline lst:text-black lst:hover:underline">
             e-mail
@@ -52,17 +54,17 @@
       </div>
 
       {%- comment -%} Newsletter curved text SVG {%- endcomment -%}
-      <div class="footer__newsletter-svg lst:mb-8 lst:max-w-full lst:w-full">
+      <div class="footer__newsletter-svg lst:mb-8 lst:max-w-full lst:w-full lst:px-[1rem] lst:lg:px-0">
         {% if request.locale.iso_code == 'en' %}
-          {{ 'newsletter-en.svg' | asset_url | img_tag: '', 'lst:w-full lst:h-auto lst:max-w-[62.5909rem] lst:mx-auto' }}
+          {{ 'newsletter-en.svg' | asset_url | img_tag: '', 'lst:w-full lst:h-auto lst:lg:max-w-[62.5909rem] lst:mx-auto' }}
         {% else %}
-          {{ 'newsletter-fr.svg' | asset_url | img_tag: '', 'lst:w-full lst:h-auto lst:max-w-[62.5909rem] lst:mx-auto' }}
+          {{ 'newsletter-fr.svg' | asset_url | img_tag: '', 'lst:w-full lst:h-auto lst:lg:max-w-[62.5909rem] lst:mx-auto' }}
         {% endif %}
       </div>
 
       {%- comment -%} Newsletter Form {%- endcomment -%}
       {% if section.settings.newsletter_enable %}
-        <div class="footer__newsletter-form lst:flex lst:gap-3 lst:w-full lst:max-w-[70.9364rem] lst:mt-[-6rem]">
+        <div class="footer__newsletter-form lst:px-[1rem] lst:lg:px-0 lst:flex lst:gap-3 lst:w-full lst:lg:max-w-[70.9364rem] lst:lg:mt-[-6rem]">
           {% form 'customer', class: 'newsletter-form lst:flex lst:gap-3 lst:w-full' %}
             <input type="hidden" name="contact[tags]" value="newsletter">
             <div class="lst:flex-1">
@@ -70,7 +72,7 @@
                 id="NewsletterForm--{{ section.id }}"
                 type="email"
                 name="contact[email]"
-                class="lst:rounded-[0.9rem]! lst:w-[19.7182rem]"
+                class="lst:rounded-[0.9rem]! lst:lg:w-[19.7182rem]"
                 value="{{ form.email }}"
                 aria-required="true"
                 autocorrect="off"
@@ -89,7 +91,7 @@
             </div>
             <button
               type="submit"
-              class="button button--primary lst:w-[19.7182rem]"
+              class="button button--primary lst:lg:w-[19.7182rem]"
               name="commit"
               aria-label="{{ 'newsletter.button_label' | t }}"
             >
@@ -113,7 +115,7 @@
     </div>
 
     {%- comment -%} Store Information Section {%- endcomment -%}
-    <div class="footer__info-section lst:mt-[5.1955rem] lst:flex lst:justify-between lst:gap-x-2 lst:text-[0.8182rem] lst:px-[1rem]">
+    <div class="footer__info-section lst:mt-[5.1955rem] lst:flex lst:flex-wrap lst:lg:flex-no-wrap lst:justify-between lst:gap-2 lst:text-[0.8182rem] lst:px-[1rem]">
       <p class="lst:text-black">
         {{ section.settings.store_address | default: 'Librairie sans titre, 2 rue Auguste Barbier — 75011 Paris, France' }}
       </p>
@@ -136,7 +138,7 @@
 
     {%- comment -%} Footer Bottom Links {%- endcomment -%}
     <div class="footer__bottom lst:border-t lst:border-[#808080] lst:pt-0 ">
-      <div class="lst:grid lst:grid-cols-4 lst:gap-0 lst:divide-x lst:divide-[#808080] lst:border-b lst:border-[#808080]">
+      <div class="lst:grid lst:sm:grid-cols-2 lst:lg:grid-cols-4 lst:gap-0 lst:sm:divide-y lst:divide-x lst:divide-[#808080] lst:border-b lst:border-[#808080]">
         {% if section.settings.link_cvg != blank %}
           <a href="{{ section.settings.link_cvg }}" class="lst:no-underline lst:text-[#808080] lst:bg-white lst:hover:text-black lst:text-[0.8182rem] lst:px-4 lst:py-2 lst:transition-colors lst:text-center">
             C.V.G.
