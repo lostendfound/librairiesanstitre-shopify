@@ -92,16 +92,15 @@
           <a
             id="HeaderMenu-{{ link.handle }}"
             href="{{ link.url }}"
-            class="header__menu-item lst:text-[1.25rem] list-menu__item link link--text focus-inset"
+            class="header__menu-item lst:text-[1.25rem] list-menu__item link link--text focus-inset
+            {%- if link.current %}
+              header__active-menu-item
+            {% endif %}"
             {% if link.current %}
               aria-current="page"
             {% endif %}
           >
-            <span
-              {%- if link.current %}
-                class="header__active-menu-item"
-              {% endif %}
-            >
+            <span>
               {{- link.title | escape -}}
             </span>
           </a>

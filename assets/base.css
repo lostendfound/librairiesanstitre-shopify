@@ -2916,7 +2916,7 @@ details[open] > .header__submenu {
     position: relative;
 }
 
-.header__menu-item span::after {
+/*.header__menu-item span::after {
     content: '';
     position: absolute;
     bottom: -3px;
@@ -2931,7 +2931,7 @@ details[open] > .header__submenu {
 .header__menu-item:hover span::after {
     transform-origin: left;
     transform: scaleX(1);
-}
+}*/
 
 .header__menu-item:hover {
     color: rgb(var(--color-foreground));
@@ -2961,6 +2961,9 @@ details[open] > .header__menu-item .icon-caret {
 .header__menu-item .header__active-menu-item::after {
     transform-origin: left;
     transform: scaleX(1);
+}
+.header__active-menu-item {
+    background-color: #ffed00;
 }
 
 .header__menu-item:hover .header__active-menu-item {

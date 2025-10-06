@@ -12,18 +12,18 @@
       class="product-form lst:my-0! lst:border-y lst:border-black"
       data-section-id="{{ section.id }}"
     >
-      <div class="product-form__error-message-wrapper" role="alert" hidden>
+      <div class="product-form__error-message-wrapper lst:bg-red-500 lst:mb-0! lst:p-4 lst:border-b lst:border-black" role="alert" hidden>
         <svg
           aria-hidden="true"
           focusable="false"
-          class="icon icon-error"
+          class="icon icon-error lst:w-[1.25rem]! lst:h-[1.25rem]!"
           viewBox="0 0 13 13"
         >
           <circle cx="6.5" cy="6.50049" r="5.5" stroke="white" stroke-width="2"/>
           <circle cx="6.5" cy="6.5" r="5.5" fill="#EB001B" stroke="#EB001B" stroke-width="0.7"/>
           <path d="M5.87413 3.52832L5.97439 7.57216H7.02713L7.12739 3.52832H5.87413ZM6.50076 9.66091C6.88091 9.66091 7.18169 9.37267 7.18169 9.00504C7.18169 8.63742 6.88091 8.34917 6.50076 8.34917C6.12061 8.34917 5.81982 8.63742 5.81982 9.00504C5.81982 9.37267 6.12061 9.66091 6.50076 9.66091Z" fill="white"/>
         </svg>
-        <span class="product-form__error-message"></span>
+        <span class="product-form__error-message lst:text-[1rem]"></span>
       </div>
 
       {%- form 'product',
@@ -44,8 +44,8 @@
         >
 
         <div class="product-form__buttons lst:grid lst:grid-cols-2 lst:items-center">
-          <div class="lst:px-4 lst:py-2 lst:border-r lst:border-black lst:bg-[#F7F2EB] lst:text-center">
-            <span class="lst:text-lg lst:font-medium">
+          <div class="lst:px-4 lst:border-r lst:border-black lst:bg-[#F7F2EB] lst:text-center">
+            <span class="lst:text-[1.2273rem] lst:leading-[1.4318rem]">
               {{ product.selected_or_first_available_variant.price | money }}
             </span>
           </div>
@@ -54,12 +54,12 @@
             id="ProductSubmitButton-{{ section_id }}"
             type="submit"
             name="add"
-            class="product-form__submit button button--full-width button--primary lst:mb-0! lst:h-full lst:disabled:bg-yellow-200 lst:disabled:text-gray-600 lst:disabled:opacity-100"
+            class="product-form__submit lst:rounded-[0px]! button button--full-width button--primary lst:mb-0! lst:py-0! lst:h-full lst:disabled:bg-yellow-200 lst:disabled:text-gray-600 lst:disabled:opacity-100"
             {% if product.selected_or_first_available_variant.available == false %}
               disabled
             {% endif %}
           >
-            <span>
+            <span class="lst:text-[1.2273rem] lst:leading-[1.4318rem]">
               {%- if product.selected_or_first_available_variant.available == false -%}
                 {{ 'products.product.sold_out' | t }}
               {%- else -%}
