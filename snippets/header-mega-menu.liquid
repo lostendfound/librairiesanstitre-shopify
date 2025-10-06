@@ -5,6 +5,8 @@
   {% render 'header-mega-menu' %}
 {% endcomment %}
 
+<script src="{{ 'component-mega-menu-grid-vite.js' | asset_url }}" defer="defer"></script>
+
 <nav class="lst:justify-between lst:items-center lst:grow lst:hidden lst:lg:flex">
   <ul class="list-menu list-menu--inline lst:justify-between lst:w-full" role="list">
     {%- for link in section.settings.menu.links -%}
@@ -39,21 +41,22 @@
                 {% comment %} {% render 'icon-caret' %} {% endcomment %}
               </summary>
 
-              <div
-                id="MegaMenu-Content-{{ forloop.index }}"
-                class="mega-menu__content color-{{ section.settings.menu_color_scheme }} gradient motion-reduce global-settings-popup"
-                tabindex="-1"
-              >
-                <ul
-                  class="mega-menu__list page-width{% if link.levels == 1 %} mega-menu__list--condensede{% endif %}"
-                  role="list"
+              <mega-menu-grid>
+                <div
+                  id="MegaMenu-Content-{{ forloop.index }}"
+                  class="mega-menu__content color-{{ section.settings.menu_color_scheme }} gradient motion-reduce global-settings-popup lst:p-0!"
+                  tabindex="-1"
                 >
+                  <ul
+                    class="mega-menu__list{% if link.levels == 1 %} mega-menu__list--condensede{% endif %}"
+                    role="list"
+                  >
                   {%- for childlink in link.links -%}
                     <li>
                       <a
                         id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}"
                         href="{{ childlink.url }}"
-                        class="mega-menu__link mega-menu__link--level-2 link{% if childlink.current %} mega-menu__link--active{% endif %}"
+                        class="mega-menu__link mega-menu__link--level-2 link{% if childlink.current %} mega-menu__link--active{% endif %} lst:text-[1.2273rem] lst:block lst:p-4"
                         {% if childlink.current %}
                           aria-current="page"
                         {% endif %}
@@ -61,13 +64,13 @@
                         {{ childlink.title | escape }}
                       </a>
                       {%- if childlink.links != blank -%}
-                        <ul class="list-unstyled" role="list">
+                        <ul class="list-unstyled lst:border-t lst:border-[#808080] lst:mt-2 lst:pt-2" role="list">
                           {%- for grandchildlink in childlink.links -%}
                             <li>
                               <a
                                 id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}-{{ grandchildlink.handle }}"
                                 href="{{ grandchildlink.url }}"
-                                class="mega-menu__link link{% if grandchildlink.current %} mega-menu__link--active{% endif %}"
+                                class="mega-menu__link link{% if grandchildlink.current %} mega-menu__link--active{% endif %} lst:text-[1.2273rem] lst:block lst:py-2"
                                 {% if grandchildlink.current %}
                                   aria-current="page"
                                 {% endif %}
@@ -82,6 +85,7 @@
                   {%- endfor -%}
                 </ul>
               </div>
+              </mega-menu-grid>
             </details>
           </header-menu>
         {%- else -%}

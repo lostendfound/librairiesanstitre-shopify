@@ -19,6 +19,7 @@ export default defineConfig(({ command, mode }) => {
           './src/js/component-carousel.js',
           './src/js/component-slideshow.js',
           './src/js/component-ticker.js',
+          './src/js/component-mega-menu-grid.js',
           './main.js',
           './src/css/component-carousel.css',
           './src/css/component-slideshow.css',

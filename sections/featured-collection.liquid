@@ -74,16 +74,16 @@
     id="collection-{{ section.id }}"
     data-id="{{ section.id }}"
   >
-    <div class="lst:px-3 lst:lg:px-5 lst:py-5 lst:border-b lst:border-black lst:text-center lst:before:content-['']  lst:flex lst:items-center lst:justify-center {% if show_mobile_slider %} title-wrapper--self-padded-tablet-down{% endif %}{% if show_desktop_slider %} collection__title--desktop-slider{% endif %}">
+    <div class="lst:px-3 lst:lg:px-5 lst:pt-5 lst:pb-12 lst:border-b lst:border-black lst:before:content-['']  lst:flex lst:items-center {% if show_mobile_slider %} title-wrapper--self-padded-tablet-down{% endif %}{% if show_desktop_slider %} collection__title--desktop-slider{% endif %}">
       {%- if section.settings.title != blank -%}
-        <h2 class="h2 lst:grow {{ section.settings.heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+        <h2 class="h2 lst:grow lst:text-left lst:!text-6xl lst:lg:text-[5.5227rem]! {{ section.settings.heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
           {{ section.settings.title }}
         </h2>
         {%- if section.settings.show_view_all and more_in_collection -%}
           <div class="{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
             <a
               href="{{ section.settings.collection.url }}"
-              class="{% if section.settings.view_all_style == 'link' %}link underlined-link{% elsif section.settings.view_all_style == 'solid' %}button{% else %}button button--secondary{% endif %}"
+              class="{% if section.settings.view_all_style == 'link' %}link underlined-link{% elsif section.settings.view_all_style == 'solid' %}button button--secondary{% else %}button button--secondary{% endif %}"
               aria-label="{{ 'sections.featured_collection.view_all_label' | t: collection_name: section.settings.collection.title | escape }}"
             >
               {{ 'sections.featured_collection.view_all' | t }}
@@ -118,16 +118,16 @@
         <nav class="lst:order-1 no-js:lst:hidden">
           <ul>
             <li class="carousel__control js-carousel__control">
-              <button class="carousel__btn js-tab-focus lst:transform lst:rotate-180">
+              <button class="carousel__btn js-tab-focus">
                 <span class="lst:sr-only">Show previous slide</span>
-                →
+                {% render 'icon-arrow-carousel-left' %}
               </button>
             </li>
 
             <li class="carousel__control js-carousel__control">
               <button class="carousel__btn js-tab-focus">
                 <span class="lst:sr-only">Show next slide</span>
-                →
+                {% render 'icon-arrow-carousel-right' %}
               </button>
             </li>
           </ul>

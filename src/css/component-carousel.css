@@ -92,8 +92,8 @@ Usage: codyhouse.co/license
 .carousel__btn {
     display: block;
     @apply lst:bg-gray-900/75;
-    height: var(--carousel-btn-height, 3.2em);
-    width: var(--carousel-btn-width, 1.6em);
+    height: var(--carousel-btn-height, 6.2182rem);
+    width: var(--carousel-btn-width, 6.2182rem);
     @apply lst:rounded;
     cursor: pointer;
     transition:
@@ -103,8 +103,8 @@ Usage: codyhouse.co/license
 
 .carousel__btn .icon {
     display: block;
-    width: var(--carousel-btn-icon-size, 1.6em);
-    height: var(--carousel-btn-icon-size, 1.6em);
+    width: var(--carousel-btn-icon-size, 6.2182rem);
+    height: var(--carousel-btn-icon-size, 6.2182rem);
     margin: 0 auto;
     transition: color 0.2s;
     @apply lst:text-white;

@@ -11,6 +11,7 @@
     "shopify:dev": "shopify theme dev --store librairie-sans-titre-2",
     "shopify:build": "shopify theme build --store librairie-sans-titre-2",
     "vite:build": "vite build",
+    "vite:build:watch": "vite build --watch",
     "push": "shopify theme push --ignore ./docs/*",
     "pull": "shopify theme pull --ignore ./docs/*",
     "docs:dev": "vitepress dev docs",

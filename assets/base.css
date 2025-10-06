@@ -1238,6 +1238,29 @@ deferred-media {
     --color-button-text: var(--color-secondary-button-text);
 }
 
+.button--secondary {
+    background-color: #e5e7eb !important;
+    color: #000000 !important;
+    border-radius: 0.9000rem !important;
+    padding: 0.75rem 1.3091rem !important;
+    font-size: 1.2273rem !important;
+    font-weight: 500 !important;
+    border: none !important;
+    transition: background-color 0.3s ease !important;
+}
+
+.button--secondary::after {
+    display: none !important;
+}
+
+.button--secondary:hover {
+    background-color: #ffff00 !important;
+}
+
+.button--secondary:hover::after {
+    display: none !important;
+}
+
 .button--tertiary {
     --alpha-button-background: 0;
     --alpha-button-border: 0.2;
@@ -2843,7 +2866,7 @@ details[open] > .header__submenu {
 .header__menu-item {
     text-decoration: none;
     color: rgba(var(--color-foreground), 0.75);
-    padding: 4px 8px;
+    padding: 1rem 0.7rem;
 }
 
 .header__menu-item span {
