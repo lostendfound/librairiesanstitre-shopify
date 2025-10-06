@@ -12,41 +12,43 @@
    PROPORTIONAL SCALING SYSTEM
    ========================================
 
-   The base font-size on html scales from 100% (16px) at 1280px
-   to 152.78% (24.44px) at 1920px (52.78% increase).
+   The base font-size on html scales from 78.87% (12.62px) at 1024px
+   to 152.78% (24.44px) at 1920px (73.91% increase).
 
-   This ensures proportional scaling: 36px → 55px
+   This ensures proportional scaling across the full range while
+   maintaining 1280px at exactly 16px (100%).
 
    All sizes using rem/em units will scale proportionally.
 
-   Conversion formula: px-value / 16 = rem-value
+   Conversion formula: px-value / 16 = rem-value (at 1280px)
 
    Scale verification:
+   - At 1024px: 2.25rem = 28.40px (2.25 × 12.62)
    - At 1280px: 2.25rem = 36px (2.25 × 16)
    - At 1920px: 2.25rem = 55px (2.25 × 24.44)
 
-   Common conversions (1280px → 1920px):
-   - 1rem = 16px → 24.44px
-   - 2.25rem = 36px → 55px
-   - 1.25rem = 20px → 30.56px
-   - 0.75rem = 12px → 18.33px
+   Common conversions (1024px → 1280px → 1920px):
+   - 1rem = 12.62px → 16px → 24.44px
+   - 2.25rem = 28.40px → 36px → 55px
+   - 1.25rem = 15.78px → 20px → 30.56px
+   - 0.75rem = 9.47px → 12px → 18.33px
 
    To add new scaled elements:
    1. Determine desired size at 1280px in pixels
    2. Divide by 16 to convert to rem
    3. Use rem value in CSS
-   4. Element will automatically scale to 152.78% at 1920px
+   4. Element will automatically scale from 78.87% at 1024px to 152.78% at 1920px
    ======================================== */
 
 html {
-    /* Base font-size: 16px (100%) up to 1280px */
+    /* Base font-size: 16px (100%) up to 1024px */
     font-size: 100%;
 }
 
-@media screen and (min-width: 1280px) {
+@media screen and (min-width: 1024px) {
     html {
-        /* Fluid scaling from 16px (100%) at 1280px to 24.44px (152.78%) at 1920px */
-        font-size: clamp(100%, calc(100% + (52.78% * ((100vw - 1280px) / 640px))), 152.78%);
+        /* Fluid scaling from 12.62px (78.87%) at 1024px to 24.44px (152.78%) at 1920px */
+        font-size: clamp(78.87%, calc(78.87% + (73.91% * ((100vw - 1024px) / 896px))), 152.78%);
     }
 }
 
@@ -65,9 +67,9 @@ html {
     --scale-factor: 1;
 }
 
-@media screen and (min-width: 1280px) {
+@media screen and (min-width: 1024px) {
     :root {
-        --scale-factor: clamp(1, calc(1 + (0.5278 * ((100vw - 1280px) / 640px))), 1.5278);
+        --scale-factor: clamp(0.7887, calc(0.7887 + (0.7391 * ((100vw - 1024px) / 896px))), 1.5278);
     }
 }
 
