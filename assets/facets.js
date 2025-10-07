@@ -214,10 +214,16 @@ const CustomSelect = (function () {
             this.optGroups[i].getAttribute('label') +
             '</span></li>';
         list +=
-          '<ul class="select__list" role="listbox">' + optGroupLabel + this.getOptionsList(optGroupList) + '</ul>';
+          '<ul class="select__list lst:px-[1.0227rem] lst:divide-y lst:divide-black" role="listbox">' +
+          optGroupLabel +
+          this.getOptionsList(optGroupList) +
+          '</ul>';
       }
     } else {
-      list += '<ul class="select__list" role="listbox">' + this.getOptionsList(this.options) + '</ul>';
+      list +=
+        '<ul class="select__list lst:px-[1.0227rem] lst:divide-y lst:divide-black" role="listbox">' +
+        this.getOptionsList(this.options) +
+        '</ul>';
     }
     return list + '</div>';
   };

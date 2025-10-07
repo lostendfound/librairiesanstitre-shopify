@@ -123,18 +123,18 @@
                 {% when 'boolean', 'list' %}
                   <details
                     id="Details-{{ filter.param_name | escape }}-{{ section.id }}"
-                    class="{% if filter_type == 'horizontal' %}disclosure-has-popup facets__disclosure{% else %} facets__disclosure-vertical{% endif %} js-filter lst:border-r lst:border-gray lst:first:border-l"
+                    class="{% if filter_type == 'horizontal' %}disclosure-has-popup facets__disclosure  {% else %} facets__disclosure-vertical{% endif %} js-filter lst:border-r lst:border-gray lst:first:border-l"
                     data-index="{{ forloop.index }}"
                     {% if filter_type == 'vertical' and forloop.index == 1 %}
                       open
                     {% endif %}
                   >
                     <summary
-                      class="facets__summary focus-offset"
+                      class="facets__summary focus-offset lst:group"
                       aria-label="{{ filter.label | escape }} ({{ 'products.facets.filters_selected.one' | t: count: filter.active_values.size }})"
                     >
                       <div>
-                        <span class="facets__summary-label lst:text-subtitle lst:text-gray">
+                        <span class="facets__summary-label lst:text-subtitle lst:text-gray lst:group-hover:text-black">
                           {{- filter.label | escape }}
                           {%- if filter_type == 'vertical' -%}
                             <span class="facets__selected{% if filter.active_values.size == 0 %} hidden{% endif %}">
@@ -327,15 +327,17 @@
                 {% when 'price_range' %}
                   <details
                     id="Details-{{ filter.param_name | escape }}-{{ section.id }}"
-                    class="{% if filter_type == 'horizontal' %}disclosure-has-popup facets__disclosure{% else %} facets__disclosure-vertical{% endif %} js-filter lst:border-r lst:border-gray lst:first:border-l"
+                    class="{% if filter_type == 'horizontal' %}disclosure-has-popup facets__disclosure  {% else %} facets__disclosure-vertical{% endif %} js-filter lst:border-r lst:border-gray lst:first:border-l"
                     data-index="{{ forloop.index }}"
                     {% if filter_type == 'vertical' and forloop.index == 1 %}
                       open
                     {% endif %}
                   >
-                    <summary class="facets__summary focus-offset">
+                    <summary class="facets__summary focus-offset lst:group">
                       <div>
-                        <span class="lst:text-subtitle lst:text-gray">{{ filter.label | escape }}</span>
+                        <span class="lst:text-subtitle lst:text-gray lst:group-hover:text-black">
+                          {{- filter.label | escape -}}
+                        </span>
                         {% render 'icon-caret' %}
                       </div>
                     </summary>
@@ -444,7 +446,7 @@
 
                 <div
                   class="select inline-block js-select"
-                  data-trigger-class="reset text-sm lg:text-base text-gray-700 underline inline-flex items-center cursor-pointer js-tab-focus"
+                  data-trigger-class="reset text-gray underline inline-flex lst:px-[1.0227rem] items-center cursor-pointer js-tab-focus"
                 >
                   <select
                     name="sort_by"
@@ -880,7 +882,7 @@
             </h2>
             <div
               class="select inline-block js-select"
-              data-trigger-class="reset text-sm lg:text-base text-gray-700 underline inline-flex items-center cursor-pointer js-tab-focus"
+              data-trigger-class="reset text-gray underline inline-flex lst:px-[] items-center cursor-pointer js-tab-focus"
             >
               <select
                 name="sort_by"

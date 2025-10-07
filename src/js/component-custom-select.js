@@ -209,10 +209,18 @@ export default (function () {
             t.optGroups[i].getAttribute('label') +
             '</span></li>';
         list =
-          list + '<ul class="select__list" role="listbox">' + optGroupLabel + getOptionsList(t, optGroupList) + '</ul>';
+          list +
+          '<ul class="select__list lst:divide-y lst:px-[1.0227rem] lst:divide-black" role="listbox">' +
+          optGroupLabel +
+          getOptionsList(t, optGroupList) +
+          '</ul>';
       }
     } else {
-      list = list + '<ul class="select__list" role="listbox">' + getOptionsList(t, t.options) + '</ul>';
+      list =
+        list +
+        '<ul class="select__list lst:divide-y lst:px-[1.0227rem] lst:divide-black" role="listbox">' +
+        getOptionsList(t, t.options) +
+        '</ul>';
     }
     return list;
   }

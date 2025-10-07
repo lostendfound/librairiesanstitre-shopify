@@ -28,7 +28,9 @@
   >
     {% if recommendations.performed and recommendations.products_count > 0 %}
       <div class="lst:px-3 lst:lg:px-5 lst:pt-5 lst:pb-12 lst:border-b lst:border-black lst:before:content-[''] ">
-        <h2 class="h2 lst:text-left lst:!text-6xl lst:lg:text-[5.5227rem]!">{{ section.settings.heading }}</h2>
+        <h2 class="h2 lst:!text-6xl lst:lg:text-[5.5227rem]! lst:text-center">
+          {{ section.settings.heading }}
+        </h2>
       </div>
       <ul
         class="grid lst:divide-x lst:divide-black product-grid lst:gap-0! grid--{{ section.settings.columns_desktop }}-col-desktop grid--{{ section.settings.columns_mobile }}-col-tablet-down"

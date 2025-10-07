@@ -37,8 +37,8 @@
     display: flex;
     grid-column: 2;
     grid-row: 1;
-    padding-left: 0.5625rem;
-    padding-right: 1.25rem;
+    /* padding-left: 0.5625rem;
+    padding-right: 1.25rem; */
 }
 
 @media screen and (min-width: 1024px) {
@@ -95,7 +95,6 @@
 .facets__form .facet-filters__field .select {
     border-left: 1px solid #808080;
     height: 100%;
-    padding-left: 1rem;
     display: flex;
     align-items: center;
 }

@@ -47,7 +47,7 @@ Usage: codyhouse.co/license
 
 /* --custom-dropdown */
 :root {
-    --select-dropdown-gap: 4px;
+    --select-dropdown-gap: 0px;
     /* distance between select control and custom dropdown */
 }
 
@@ -63,15 +63,17 @@ Usage: codyhouse.co/license
 .select__dropdown {
     /* created in JS - custom select dropdown */
     position: absolute;
-    left: 0;
+    right: 0;
     top: 100%;
     min-width: 200px;
+    width: calc(100% + 1px);
     max-height: 1px; /* updated in JS */
-    @apply lst:bg-white;
+    margin-top: 0;
+    @apply lst:bg-primary;
     @apply lst:shadow-lg;
     @apply lst:py-1 lst:lg:py-1.5 lst:px-0;
-    @apply lst:rounded;
     @apply lst:z-[5];
+    border: 1px solid rgba(0, 0, 0, 1);
     margin-top: var(--select-dropdown-gap);
     margin-bottom: var(--select-dropdown-gap);
     overflow: auto;
@@ -121,8 +123,8 @@ Usage: codyhouse.co/license
     /* single item inside .select__list */
     display: flex;
     align-items: center;
-    @apply lst:py-1.5 lst:px-3 lst:lg:px-4;
-    @apply lst:text-gray-700;
+    @apply lst:py-1.5;
+    @apply lst:text-gray;
     width: 100%;
     text-align: left;
     /* truncate text */
@@ -143,7 +145,7 @@ Usage: codyhouse.co/license
     transition: 0.2s;
 }
 .select__item--option:hover {
-    @apply lst:bg-gray-900/[.07];
+    @apply lst:text-black;
 }
 .select__item--option:focus {
     outline: none;
