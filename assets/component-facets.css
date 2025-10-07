@@ -54,7 +54,7 @@
 .facet-filters__label {
     display: block;
     color: rgba(var(--color-foreground), 0.85);
-    font-size: 14px;
+    font-size: var(--lst-text-body);
     margin: 0 1.25rem 0 0;
 }
 
@@ -80,12 +80,24 @@
     display: flex;
     flex-grow: 1;
     justify-content: flex-end;
-    padding-top: 0.25rem;
-    padding-bottom: 0.25rem;
+    /* padding-top: 0.25rem;
+    padding-bottom: 0.25rem; */
+}
+
+.facets__form .facet-filters__field {
+    height: 100%;
 }
 
 .facet-filters__field .select {
     width: auto;
+}
+
+.facets__form .facet-filters__field .select {
+    border-left: 1px solid #808080;
+    height: 100%;
+    padding-left: 1rem;
+    display: flex;
+    align-items: center;
 }
 
 .facet-filters__field .select:after,
@@ -176,20 +188,22 @@
 }
 
 .facets__wrapper {
-    align-items: center;
+    align-items: stretch;
     align-self: flex-start;
     grid-column: 1;
     grid-row: 1;
     display: flex;
     flex-wrap: wrap;
+    min-height: 2.25rem;
 }
 
 .facets__heading {
-    display: block;
+    display: flex;
+    align-items: center;
     color: rgba(var(--color-foreground), 0.85);
     font-size: 0.8182rem;
-    padding-left: 1.25rem;
-    padding-right: 0.5rem;
+    padding-left: 0.8591rem;
+    padding-right: 0.8591rem;
 }
 
 .facets__reset {
@@ -274,28 +288,28 @@
 .facets__display {
     border-width: var(--popup-border-width);
     border-style: solid;
-    border-color: rgba(var(--color-foreground), var(--popup-border-opacity));
+    border-color: rgba(var(--lst-color--black), var(--popup-border-opacity));
     border-radius: var(--popup-corner-radius);
     box-shadow: var(--popup-shadow-horizontal-offset) var(--popup-shadow-vertical-offset)
         var(--popup-shadow-blur-radius) rgba(var(--color-shadow), var(--popup-shadow-opacity));
-    background-color: rgb(var(--color-background));
+    background-color: #FFFF00;
     position: absolute;
-    top: calc(100% + 0.3125rem);
-    left: -0.75rem;
+    top: calc(100% );
+    left: -1px;
     width: 21.875rem;
     max-height: 34.375rem;
     overflow-y: auto;
 }
 
 .facets__header {
-    border-bottom: 1px solid rgba(var(--color-foreground), 0.2);
     padding: 0.625rem 1.25rem;
     display: flex;
     justify-content: space-between;
-    font-size: 20px;
+    font-size: var(--lst-text-body);
+    line-height: var(--lst-text-body--line-height);
     position: sticky;
     top: 0;
-    background-color: rgb(var(--color-background));
+    background-color: #FFFF00;
     z-index: 1;
 }
 
@@ -330,6 +344,7 @@
     display: flex;
     align-items: center;
 }
+
 
 /* Hover/focus state */
 .facets-layout-list .facets__label:hover .facet-checkbox__text-label,
@@ -520,6 +535,7 @@
     background-color: rgb(var(--color-background));
     margin-right: 0.75rem;
     flex-shrink: 0;
+    border-radius: 50%;
 }
 
 .facet-checkbox .icon-checkmark {

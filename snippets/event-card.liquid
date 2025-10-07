@@ -1,4 +1,4 @@
-<div class="event-item lst:bg-[#F7F2EB] lst:border-b lst:border-black js-event-item">
+<div class="event-item lst:bg-primary/5 lst:border-b lst:border-black js-event-item">
   <a href="{{ article.url }}" class="lst:px-4 lst:pt-4 lst:block lst:peer">
     {% if article.image %}
       {% comment %}
@@ -21,16 +21,18 @@
     {% endif %}
   </a>
   <div class="lst:grid lst:grid-cols-2 lst:group">
-    <h2 class="lst:col-span-2 lst:text-base lst:text-black lst:p-2 lst:border-b lst:border-black lst:px-4">
-      {{ article.title }}
-    </h2>
-    <div class="lst:text-base lst:text-black lst:py-2 lst:px-4 lst:border-r lst:border-black">
+    <div class="lst:text-large lst:leading-[1.6em] lst:line-clamp-1 lst:col-span-2">
+      <h2 class="  lst:text-black lst:p-2 lst:border-b lst:border-black lst:px-4">
+        {{ article.title }}
+      </h2>
+    </div>
+    <div class="lst:text-large lst:text-black lst:py-2 lst:px-4 lst:border-r lst:border-black">
       {% if article.metafields.blog_event.start_date_time.value %}
-        <p>Date: {{ article.metafields.blog_event.start_date_time.value | date: '%B %d, %Y' }}</p>
+        <p>{{ article.metafields.blog_event.start_date_time.value | date: '%B %d, %Y' }}</p>
       {% endif %}
     </div>
     <a
-      class="lst:text-base lst:text-black lst:p-2 lst:hover:bg-primary"
+      class="lst:text-large lst:text-black lst:p-2 lst:hover:bg-primary"
       href="{{ article.url }}"
       >Infos +</a
     >

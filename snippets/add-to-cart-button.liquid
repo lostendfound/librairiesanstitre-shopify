@@ -12,7 +12,11 @@
       class="product-form lst:my-0! lst:border-y lst:border-black"
       data-section-id="{{ section.id }}"
     >
-      <div class="product-form__error-message-wrapper lst:bg-red-500 lst:mb-0! lst:p-4 lst:border-b lst:border-black" role="alert" hidden>
+      <div
+        class="product-form__error-message-wrapper lst:bg-red-500 lst:mb-0! lst:p-4 lst:border-b lst:border-black"
+        role="alert"
+        hidden
+      >
         <svg
           aria-hidden="true"
           focusable="false"
@@ -43,9 +47,9 @@
           class="product-variant-id"
         >
 
-        <div class="product-form__buttons lst:grid lst:grid-cols-2 lst:items-center">
-          <div class="lst:px-4 lst:border-r lst:border-black lst:bg-[#F7F2EB] lst:text-center">
-            <span class="lst:text-[1.2273rem] lst:leading-[1.4318rem]">
+        <div class="product-form__buttons lst:min-h-[2.25rem] lst:grid lst:grid-cols-2 lst:items-center">
+          <div class="lst:px-4 lst:border-r lst:border-black lst:bg-[#F7F2EB] lst:text-center lst:flex lst:items-center lst:justify-center lst:h-full">
+            <span class="lst:text-subtitle">
               {{ product.selected_or_first_available_variant.price | money }}
             </span>
           </div>
@@ -54,12 +58,12 @@
             id="ProductSubmitButton-{{ section_id }}"
             type="submit"
             name="add"
-            class="product-form__submit lst:rounded-[0px]! button button--full-width button--primary lst:mb-0! lst:py-0! lst:h-full lst:disabled:bg-yellow-200 lst:disabled:text-gray-600 lst:disabled:opacity-100"
+            class="product-form__submit lst:uppercase lst:rounded-[0px]! button button--full-width button--primary lst:mb-0! lst:py-0! lst:h-full lst:disabled:bg-yellow-200 lst:disabled:text-gray-600 lst:disabled:opacity-100"
             {% if product.selected_or_first_available_variant.available == false %}
               disabled
             {% endif %}
           >
-            <span class="lst:text-[1.2273rem] lst:leading-[1.4318rem]">
+            <span class="lst:text-subtitle">
               {%- if product.selected_or_first_available_variant.available == false -%}
                 {{ 'products.product.sold_out' | t }}
               {%- else -%}

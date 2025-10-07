@@ -103,7 +103,7 @@ const CustomSelect = (function () {
     if (this.minWidth < triggerBoundingRect.width) {
       this.dropdown.setAttribute(
         'style',
-        'max-height: ' + maxHeight + 'px; min-width: ' + triggerBoundingRect.width + 'px;',
+        'max-height: ' + maxHeight + 'px; min-width: ' + triggerBoundingRect.width + 'px;'
       );
     } else {
       this.dropdown.setAttribute('style', 'max-height: ' + maxHeight + 'px;');
@@ -187,7 +187,7 @@ const CustomSelect = (function () {
       label +
       '" aria-expanded="false" aria-controls="' +
       this.selectId +
-      '-dropdown"><span aria-lst:="true" class="js-select__label select__label">' +
+      '-dropdown"><span aria-lst:="true" class="js-select__label select__label lst:text-subtitle lst:text-gray">' +
       (selectedOption ? selectedOption.innerHTML : '') +
       '</span>';
     if (this.arrowIcon.length > 0 && this.arrowIcon[0].outerHTML) {
@@ -386,7 +386,7 @@ class FacetFiltersForm extends HTMLElement {
     console.log('renderFilters called');
     const parsedHTML = new DOMParser().parseFromString(html, 'text/html');
     const facetDetailsElements = parsedHTML.querySelectorAll(
-      '#FacetFiltersForm .js-filter, #FacetFiltersFormMobile .js-filter, #FacetFiltersPillsForm .js-filter',
+      '#FacetFiltersForm .js-filter, #FacetFiltersFormMobile .js-filter, #FacetFiltersPillsForm .js-filter'
     );
     console.log('facetDetailsElements:', facetDetailsElements);
 

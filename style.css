@@ -51,9 +51,15 @@
 
     --lst-text-meta: 0.8184rem; /* 20px at 1920px */
     --lst-text-meta--line-height: 1.1455rem; /* 28px at 1920px */
-   
+
     --text-meta: 0.8184rem; /* 20px at 1920px */
     --text-meta--line-height: 1.1455rem; /* 28px at 1920px */
+
+    --lst-text-large: 1.0636rem; /* 26px at 1920px */
+    --lst-text-large--line-height: 1.1864rem; /* 29px at 1920px */
+
+    --text-large: 1.0636rem; /* 26px at 1920px */
+    --text-large--line-height: 1.1864rem; /* 29px at 1920px */
 }
 
 @keyframes blink {

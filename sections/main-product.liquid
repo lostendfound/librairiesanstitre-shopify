@@ -184,9 +184,9 @@
                   {%- when 'title' -%}
                     <div class="lst:grid lst:grid-cols-2 lst:gap-4 lst:pt-[2.2909rem]" {{ block.shopify_attributes }}>
                       <div class="product__title">
-                        <h1 style="font-size: 1.2273rem;">{{ product.title | escape }}</h1>
+                        <h1 class="lst:text-heading">{{ product.title | escape }}</h1>
                       </div>
-                      <ul class="product__metafields" style="font-size: 0.8182rem;">
+                      <ul class="product__metafields lst:text-body">
                         {%- for metafield_block in section.blocks -%}
                           {%- if metafield_block.type == 'metafield_info' -%}
                             {% render 'metafield-info', block: metafield_block %}
