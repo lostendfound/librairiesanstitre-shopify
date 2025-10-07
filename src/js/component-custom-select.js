@@ -180,7 +180,7 @@ export default (function () {
       label +
       '" aria-expanded="false" aria-controls="' +
       t.selectId +
-      '-dropdown"><span aria-lst:="true" class="js-select__label select__label lst:text-subtitle lst:text-gray">' +
+      '-dropdown"><span aria-lst:="true" class="js-select__label select__label lst:text-subtitle ">' +
       t.selectedOption +
       '</span>';
     if (t.arrowIcon.length > 0 && t.arrowIcon[0].outerHTML) {

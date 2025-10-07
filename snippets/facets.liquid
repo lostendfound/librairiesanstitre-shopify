@@ -440,13 +440,13 @@
                   </label>
                 </h2>
                 <div class="inline-flex items-baseline"></div>
-                <label class="text-sm lg:text-base text-gray-500 mr-2 lg:mr-3" for="SortBy">
+                <label class="text-sm lg:text-base  text-gray-500 mr-2 lg:mr-3" for="SortBy">
                   {%- assign sort_by = results.sort_by | default: results.default_sort_by -%}
                 </label>
 
                 <div
-                  class="select inline-block js-select"
-                  data-trigger-class="reset text-gray underline inline-flex lst:px-[1.0227rem] items-center cursor-pointer js-tab-focus"
+                  class="select inline-block js-select lst:lg:min-w-[19.5554rem]"
+                  data-trigger-class="reset lst:text-gray lst:hover:text-black lst:aria-expanded:text-black underline inline-flex lst:px-[1.0227rem] items-center cursor-pointer lst:aria-expanded:bg-primary lst:pb-[0.4909rem] lst:pt-[0.3273rem] js-tab-focus"
                 >
                   <select
                     name="sort_by"
@@ -881,7 +881,7 @@
               </label>
             </h2>
             <div
-              class="select inline-block js-select"
+              class="select inline-block js-select lst:lg:min-w-[19.5554rem]"
               data-trigger-class="reset text-gray underline inline-flex lst:px-[] items-center cursor-pointer js-tab-focus"
             >
               <select

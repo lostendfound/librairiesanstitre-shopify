@@ -187,7 +187,7 @@ const CustomSelect = (function () {
       label +
       '" aria-expanded="false" aria-controls="' +
       this.selectId +
-      '-dropdown"><span aria-lst:="true" class="js-select__label select__label lst:text-subtitle lst:text-gray">' +
+      '-dropdown"><span aria-lst:="true" class="js-select__label select__label lst:text-subtitle ">' +
       (selectedOption ? selectedOption.innerHTML : '') +
       '</span>';
     if (this.arrowIcon.length > 0 && this.arrowIcon[0].outerHTML) {

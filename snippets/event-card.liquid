@@ -28,7 +28,14 @@
     </div>
     <div class="lst:text-large lst:text-black lst:py-2 lst:px-4 lst:border-r lst:border-black">
       {% if article.metafields.blog_event.start_date_time.value %}
-        <p>{{ article.metafields.blog_event.start_date_time.value | date: '%B %d, %Y' }}</p>
+        {%- assign start_date = article.metafields.blog_event.start_date_time.value | date: '%-d %b %Y' -%}
+        {%- assign start_time = article.metafields.blog_event.start_date_time.value | date: '%-Hh' -%}
+        {% if article.metafields.blog_event.end_date_time.value %}
+          {%- assign end_time = article.metafields.blog_event.end_date_time.value | date: '%-Hh' -%}
+          <p>{{ start_date }}, {{ start_time }}–{{ end_time }}</p>
+        {% else %}
+          <p>{{ start_date }}, {{ start_time }}</p>
+        {% endif %}
       {% endif %}
     </div>
     <a

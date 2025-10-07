@@ -69,8 +69,11 @@
               {%- when '@app' -%}
                 {% render block %}
               {%- when 'title' -%}
-                <div class="event__title lst:px-4 lst:pt-6 lst:lg:w-[200%]! lst:lg:sticky lst:lg:top-[2.25rem] lst:z-10" {{ block.shopify_attributes }}>
-                  <h1 class="lst:text-[5.5227rem] lst:text-center">{{ article.title | escape }}</h1>
+                <div
+                  class="event__title lst:px-4 lst:pt-6 lst:lg:w-[200%]! lst:lg:sticky lst:lg:top-[2.25rem] lst:z-10"
+                  {{ block.shopify_attributes }}
+                >
+                  <h1 class="lst:text-hero lst:text-center">{{ article.title | escape }}</h1>
                   {% if block.settings.blog_show_date %}
                     <span class="event__date caption-with-letter-spacing">
                       {{- article.published_at | date: format: 'date' -}}
@@ -88,7 +91,7 @@
                     {%- assign start_date = article.metafields.blog_event.start_date_time.value | date: '%d %b %Y' -%}
                     {%- assign end_date = article.metafields.blog_event.end_date_time.value | date: '%d %b %Y' -%}
 
-                    <div class="lst:text-center lst:text-black lst:text-[5.5227rem]">
+                    <div class="lst:text-center lst:text-black lst:text-hero">
                       {%- if start_date == end_date -%}
                         <div>
                           <span>{{ start_date }}</span>,
