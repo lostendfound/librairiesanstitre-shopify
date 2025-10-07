@@ -28,26 +28,44 @@
 <footer class="footer lst:bg-white lst:pt-[2.6182rem] lst:pb-0  lst:group-hover:bg-[#ECECEC] lst:transition-colors">
   <div class="page-width">
     {%- comment -%} Newsletter Section with Social Links {%- endcomment -%}
-    <div class="footer__newsletter-section lst:flex lst:flex-col lst:items-center lst:mb-10">
+    <div class="footer__newsletter-section lst:flex lst:flex-col lst:items-center lst:mb-10 ">
       {%- comment -%} Social Links {%- endcomment -%}
-      <div class="footer__social-links lst:px-[1rem] lst:lg:px-0 lst:flex lst:flex-wrap lst:gap-12 lst:mb-[1.1045rem] lst:lg:text-[1.2273rem]">
+      <div class="footer__social-links lst:px-[1rem] lst:lg:px-0 lst:flex lst:flex-wrap lst:gap-x-12 lst:lg:gap-x-[12.6409rem] lst:mb-[1.1045rem] lst:lg:text-[1.2273rem]">
         {% if section.settings.email_link != blank %}
-          <a href="mailto:{{ section.settings.email_link }}" class="lst:no-underline lst:text-black lst:hover:underline">
+          <a
+            href="mailto:{{ section.settings.email_link }}"
+            class="lst:no-underline lst:text-black lst:hover:underline"
+          >
             e-mail
           </a>
         {% endif %}
         {% if section.settings.instagram_link != blank %}
-          <a href="{{ section.settings.instagram_link }}" target="_blank" rel="noopener" class="lst:no-underline lst:text-black lst:hover:underline">
+          <a
+            href="{{ section.settings.instagram_link }}"
+            target="_blank"
+            rel="noopener"
+            class="lst:no-underline lst:text-black lst:hover:underline"
+          >
             Instagram
           </a>
         {% endif %}
         {% if section.settings.facebook_link != blank %}
-          <a href="{{ section.settings.facebook_link }}" target="_blank" rel="noopener" class="lst:no-underline lst:text-black lst:hover:underline">
+          <a
+            href="{{ section.settings.facebook_link }}"
+            target="_blank"
+            rel="noopener"
+            class="lst:no-underline lst:text-black lst:hover:underline"
+          >
             Facebook
           </a>
         {% endif %}
         {% if section.settings.threads_link != blank %}
-          <a href="{{ section.settings.threads_link }}" target="_blank" rel="noopener" class="lst:no-underline lst:text-black lst:hover:underline">
+          <a
+            href="{{ section.settings.threads_link }}"
+            target="_blank"
+            rel="noopener"
+            class="lst:no-underline lst:text-black lst:hover:underline"
+          >
             Threads
           </a>
         {% endif %}
@@ -56,9 +74,17 @@
       {%- comment -%} Newsletter curved text SVG {%- endcomment -%}
       <div class="footer__newsletter-svg lst:mb-8 lst:max-w-full lst:w-full lst:px-[1rem] lst:lg:px-0">
         {% if request.locale.iso_code == 'en' %}
-          {{ 'newsletter-en.svg' | asset_url | img_tag: '', 'lst:w-full lst:h-auto lst:lg:max-w-[62.5909rem] lst:mx-auto' }}
+          {{
+            'newsletter-en.svg'
+            | asset_url
+            | img_tag: '', 'lst:w-full lst:h-auto lst:lg:max-w-[62.5909rem] lst:mx-auto'
+          }}
         {% else %}
-          {{ 'newsletter-fr.svg' | asset_url | img_tag: '', 'lst:w-full lst:h-auto lst:lg:max-w-[62.5909rem] lst:mx-auto' }}
+          {{
+            'newsletter-fr.svg'
+            | asset_url
+            | img_tag: '', 'lst:w-full lst:h-auto lst:lg:max-w-[62.5909rem] lst:mx-auto'
+          }}
         {% endif %}
       </div>
 
@@ -72,7 +98,7 @@
                 id="NewsletterForm--{{ section.id }}"
                 type="email"
                 name="contact[email]"
-                class="lst:rounded-[0.9rem]! lst:lg:w-[19.7182rem]"
+                class="lst:rounded-[0.9rem]! lst:lg:w-[19.7182rem] lst:placeholder:text-subtitle lst:text-subtitle"
                 value="{{ form.email }}"
                 aria-required="true"
                 autocorrect="off"
@@ -115,9 +141,12 @@
     </div>
 
     {%- comment -%} Store Information Section {%- endcomment -%}
-    <div class="footer__info-section lst:mt-[5.1955rem] lst:flex lst:flex-wrap lst:lg:flex-no-wrap lst:justify-between lst:gap-2 lst:text-[0.8182rem] lst:px-[1rem]">
+    <div class="footer__info-section lst:mt-[5.1955rem] lst:flex lst:flex-wrap lst:lg:flex-no-wrap lst:justify-between lst:gap-2 lst:text-body lst:px-[1rem] lst:mb-[0.6545rem]">
       <p class="lst:text-black">
-        {{ section.settings.store_address | default: 'Librairie sans titre, 2 rue Auguste Barbier — 75011 Paris, France' }}
+        {{
+          section.settings.store_address
+          | default: 'Librairie sans titre, 2 rue Auguste Barbier — 75011 Paris, France'
+        }}
       </p>
       <div class="footer__hours lst:flex lst:justify-center lst:gap-2 lst:flex-wrap lst:text-black">
         <span>{{ section.settings.hours_monday | default: 'lundi FERMÉ' }}</span>
@@ -126,7 +155,10 @@
       </div>
       <p class="footer__contact lst:space-x-3 lst:text-black">
         {% if section.settings.contact_email != blank %}
-          <a href="mailto:{{ section.settings.contact_email }}" class="lst:no-underline lst:text-black lst:hover:underline">
+          <a
+            href="mailto:{{ section.settings.contact_email }}"
+            class="lst:no-underline lst:text-black lst:hover:underline"
+          >
             {{ section.settings.contact_email }}
           </a>
         {% endif %}
@@ -140,26 +172,38 @@
     <div class="footer__bottom lst:border-t lst:border-[#808080] lst:pt-0 ">
       <div class="lst:grid lst:sm:grid-cols-2 lst:lg:grid-cols-4 lst:gap-0 lst:sm:divide-y lst:divide-x lst:divide-[#808080] lst:border-b lst:border-[#808080]">
         {% if section.settings.link_cvg != blank %}
-          <a href="{{ section.settings.link_cvg }}" class="lst:no-underline lst:text-[#808080] lst:bg-white lst:hover:text-black lst:text-[0.8182rem] lst:px-4 lst:py-2 lst:transition-colors lst:text-center">
+          <a
+            href="{{ section.settings.link_cvg }}"
+            class="lst:no-underline lst:text-[#808080] lst:bg-white lst:hover:text-black lst:text-body lst:px-4 lst:py-[0.6545rem] lst:transition-colors lst:text-center"
+          >
             C.V.G.
           </a>
         {% endif %}
 
         {% if section.settings.link_mentions != blank %}
-          <a href="{{ section.settings.link_mentions }}" class="lst:no-underline lst:text-[#808080] lst:bg-white lst:hover:text-black lst:text-[0.8182rem] lst:px-4 lst:py-2 lst:transition-colors lst:text-center">
+          <a
+            href="{{ section.settings.link_mentions }}"
+            class="lst:no-underline lst:text-[#808080] lst:bg-white lst:hover:text-black lst:text-body lst:px-4 lst:py-[0.6545rem] lst:transition-colors lst:text-center"
+          >
             Mentions légales
           </a>
         {% endif %}
 
         {% if section.settings.link_delivery != blank %}
-          <a href="{{ section.settings.link_delivery }}" class="lst:no-underline lst:text-[#808080] lst:bg-white lst:hover:text-black lst:text-[0.8182rem] lst:px-4 lst:py-2 lst:transition-colors lst:text-center">
+          <a
+            href="{{ section.settings.link_delivery }}"
+            class="lst:no-underline lst:text-[#808080] lst:bg-white lst:hover:text-black lst:text-body lst:px-4 lst:py-[0.6545rem] lst:transition-colors lst:text-center"
+          >
             Livraisons
           </a>
         {% endif %}
 
         {%- if section.settings.enable_country_selector and localization.available_countries.size > 1 -%}
           <localization-form>
-            {%- form 'localization', id: 'FooterCountryFormInline', class: 'localization-form lst:inline lst:py-0! lst:bg-white lst:w-full! lst:m-0! lst:flex!' -%}
+            {%- form 'localization',
+              id: 'FooterCountryFormInline',
+              class: 'localization-form lst:inline lst:py-0! lst:bg-white lst:w-full! lst:m-0! lst:flex!'
+            -%}
               <div class="lst:inline-flex lst:items-center lst:gap-2 lst:px-4 lst:py-2">
                 <span class="lst:text-sm">Pays/région</span>
                 {%- render 'country-localization', localPosition: 'FooterCountryInline' -%}
@@ -170,24 +214,22 @@
       </div>
 
       {%- comment -%} Copyright and Credits {%- endcomment -%}
-      <div class="footer__copyright lst:bg-white lst:text-[0.8182rem] lst:py-2 lst:mt-0! lst:grid lst:grid-cols-2">
+      <div class="footer__copyright lst:bg-white lst:text-body lst:py-2 lst:mt-0! lst:grid lst:grid-cols-2">
         <p class="lst:text-left lst:px-2">
           &copy; {{ 'now' | date: '%Y' }}, {{ shop.name | link_to: routes.root_url }} |
           <a href="http://rakun.ie" target="_blank" rel="noopener" class="lst:no-underline lst:hover:underline">
             Développé par Rakun.ie
-          </a> |
+          </a>
+          |
           <a href="https://alexandrie.app" target="_blank" rel="noopener" class="lst:no-underline lst:hover:underline">
             Propulsé par Alexandrie
           </a>
         </p>
-        <p class="lst:text-right lst:px-2">
-          Typographie : Vermeille © Loris Pernoux, Brest Brest Brest
-        </p>
+        <p class="lst:text-right lst:px-2">Typographie : Vermeille © Loris Pernoux, Brest Brest Brest</p>
       </div>
     </div>
   </div>
 </footer>
-
 
 {% schema %}
 {

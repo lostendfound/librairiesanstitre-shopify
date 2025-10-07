@@ -27,32 +27,50 @@
           <div class="lst:absolute lst:inset-0 lst:bg-black/60 lst:!block"></div>
 
           {%- comment -%} Content overlay - white text {%- endcomment -%}
-          <div class="lst:absolute lst:inset-0 lst:flex lst:flex-col lst:items-center lst:justify-center lst:text-white lst:px-6 lst:py-12 lst:z-10">
-            {%- comment -%} Main content centered {%- endcomment -%}
-            <div class="lst:text-center lst:max-w-4xl">
-              {% if block.settings.heading != blank %}
-                <h2 class="lst:text-5xl lst:lg:text-[5.5227rem]! lst:!text-white">
-                  {{ block.settings.heading }}
-                </h2>
-              {% endif %}
-
-              {% if block.settings.subheading != blank %}
-                <p class="lst:text-xl lst:md:text-2xl lst:mb-4">
-                  {{ block.settings.subheading }}
+          <div class="lst:absolute lst:inset-0 lst:flex lst:flex-col lst:items-center lst:justify-between lst:text-white lst:px-6 lst:py-12 lst:z-10">
+            {%- comment -%} Top text {%- endcomment -%}
+            {% assign top_text = block.settings.text_top | default: block.settings.heading %}
+            {% if top_text != blank %}
+              <div class="lst:text-center lst:max-w-4xl">
+                <p class="lst:text-hero lst:!text-white">
+                  {{ top_text }}
                 </p>
-              {% endif %}
-            </div>
+              </div>
+            {% else %}
+              <div></div>
+            {% endif %}
+
+            {%- comment -%} Middle text {%- endcomment -%}
+            {% assign middle_text = block.settings.text_middle | default: block.settings.subheading %}
+            {% if middle_text != blank %}
+              <div class="lst:text-center lst:max-w-4xl">
+                <h2 class="lst:text-heading lst:!text-white">
+                  {{ middle_text }}
+                </h2>
+              </div>
+            {% else %}
+              <div></div>
+            {% endif %}
+
+            {%- comment -%} Bottom text {%- endcomment -%}
+            {% if block.settings.text_bottom != blank %}
+              <div class="lst:text-center lst:max-w-4xl">
+                <p class="lst:text-hero lst:!text-white">
+                  {{ block.settings.text_bottom }}
+                </p>
+              </div>
+            {% else %}
+              <div></div>
+            {% endif %}
 
             {%- comment -%} CTA Button - bottom right {%- endcomment -%}
             {% if block.settings.link != blank and block.settings.button_label != blank %}
               <a
                 href="{{ block.settings.link }}"
-                class="lst:absolute lst:bottom-8 lst:right-8 lst:bg-white lst:text-black lst:px-6 lst:py-3 lst:rounded-full lst:text-lg lst:font-medium lst:hover:bg-primary lst:transition-colors lst:group"
+                class="button button--white"
+                style="position: absolute; right: 1.2273rem; bottom: 2.7000rem;"
               >
                 {{- block.settings.button_label -}}
-                <span class="icon-wrap lst:ml-2 lst:group-hover:ml-4 lst:transition-all lst:inline-block">
-                  {%- render 'icon-arrow' -%}
-                </span>
               </a>
             {% endif %}
           </div>
@@ -102,10 +120,29 @@
           "label": "t:sections.carousel.blocks.slide.settings.image.label"
         },
         {
+          "type": "text",
+          "id": "text_top",
+          "label": "Top text",
+          "info": "Text displayed at the top of the slide"
+        },
+        {
+          "type": "text",
+          "id": "text_middle",
+          "label": "Middle text",
+          "info": "Large text displayed in the center of the slide"
+        },
+        {
+          "type": "text",
+          "id": "text_bottom",
+          "label": "Bottom text",
+          "info": "Text displayed at the bottom of the slide"
+        },
+        {
           "type": "inline_richtext",
           "id": "heading",
           "default": "Slide",
-          "label": "t:sections.carousel.blocks.slide.settings.heading.label"
+          "label": "t:sections.carousel.blocks.slide.settings.heading.label",
+          "info": "Fallback for top text if not provided"
         },
         {
           "type": "select",
@@ -131,7 +168,8 @@
           "type": "inline_richtext",
           "id": "subheading",
           "default": "Tell your brand's story through images",
-          "label": "t:sections.carousel.blocks.slide.settings.subheading.label"
+          "label": "t:sections.carousel.blocks.slide.settings.subheading.label",
+          "info": "Fallback for middle text if not provided"
         },
         {
           "type": "text",

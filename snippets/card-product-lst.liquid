@@ -107,10 +107,10 @@
             </div>
           </div>
         {%- endif -%}
-        <div class="lst:flex lst:flex-col lst:justify-end lst:grow">
-          <div class="lst:px-3! lst:pb-1! lst:pt-3! lst:flex lst:flex-col lst:justify-between lst:grow">
-            <div class="lst:text-sm lst:sm:text-xl lst:min-w-0 lst:grow">
-              <p class="lst:text-[0.818rem] lst:text-black lst:opacity-100">
+        <div class="lst:flex lst:flex-col lst:justify-start lst:grow">
+          <div class="lst:px-3! lst:pb-1! lst:pt-3! lst:flex lst:flex-col lst:justify-between ">
+            <div class="lst:text-sm lst:sm:text-xl lst:min-w-0 ">
+              <p class="lst:text-body lst:text-black lst:opacity-100">
                 {% assign authors_string = card_product.metafields.alexandrie.authors
                   | replace: '[', ''
                   | replace: ']', ''
@@ -132,7 +132,7 @@
                 <a
                   href="{{ card_product.url }}"
                   id="CardLink-{{ section_id }}-{{ card_product.id }}"
-                  class="lst:text-[1.225rem] lst:bg-transparent!  lst:no-underline! lst:text-black! link link--text focus-inset full-unstyled-link lst:decoration-1! lst {%- if card_product.available == false -%} lst lst:line-through! {%- endif -%}"
+                  class="lst:text-[1.0636rem] lst:leading-[1.1864rem] lst:bg-transparent!  lst:no-underline! lst:text-black! link link--text focus-inset full-unstyled-link lst:decoration-1! lst {%- if card_product.available == false -%} lst lst:line-through! {%- endif -%}"
                   aria-labelledby="CardLink-{{ section_id }}-{{ card_product.id }} Badge-{{ section_id }}-{{ card_product.id }}"
                 >
                   {{ card_product.title | escape }}
@@ -182,13 +182,8 @@
                   </span>
                 </p>
               {%- endif -%}
-              {%- if card_product.available == false -%}
-                <span class="lst:text-xs lst:text-red-500">
-                  {{ 'products.product.sold_out' | t }}
-                </span>
-              {% else %}
-                {% render 'price', product: card_product, price_class: '', show_compare_at_price: true %}
-              {%- endif -%}
+
+              {% render 'price', product: card_product, price_class: '', show_compare_at_price: true %}
 
               {%- if card_product.quantity_price_breaks_configured? -%}
                 {% if card_product.variants.size == 1 and quick_add == 'bulk' %}
@@ -502,18 +497,18 @@
               </div>
             {% endif %}
           {% endif %}
-          <div class="card__badge lst:absolute lst:top-2 lst:right-2">
+          <div class=" lst:absolute lst:top-2 lst:right-2">
             {%- if card_product.available == false -%}
               <span
                 id="Badge-{{ section_id }}-{{ card_product.id }}"
-                class="badge lst:text-sm badge--bottom-left color-{{ settings.sold_out_badge_color_scheme }}"
+                class="lst:text-body lst:lowercase"
               >
                 {{- 'products.product.sold_out' | t -}}
               </span>
             {%- elsif card_product.compare_at_price > card_product.price and card_product.available -%}
               <span
                 id="Badge-{{ section_id }}-{{ card_product.id }}"
-                class="badge lst:text-sm badge--bottom-left color-{{ settings.sale_badge_color_scheme }}"
+                class="lst:text-body lst:lowercase"
               >
                 {{- 'products.product.on_sale' | t -}}
               </span>

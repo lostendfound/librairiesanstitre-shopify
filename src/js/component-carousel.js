@@ -117,6 +117,7 @@ Util.extend = function () {
     initAriaLive(this); // set aria-live region for SR
     initCarouselEvents(this); // listen to events
     initCarouselCounter(this);
+    updateArrowPosition(this); // calculate and set arrow position based on image height
     this.element.classList.add('carousel--loaded');
   };
 
@@ -661,7 +662,7 @@ Util.extend = function () {
     var navigation = document.createElement('ol'),
       navChildren = '';
 
-    var navClasses = carousel.options.navigationClass + ' js-carousel__navigation';
+    var navClasses = carousel.options.navigationClass + ' js-carousel__navigation lst:sr-only';
     if (carousel.items.length <= carousel.visibItemsNb) {
       navClasses = navClasses + ' hidden';
     }
@@ -871,6 +872,48 @@ Util.extend = function () {
         rightArrow.style.color = rightBrightness > 128 ? '#000000' : '#ffffff';
       }
     }
+  }
+
+  function updateArrowPosition(carousel) {
+    // Find the first carousel item with an image
+    if (carousel.items.length === 0) return;
+
+    const firstItem = carousel.items[0];
+
+    // Try to find image container - support both product cards and collection cards
+    let imageContainer = firstItem.querySelector('.lst\\:aspect-square, [class*="aspect"]');
+
+    // If not found, try collection card structure
+    if (!imageContainer) {
+      imageContainer = firstItem.querySelector('.card__media, .card__inner');
+    }
+
+    if (!imageContainer) return;
+
+    // Wait for images to load, then calculate position
+    const img = imageContainer.querySelector('img');
+
+    function calculatePosition() {
+      const cardHeight = firstItem.offsetHeight;
+      const imageHeight = imageContainer.offsetHeight;
+
+      if (cardHeight > 0 && imageHeight > 0) {
+        // Calculate the center of the image as a percentage of total card height
+        const imageCenterPosition = (imageHeight / 2) / cardHeight * 100;
+        carousel.element.style.setProperty('--carousel-arrow-position', imageCenterPosition + '%');
+      }
+    }
+
+    if (img && img.complete) {
+      calculatePosition();
+    } else if (img) {
+      img.addEventListener('load', calculatePosition);
+    }
+
+    // Recalculate on window resize
+    window.addEventListener('resize', function() {
+      calculatePosition();
+    });
   }
 
   var extendProps = function () {

@@ -731,7 +731,7 @@
     var navigation = document.createElement('ol'),
       navChildren = '';
 
-    var navClasses = carousel.options.navigationClass + ' js-slideshow__navigation';
+    var navClasses = carousel.options.navigationClass + ' js-slideshow__navigation lst:sr-only';
     if (carousel.items.length <= carousel.visibItemsNb) {
       navClasses = navClasses + ' hidden';
     }

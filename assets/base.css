@@ -1303,6 +1303,25 @@ deferred-media {
     display: none !important;
 }
 
+.button--white {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+    border-radius: 0.9rem !important;
+    padding: 0.75rem 1.3091rem !important;
+    font-size: 1.2273rem !important;
+    font-weight: 500 !important;
+    border: none !important;
+    transition: background-color 0.3s ease !important;
+}
+
+.button--white:hover {
+    background-color: #ffff00 !important;
+}
+
+.button--white:hover::after {
+    display: none !important;
+}
+
 .button--tertiary {
     --alpha-button-background: 0;
     --alpha-button-border: 0.2;
