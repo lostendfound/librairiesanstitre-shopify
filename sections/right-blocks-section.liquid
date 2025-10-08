@@ -1,9 +1,9 @@
 <!-- sections/right-blocks-section.liquid -->
-<div class="right-blocks lst-sticky lst-top-0">
+<div class="right-blocks lst:sticky lst:top-0">
   {% for block in section.blocks %}
     {% case block.type %}
       {% when 'image' %}
-        <img src="{{ block.settings.image | img_url: 'master' }}" class="lst-w-full" alt="">
+        <img src="{{ block.settings.image | img_url: 'master' }}" class="lst:w-full" alt="">
       {% else %}
         <p>Unknown block type: {{ block.type }}</p>
     {% endcase %}

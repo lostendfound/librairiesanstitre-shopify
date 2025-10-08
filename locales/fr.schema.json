@@ -1570,22 +1570,22 @@
         "sort": {
           "label": "Trier les collections par :",
           "options__1": {
-            "label": "Alphabétique, de A à Z"
+            "label": "Alphabétique : A → Z"
           },
           "options__2": {
-            "label": "Alphabétique, de Z à A"
+            "label": "Alphabétique : Z → A"
           },
           "options__3": {
-            "label": "Date, de la plus récente à la plus ancienne"
+            "label": "Date : plus récente → plus ancienne"
           },
           "options__4": {
-            "label": "Date, de la plus ancienne à la plus récente"
+            "label": "Date : plus ancienne → plus récente"
           },
           "options__5": {
-            "label": "Nombre de produits, par ordre décroissant"
+            "label": "Prix : plus faible → plus élevé"
           },
           "options__6": {
-            "label": "Nombre de produits, par ordre croissant"
+            "label": "Prix : plus élevé → plus faible"
           }
         },
         "image_ratio": {

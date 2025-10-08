@@ -31,8 +31,8 @@
     }
 {%- endstyle -%}
 
-<section class="lst-flex lst-flex-col lst-justify-between lst-h-full">
-  <div class="lst-p-3 lg:lst-p-5">
+<section class="lst:flex lst:flex-col lst:justify-between lst:h-full">
+  <div class="lst:p-3 lst:lg:p-5">
     {% for block in section.blocks %}
       {% case block.type %}
         {% when 'newsletter_info' %}
@@ -42,14 +42,14 @@
               data-cascade
             {% endif %}
           >
-            <div class="lst-w-full">
-              {%- form 'customer', id: 'ContactFooter', class: 'lst-w-full' -%}
+            <div class="lst:w-full">
+              {%- form 'customer', id: 'ContactFooter', class: 'lst:w-full' -%}
                 <input type="hidden" name="contact[tags]" value="newsletter">
                 <div>
-                  <div class="lst-flex lst-flex-col lg:lst-flex-row lst-text-base lst-justify-between lst-mb-5">
+                  <div class="lst:flex lst:flex-col lst:lg:flex-row lst:text-base lst:justify-between lst:mb-5">
                     <div>
                       <label
-                        class="lst-text-xl lst-text-black"
+                        class="lst:text-xl lst:text-black"
                         for="NewsletterForm--{{ block.id }}"
                       >
                         {{ block.settings.newsletter_info_label }}
@@ -59,7 +59,7 @@
                         type="email"
                         name="contact[email]"
                         value="{{ form.email }}"
-                        class="lst-font-thin lst-text-xl lst-border-0 focus:lst-ring-0 focus:lst-outline-none"
+                        class="lst:font-thin lst:text-xl lst:border-0 lst:focus:ring-0 lst:focus:outline-hidden"
                         aria-required="true"
                         autocorrect="off"
                         autocapitalize="off"
@@ -79,22 +79,22 @@
                       type="submit"
                       name="commit"
                       id="Subscribe"
-                      class="lst-text-xl lst-text-black lst-text-left lg:lst-text-center"
+                      class="lst:text-xl lst:text-black lst:text-left lst:lg:text-center"
                       aria-label="{{ block.settings.newsletter_info_button_text }}"
                     >
                       {{ block.settings.newsletter_info_button_text }}
                     </button>
                   </div>
-                  <div class="lst-flex lst-items-start">
+                  <div class="lst:flex lst:items-start">
                     <input
-                      class="!lst-h-5 !lst-w-5 lst-border-black lst-rounded-none  lst-text-black focus:lst-ring-black fo lst-shrink-0"
+                      class="lst:h-5! lst:w-5! lst:border-black lst:rounded-none  lst:text-black lst:focus:ring-black fo lst:shrink-0"
                       type="checkbox"
                       name="contact[accepts_marketing]"
                       id="accepts_marketing"
                       value="true"
                       required
                     >
-                    <label for="accepts_marketing" class="lst-text-xs lst-cursor-pointer lst-ml-2">
+                    <label for="accepts_marketing" class="lst:text-xs lst:cursor-pointer lst:ml-2">
                       {{ block.settings.newsletter_info_privacy_text }}
                     </label>
                   </div>
@@ -138,13 +138,13 @@
   </div>
   <div class="">
     <div class="footer-block--links">
-      <ul class="lst-grid lst-grid-cols-2 lg:lst-flex lst-text-base lst-justify-between lst-items-center lst-border lst-border-l-0 lst-border-b-0 lst-border-black">
+      <ul class="lst:grid lst:grid-cols-2 lst:lg:flex lst:text-base lst:justify-between lst:items-center lst:border lst:border-l-0 lst:border-b-0 lst:border-black">
         {% for block in section.blocks %}
           {% case block.type %}
             {% when 'links_list' %}
               <a
                 href="{{ block.settings.links_list_link_url }}"
-                class="lst-h-[45px] lst-text-black lst-text-xs lst-transition-colors lst-px-2 h-full w-full hover:lst-bg-primary lst-text-center  lst-flex lst-justify-center lst-items-center lst-flex-grow  even:lst-border-l lg:first:!lst-border-l-0 lg:odd:lst-border-l lst-border-b lst-border-black {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+                class="lst:h-[45px] lst:text-black lst:text-xs lst:transition-colors lst:px-2 h-full w-full lst:hover:bg-primary lst:text-center  lst:flex lst:justify-center lst:items-center lst:grow  lst:even:border-l lst:lg:first:border-l-0! lst:lg:odd:border-l lst:border-b lst:border-black {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
                 {% if settings.animations_reveal_on_scroll %}
                   data-cascade
                 {% endif %}

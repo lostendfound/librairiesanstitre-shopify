@@ -38,13 +38,7 @@
           }
         }
       },
-      "block_order": [
-        "featured_image",
-        "title",
-        "event_details",
-        "content",
-        "share"
-      ],
+      "block_order": ["featured_image", "title", "content", "share", "event_details"],
       "settings": {
         "enable_sticky_info": true,
         "color_scheme": "scheme-1",
@@ -61,7 +55,5 @@
       }
     }
   },
-  "order": [
-    "main"
-  ]
+  "order": ["main"]
 }

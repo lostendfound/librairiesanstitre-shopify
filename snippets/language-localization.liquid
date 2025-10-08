@@ -5,12 +5,12 @@
 {%- for language in localization.available_languages -%}
   {% if language.iso_code != localization.language.iso_code %}
     <button
-      class="language-switch-button lst-border-x lst-border-black localization-form__select localization-selector link link--text caption-large lst-uppercase"
+      class="language-switch-button lst:border-l lst:border-black localization-form__select localization-selector link link--text caption-large lst:uppercase"
       hreflang="{{ language.iso_code }}"
       lang="{{ language.iso_code }}"
       data-value="{{ language.iso_code }}"
     >
-      <span>{{ language.iso_code | capitalize }}</span>
+      {{ language.iso_code | upcase }}
     </button>
   {% endif %}
 {%- endfor -%}

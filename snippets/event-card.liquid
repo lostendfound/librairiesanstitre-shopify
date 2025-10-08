@@ -1,18 +1,18 @@
-<div class="event-item lst-bg-[#F7F2EB] lst-border-b lst-border-black js-event-item">
-  <a href="{{ article.url }}" class="lst-px-4 lst-pt-4 lst-block lst-peer">
+<div class="event-item lst:bg-primary/5 lst:border-b lst:border-black js-event-item">
+  <a href="{{ article.url }}" class="lst:px-4 lst:pt-4 lst:block lst:peer">
     {% if article.image %}
       {% comment %}
         <img
           width="800"
           height="600"
           src="{{ article.image | image_url: width: 800 }}"
-          class="lst-w-full lst-aspect-video lst-object-cover"
+          class="lst:w-full lst:aspect-video lst:object-cover"
           alt="{{ article.title }}"
         >
       {% endcomment %}
       <img
         src="{{ article.image | image_url: width: 1000, height: 600, crop: 'center' }}"
-        class="lst-h-full lst-w-full lst-object-cover lst-aspect-[1000/600]"
+        class="lst:h-full lst:w-full lst:object-cover lst:aspect-1000/600"
         alt="{{ article.title }}"
         width="1000px"
         height="600px"
@@ -20,17 +20,26 @@
       >
     {% endif %}
   </a>
-  <div class="lst-grid lst-grid-cols-2 lst-group">
-    <h2 class="lst-col-span-2 lst-text-base lst-text-black lst-p-2 lst-border-b lst-border-black lst-px-4">
-      {{ article.title }}
-    </h2>
-    <div class="lst-text-base lst-text-black lst-py-2 lst-px-4 lst-border-r lst-border-black">
+  <div class="lst:grid lst:grid-cols-2 lst:group">
+    <div class="lst:text-large lst:leading-[1.6em] lst:line-clamp-1 lst:col-span-2">
+      <h2 class="  lst:text-black lst:p-2 lst:border-b lst:border-black lst:px-4">
+        {{ article.title }}
+      </h2>
+    </div>
+    <div class="lst:text-large lst:text-black lst:py-2 lst:px-4 lst:border-r lst:border-black">
       {% if article.metafields.blog_event.start_date_time.value %}
-        <p>Date: {{ article.metafields.blog_event.start_date_time.value | date: '%B %d, %Y' }}</p>
+        {%- assign start_date = article.metafields.blog_event.start_date_time.value | date: '%-d %b %Y' -%}
+        {%- assign start_time = article.metafields.blog_event.start_date_time.value | date: '%-Hh' -%}
+        {% if article.metafields.blog_event.end_date_time.value %}
+          {%- assign end_time = article.metafields.blog_event.end_date_time.value | date: '%-Hh' -%}
+          <p>{{ start_date }}, {{ start_time }}–{{ end_time }}</p>
+        {% else %}
+          <p>{{ start_date }}, {{ start_time }}</p>
+        {% endif %}
       {% endif %}
     </div>
     <a
-      class="lst-text-base lst-text-black lst-p-2 hover:lst-bg-primary"
+      class="lst:text-large lst:text-black lst:p-2 lst:hover:bg-primary"
       href="{{ article.url }}"
       >Infos +</a
     >

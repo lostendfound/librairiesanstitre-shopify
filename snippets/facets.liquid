@@ -45,11 +45,11 @@
           <div
             id="FacetsWrapperDesktop"
             {% if filter_type == 'horizontal' %}
-              class="facets__wrapper lst-divide-x lst-divide-black"
+              class="facets__wrapper lst:divide-x lst:divide-black"
             {% endif %}
           >
             {%- if filter_type == 'horizontal' and results.filters != empty -%}
-              <h2 class="facets__heading lst-text-xs" id="verticalTitle" tabindex="-1">
+              <h2 class="facets__heading lst:text-body lst:text-black" id="verticalTitle" tabindex="-1">
                 {{ 'products.facets.filter_by_label' | t }}
               </h2>
             {%- endif -%}
@@ -59,7 +59,7 @@
                 <div class="active-facets-vertical-filter">
                   {%- unless results.filters == empty -%}
                     <h2
-                      class="facets__heading facets__heading--vertical lst-text-xs"
+                      class="facets__heading facets__heading--vertical lst:text-xs"
                       id="verticalTitle"
                       tabindex="-1"
                     >
@@ -123,18 +123,18 @@
                 {% when 'boolean', 'list' %}
                   <details
                     id="Details-{{ filter.param_name | escape }}-{{ section.id }}"
-                    class="{% if filter_type == 'horizontal' %}disclosure-has-popup facets__disclosure{% else %} facets__disclosure-vertical{% endif %} js-filter last:!lst-border-r"
+                    class="{% if filter_type == 'horizontal' %}disclosure-has-popup facets__disclosure  {% else %} facets__disclosure-vertical{% endif %} js-filter lst:border-r lst:border-gray lst:first:border-l"
                     data-index="{{ forloop.index }}"
                     {% if filter_type == 'vertical' and forloop.index == 1 %}
                       open
                     {% endif %}
                   >
                     <summary
-                      class="facets__summary focus-offset"
+                      class="facets__summary focus-offset lst:group"
                       aria-label="{{ filter.label | escape }} ({{ 'products.facets.filters_selected.one' | t: count: filter.active_values.size }})"
                     >
                       <div>
-                        <span class="facets__summary-label">
+                        <span class="facets__summary-label lst:text-subtitle lst:text-gray lst:group-hover:text-black">
                           {{- filter.label | escape }}
                           {%- if filter_type == 'vertical' -%}
                             <span class="facets__selected{% if filter.active_values.size == 0 %} hidden{% endif %}">
@@ -167,7 +167,10 @@
                             {%- endif -%}
                           </div>
                           <facet-remove>
-                            <a href="{{ filter.url_to_remove }}" class="facets__reset link underlined-link">
+                            <a
+                              href="{{ filter.url_to_remove }}"
+                              class="facets__reset link lst:no-underline! lst:text-body lst:text-gray!"
+                            >
                               {{ 'products.facets.reset' | t }}
                             </a>
                           </facet-remove>
@@ -176,10 +179,10 @@
                       <fieldset class="facets-wrap parent-wrap {% if filter_type == 'vertical' %} facets-wrap-vertical{% endif %}">
                         <legend class="visually-hidden">{{ filter.label | escape }}</legend>
                         {%- if filter.param_name contains 'author' or filter.param_name contains 'publisher' -%}
-                          <div class="facet-filter__search lst-mx-3 lst-mb-4">
+                          <div class="facet-filter__search lst:mx-3 lst:mb-4">
                             <input
                               type="text"
-                              class="facet-filter__search-input lst-w-full lst-px-3 lst-py-2 lst-border lst-border-gray-300 lst-rounded lst-text-sm"
+                              class="facet-filter__search-input lst:w-full lst:px-3 lst:py-2 lst:border lst:border-gray  lst:text-body lst:rounded-[0.9000rem]"
                               placeholder="{% if filter.param_name contains 'author' %}{{ 'products.facets.filter_search_placeholder' | t }}{% else %}{{ 'products.facets.filter_search_publishers_placeholder' | t }}{% endif %}"
                               data-facet-filter-search
                             >
@@ -211,8 +214,8 @@
                             {%- endcapture -%}
 
                             {%- capture text_value -%}
-                              <span class="facet-checkbox__text lst-text-xs lst-leading-[1.6rem] " aria-hidden="true">
-                                <span class="facet-checkbox__text-label">{{- value.label | escape }}</span> ({{- value.count -}})
+                              <span class="facet-checkbox__text lst:text-heading" aria-hidden="true">
+                                <span class="facet-checkbox__text-label lst:text-heading">{{- value.label | escape }}</span> <span class="lst:text-gray">({{- value.count -}})</span>
                               </span>
                               <span class="visually-hidden">
                                 {{- value.label | escape }} (
@@ -244,9 +247,10 @@
                                   {{ text_value }}
                                 </div>
                               {%- else -%}
-                                <label for="{{ input_id }}" class="{{ label_class }}">
+                                <label for="{{ input_id }}" class="{{ label_class }} lst:flex lst:items-center">
                                   <input
                                     type="checkbox"
+                                    class="lst:peer"
                                     name="{{ value.param_name }}"
                                     value="{{ value.value }}"
                                     id="{{ input_id }}"
@@ -269,30 +273,37 @@
                                       {%- endif -%}
                                     </div>
                                   {%- else -%}
-                                    <svg
-                                      width="1.6rem"
-                                      height="1.6rem"
-                                      viewBox="0 0 16 16"
-                                      aria-hidden="true"
-                                      focusable="false"
-                                    >
-                                      <rect width="16" height="16" stroke="currentColor" fill="none" stroke-width="2"></rect>
-                                    </svg>
+                                    <div
+                                      class="lst:w-[1rem] lst:h-[1rem] lst:bg-white lst:rounded-full lst:block! lst:mr-[0.5rem] lst:border-black lst:border-[1px] lst:peer-checked:bg-black"
+                                    ></div>
 
+                                    {% comment %}
+                                      <svg
+
+                                        class="icon icon-checkmark"
+                                        width="1.1rem"
+                                        height="0.7rem"
+                                        viewBox="0 0 11 7"
+                                        fill="none"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                      >
+                                        <path d="M1.5 3.5L2.83333 4.75L4.16667 6L9.5 1"
+                                          stroke="currentColor"
+                                          stroke-width="1.75"
+                                          stroke-linecap="round"
+                                          stroke-linejoin="round" />
+                                      </svg>
+                                    {% endcomment %}
                                     <svg
+                                      class="icon icon-checkmark lst:size-[0.8rem] lst:text-primary"
                                       aria-hidden="true"
-                                      class="icon icon-checkmark"
-                                      width="1.1rem"
-                                      height="0.7rem"
-                                      viewBox="0 0 11 7"
-                                      fill="none"
                                       xmlns="http://www.w3.org/2000/svg"
+                                      fill="none"
+                                      viewBox="0 0 24 24"
+                                      stroke-width="2"
+                                      stroke="currentColor"
                                     >
-                                      <path d="M1.5 3.5L2.83333 4.75L4.16667 6L9.5 1"
-                                        stroke="currentColor"
-                                        stroke-width="1.75"
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round" />
+                                      <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
                                     </svg>
                                   {%- endif -%}
 
@@ -324,15 +335,17 @@
                 {% when 'price_range' %}
                   <details
                     id="Details-{{ filter.param_name | escape }}-{{ section.id }}"
-                    class="{% if filter_type == 'horizontal' %}disclosure-has-popup facets__disclosure{% else %} facets__disclosure-vertical{% endif %} js-filter last:!lst-border-r"
+                    class="{% if filter_type == 'horizontal' %}disclosure-has-popup facets__disclosure  {% else %} facets__disclosure-vertical{% endif %} js-filter lst:border-r lst:border-gray lst:first:border-l"
                     data-index="{{ forloop.index }}"
                     {% if filter_type == 'vertical' and forloop.index == 1 %}
                       open
                     {% endif %}
                   >
-                    <summary class="facets__summary focus-offset">
+                    <summary class="facets__summary focus-offset lst:group">
                       <div>
-                        <span>{{ filter.label | escape }}</span>
+                        <span class="lst:text-subtitle lst:text-gray lst:group-hover:text-black">
+                          {{- filter.label | escape -}}
+                        </span>
                         {% render 'icon-caret' %}
                       </div>
                     </summary>
@@ -347,7 +360,10 @@
                         </span>
                         {%- if filter_type != 'vertical' -%}
                           <facet-remove>
-                            <a href="{{ filter.url_to_remove }}" class="facets__reset link underlined-link">
+                            <a
+                              href="{{ filter.url_to_remove }}"
+                              class="facets__reset link lst:no-underline! lst:text-body lst:text-gray!"
+                            >
                               {{ 'products.facets.reset' | t }}
                             </a>
                           </facet-remove>
@@ -426,17 +442,19 @@
           {%- if enable_sorting -%}
             <div class="facet-filters sorting caption">
               <div class="facet-filters__field">
-                <h2 class="facet-filters__label lst-text-xs">
-                  <label for="SortBy">{{ 'products.facets.sort_by_label' | t }}</label>
+                <h2 class="">
+                  <label class="facet-filters__label lst:text-body lst:text-black" for="SortBy">
+                    {{- 'products.facets.sort_by_label' | t -}}
+                  </label>
                 </h2>
                 <div class="inline-flex items-baseline"></div>
-                <label class="text-sm lg:text-base text-gray-500 mr-2 lg:mr-3" for="SortBy">
+                <label class="text-sm lg:text-base  text-gray-500 mr-2 lg:mr-3" for="SortBy">
                   {%- assign sort_by = results.sort_by | default: results.default_sort_by -%}
                 </label>
 
                 <div
-                  class="select inline-block js-select"
-                  data-trigger-class="reset text-sm lg:text-base text-gray-700 underline inline-flex items-center cursor-pointer js-tab-focus"
+                  class="select inline-block js-select lst:lg:min-w-[19.5554rem]"
+                  data-trigger-class="reset lst:text-gray lst:hover:text-black lst:aria-expanded:text-black underline inline-flex lst:px-[1.0227rem] items-center cursor-pointer lst:aria-expanded:bg-primary lst:pb-[0.4909rem] lst:pt-[0.3273rem] js-tab-focus"
                 >
                   <select
                     name="sort_by"
@@ -458,7 +476,7 @@
                     {%- endfor -%}
                   </select>
                   <svg
-                    class="icon lst-inline-block lst-text-inherit lst-fill-current lst-leading-none lst-shrink-0 lst-w-[8px] lst-h-[8px] lst-ml-1.5 lg:lst-ml-2"
+                    class="icon lst:inline-block lst:text-inherit lst:fill-current lst:leading-none lst:shrink-0 lst:w-[8px] lst:h-[8px] lst:ml-1.5 lst:lg:ml-2"
                     viewBox="0 0 8 8"
                   >
                     <path d="M7.934,1.251A.5.5,0,0,0,7.5,1H.5a.5.5,0,0,0-.432.752l3.5,6a.5.5,0,0,0,.864,0l3.5-6A.5.5,0,0,0,7.934,1.251Z"/>
@@ -599,7 +617,7 @@
                               {%- endcapture -%}
 
                               {%- capture text_value -%}
-                                <span class="facet-checkbox__text lst-text-xs lst-leading-[1.6rem]" aria-hidden="true">
+                                <span class="facet-checkbox__text lst:text-xs lst:leading-[1.6rem]" aria-hidden="true">
                                   <span class="facet-checkbox__text-label ">{{- value.label | escape }}</span> ({{- value.count -}})
                                 </span>
                                 <span class="visually-hidden">
@@ -865,16 +883,18 @@
       <form id="FacetSortDrawerForm" class="facets__form">
         <div class="facet-filters sorting caption small-hide">
           <div class="facet-filters__field">
-            <h2 class="facet-filters__label lst-text-xs">
-              <label for="SortBy">{{ 'products.facets.sort_by_label' | t }}</label>
+            <h2 class="">
+              <label class="facet-filters__label lst:text-body lst:text-black" for="SortBy">
+                {{- 'products.facets.sort_by_label' | t -}}
+              </label>
             </h2>
             <div
-              class="select inline-block js-select"
-              data-trigger-class="reset text-sm lg:text-base text-gray-700 underline inline-flex items-center cursor-pointer js-tab-focus"
+              class="select inline-block js-select lst:lg:min-w-[19.5554rem]"
+              data-trigger-class="reset text-gray underline inline-flex lst:px-[] items-center cursor-pointer js-tab-focus"
             >
               <select
                 name="sort_by"
-                class="facet-filters__sort select__select lst-hidden"
+                class="facet-filters__sort select__select lst:hidden"
                 id="SortBy"
                 aria-describedby="a11y-refresh-page-message"
               >
@@ -890,7 +910,7 @@
                 {%- endfor -%}
               </select>
               <svg
-                class="icon lst-inline-block lst-text-inherit lst-fill-current lst-leading-none lst-shrink-0 lst-w-[8px] lst-h-[8px] lst-ml-1.5 lg:lst-ml-2"
+                class="icon lst:inline-block lst:text-inherit lst:fill-current lst:leading-none lst:shrink-0 lst:w-[8px] lst:h-[8px] lst:ml-1.5 lst:lg:ml-2"
                 viewBox="0 0 8 8"
               >
                 <path d="M7.934,1.251A.5.5,0,0,0,7.5,1H.5a.5.5,0,0,0-.432.752l3.5,6a.5.5,0,0,0,.864,0l3.5-6A.5.5,0,0,0,7.934,1.251Z"/>
@@ -914,7 +934,7 @@
     class="product-count light{% if filter_type == 'vertical' or filter_type == 'horizontal' %} medium-hide large-up-hide{% endif %}"
     role="status"
   >
-    <h2 class="product-count__text lst-text-xs">
+    <h2 class="product-count__text lst:text-xs">
       <span id="ProductCount">
         {%- if results.results_count -%}
           {{ 'templates.search.results_with_count' | t: terms: results.terms, count: results.results_count }}

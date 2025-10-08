@@ -67,7 +67,7 @@ variant-selects {
   margin: 0.4375rem 0.3125rem 0.125rem 0;
   padding: 0.625rem 1.25rem;
   font-size: 0.875rem;
-  letter-spacing: 0.0625rem;
+  letter-spacing: 0;
   line-height: 1;
   text-align: center;
   transition: border var(--duration-short) ease;

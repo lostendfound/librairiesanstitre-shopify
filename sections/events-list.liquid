@@ -36,10 +36,10 @@
 </script>
 
 {% if upcoming_events.size != 0 %}
-  <div class="color-{{ section.settings.color_scheme }} isolate gradient lst-border-b lst-border-black">
+  <div class="color-{{ section.settings.color_scheme }} isolate gradient lst:border-b lst:border-black">
     <div class="slideshow js-slideshow " data-swipe="on">
-      <div class="lst-px-3 lg:lst-px-5 lst-py-5 lst-border-b lst-border-black lst-text-left lst-uppercase lst-flex lst-items-center lst-justify-between">
-        <h2 class="h2 {{ section.settings.heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+      <div class="lst:px-3 lst:lg:px-[1.2273rem] lst:pt-5 lst:pb-12 lst:border-b lst:border-black lst:before:content-['']  lst:flex lst:items-center">
+        <h2 class="h2 lst:text-left lst:text-6xl lst:lg:text-hero {{ section.settings.heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
           {{ 'sections.events.events' | t }}
         </h2>
         <div class="">
@@ -54,9 +54,9 @@
       </div>
       <ul class="slideshow__content">
         {% for article in upcoming_events %}
-          <div class="lst-grid lg:lst-grid-cols-2 slideshow__item js-slideshow__item lst-items-stretch lst-min-h-0 lst-border-b lst-border-black">
-            <div class="lst-bg-[#F7F2EB] lst-p-3 lg:lst-p-5 lst-border-r lst-border-black">
-              <div class="lst-grid lst-grid-cols-2">
+          <div class="lst:grid lst:lg:grid-cols-2 slideshow__item js-slideshow__item lst:items-stretch lst:min-h-0 lst:border-b lst:border-black">
+            <div class="lst:bg-[#F7F2EB] lst:p-3 lst:lg:p-5 lst:border-r lst:border-black">
+              <div class="lst:grid lst:grid-cols-2">
                 {%- assign start_date = article.metafields.blog_event.start_date_time.value | date: '%d %b %Y' -%}
                 {%- assign end_date = article.metafields.blog_event.end_date_time.value | date: '%d %b %Y' -%}
 
@@ -64,26 +64,26 @@
                   <div>
                     {{ start_date }}
                   </div>
-                  <div class="lst-text-right">
+                  <div class="lst:text-right">
                     {% assign start_time = article.metafields.blog_event.start_date_time.value | date: '%-H:%M' %}
                     {% assign end_time = article.metafields.blog_event.end_date_time.value | date: '%-H:%M' %}
                     {{ start_time | replace: ':00', 'h' | replace: ':', 'h ' | replace: 'h m', 'h' }} —
                     {{ end_time | replace: ':00', 'h' | replace: ':', 'h ' | replace: 'h m', 'h' }}
                   </div>
                 {% else %}
-                  <div class="lst-col-span-2">{{ start_date }} — {{ end_date }}</div>
+                  <div class="lst:col-span-2">{{ start_date }} — {{ end_date }}</div>
                 {%- endif -%}
               </div>
               <h2 class="h1">{{ article.title }}</h2>
-              <div class="lst-prose lst-line-clamp-6">
+              <div class="lst:prose lst:line-clamp-6">
                 {{ article.metafields.blog_event.description }}
               </div>
             </div>
-            <a href="{{ article.url }}" class="lst-block lst-peer">
+            <a href="{{ article.url }}" class="lst:block lst:peer">
               {% if article.metafields.blog_event.homepage_image %}
                 <img
                   src="{{ article.metafields.blog_event.homepage_image | image_url: width: 1000, height: 600, crop: 'center' }}"
-                  class="lst-h-full lst-w-full lst-object-cover lst-aspect-[1000/600]"
+                  class="lst:h-full lst:w-full lst:object-cover lst:aspect-1000/600"
                   alt="{{ article.metafields.blog_event.homepage_image.alt }}"
                   width="1000px"
                   height="600px"
@@ -92,7 +92,7 @@
               {% else %}
                 <img
                   src="{{ article.image | image_url: width: 1000, height: 600, crop: 'center' }}"
-                  class="lst-h-full lst-w-full lst-object-cover lst-aspect-[1000/600]"
+                  class="lst:h-full lst:w-full lst:object-cover lst:aspect-1000/600"
                   alt="{{ article.image.alt }}"
                   width="1000px"
                   height="600px"
@@ -101,37 +101,37 @@
               {% endif %}
             </a>
             <a
-              class="event-more-info h4 lst-text-black hover:lst-bg-primary peer-hover:lst-bg-primary lst-px-3 lg:lst-px-5 lg:lst-border-r lg:lst-border-black lst-items-center lst-space-x-2 lg:lst-col-span-1 lst-grid lg:lst-grid-cols-4 lst-h-[45px] lst-border-t lst-border-black"
+              class="event-more-info h4 lst:text-black lst:hover:bg-primary lst:peer-hover:bg-primary lst:px-3 lst:lg:px-[1.2273rem] lst:lg:border-r lst:lg:border-black lst:items-center lst:space-x-2 lst:lg:col-span-1 lst:grid lst:lg:grid-cols-4 lst:h-[45px] lst:border-t lst:border-black"
               href="{{ article.url }}"
             >
               {% render 'icon-arrow' %}
-              <span class="lst-col-span-3">{{ 'sections.events.more_info' | t }}</span>
+              <span class="lst:col-span-3">{{ 'sections.events.more_info' | t }}</span>
             </a>
           </div>
         {% endfor %}
       </ul>
-      <div class="lst-h-[45px] lst-grid lst-grid-cols-4 lg:-lst-mt-[46px] lst-py-2 lst-border-t lst-border-black">
-        <ul class="lst-col-start-3 lst-flex lst-px-3 lg:lst-px-5 lst-divide-x lst-divide-black">
-          <li class="js-slideshow__control  lst-h-full lst-transform lst-rotate-180 lst-flex lst-items-center lst-relative lst-z-10 lst-pl-3">
-            <button class="js-tab-focus lst-flex lst-items-center lst-h-full">
-              <span class="lst-sr-only">Show previous slide</span>
+      <div class="lst:h-[45px] lst:grid lst:grid-cols-4 lst:lg:-mt-[46px] lst:py-2 lst:border-t lst:border-black">
+        <ul class="lst:col-start-3 lst:flex lst:px-3 lst:lg:px-[1.2273rem] lst:divide-x lst:divide-black">
+          <li class="js-slideshow__control  lst:h-full lst:transform lst:rotate-180 lst:flex lst:items-center lst:relative lst:z-10 lst:pl-3">
+            <button class="js-tab-focus lst:flex lst:items-center lst:h-full">
+              <span class="lst:sr-only">Show previous slide</span>
               →
             </button>
           </li>
-          <li class="js-slideshow__control  lst-h-full lst-flex lst-items-center lst-relative lst-z-10 lst-pl-3">
-            <button class="js-tab-focus lst-flex lst-items-center lst-h-full ">
-              <span class="lst-sr-only">Show next slide</span>
+          <li class="js-slideshow__control  lst:h-full lst:flex lst:items-center lst:relative lst:z-10 lst:pl-3">
+            <button class="js-tab-focus lst:flex lst:items-center lst:h-full ">
+              <span class="lst:sr-only">Show next slide</span>
               →
             </button>
           </li>
         </ul>
-        <div class="js-slideshow__numbers lst-px-3 lg:lst-px-5 lst-flex lst-items-center lst-justify-end">
-          <p class="h4 lst-text-right">
-            <i class="lst-not-italic js-carousel__counter"></i>/<i class="lst-not-italic js-carousel__counter-tot"></i>
+        <div class="js-slideshow__numbers lst:px-3 lst:lg:px-[1.2273rem] lst:flex lst:items-center lst:justify-end">
+          <p class="h4 lst:text-right">
+            <i class="lst:not-italic js-carousel__counter"></i>/<i class="lst:not-italic js-carousel__counter-tot"></i>
           </p>
         </div>
       </div>
-      <div class="js-slideshow-bullets lst-hidden"></div>
+      <div class="js-slideshow-bullets lst:hidden"></div>
     </div>
   </div>
 {% endif %}

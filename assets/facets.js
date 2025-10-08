@@ -28,7 +28,7 @@ const CustomSelect = (function () {
     this.trigger = this.element.querySelector('.js-select__button');
     this.customOptions = this.dropdown ? this.dropdown.querySelectorAll('.js-select__item') : [];
     this.selectedOption = this.getSelectedOption();
-    this.select.classList.add('lst-hidden');
+    this.select.classList.add('lst:hidden');
     if (this.arrowIcon.length > 0) this.arrowIcon[0].style.display = 'none';
     if (this.dropdown) {
       this.placeDropdown();
@@ -187,7 +187,7 @@ const CustomSelect = (function () {
       label +
       '" aria-expanded="false" aria-controls="' +
       this.selectId +
-      '-dropdown"><span aria-lst-="true" class="js-select__label select__label">' +
+      '-dropdown"><span aria-lst:="true" class="js-select__label select__label lst:text-subtitle ">' +
       (selectedOption ? selectedOption.innerHTML : '') +
       '</span>';
     if (this.arrowIcon.length > 0 && this.arrowIcon[0].outerHTML) {
@@ -214,17 +214,23 @@ const CustomSelect = (function () {
             this.optGroups[i].getAttribute('label') +
             '</span></li>';
         list +=
-          '<ul class="select__list" role="listbox">' + optGroupLabel + this.getOptionsList(optGroupList) + '</ul>';
+          '<ul class="select__list lst:px-[1.0227rem] lst:divide-y lst:divide-black" role="listbox">' +
+          optGroupLabel +
+          this.getOptionsList(optGroupList) +
+          '</ul>';
       }
     } else {
-      list += '<ul class="select__list" role="listbox">' + this.getOptionsList(this.options) + '</ul>';
+      list +=
+        '<ul class="select__list lst:px-[1.0227rem] lst:divide-y lst:divide-black" role="listbox">' +
+        this.getOptionsList(this.options) +
+        '</ul>';
     }
     return list + '</div>';
   };
 
   CustomSelect.prototype.getSelectLabelSR = function () {
     return this.label
-      ? '<p class="lst-sr-only lst-px-3 lg:lst-px-4 lst-text-xs" id="' +
+      ? '<p class="lst:sr-only lst:px-3 lst:lg:px-4 lst:text-xs" id="' +
           this.selectId +
           '-description">' +
           this.label.textContent +

@@ -31,7 +31,7 @@ export default (function () {
     t.customOptions = t.dropdown.getElementsByClassName('js-select__item');
 
     // hide default select
-    t.select.classList.add('lst-hidden');
+    t.select.classList.add('lst:hidden');
     if (t.arrowIcon.length > 0) t.arrowIcon[0].style.display = 'none';
 
     // store drowpdown min-width
@@ -180,7 +180,7 @@ export default (function () {
       label +
       '" aria-expanded="false" aria-controls="' +
       t.selectId +
-      '-dropdown"><span aria-lst-="true" class="js-select__label select__label">' +
+      '-dropdown"><span aria-lst:="true" class="js-select__label select__label lst:text-subtitle ">' +
       t.selectedOption +
       '</span>';
     if (t.arrowIcon.length > 0 && t.arrowIcon[0].outerHTML) {
@@ -209,10 +209,18 @@ export default (function () {
             t.optGroups[i].getAttribute('label') +
             '</span></li>';
         list =
-          list + '<ul class="select__list" role="listbox">' + optGroupLabel + getOptionsList(t, optGroupList) + '</ul>';
+          list +
+          '<ul class="select__list lst:divide-y lst:px-[1.0227rem] lst:divide-black" role="listbox">' +
+          optGroupLabel +
+          getOptionsList(t, optGroupList) +
+          '</ul>';
       }
     } else {
-      list = list + '<ul class="select__list" role="listbox">' + getOptionsList(t, t.options) + '</ul>';
+      list =
+        list +
+        '<ul class="select__list lst:divide-y lst:px-[1.0227rem] lst:divide-black" role="listbox">' +
+        getOptionsList(t, t.options) +
+        '</ul>';
     }
     return list;
   }
@@ -220,7 +228,7 @@ export default (function () {
   function getSelectLabelSR(t) {
     if (t.label) {
       return (
-        '<p class="lst-sr-only lst-px-2 lst-text-xs" id="' +
+        '<p class="lst:sr-only lst:px-2 lst:text-xs" id="' +
         t.selectId +
         '-description">' +
         t.label.textContent +

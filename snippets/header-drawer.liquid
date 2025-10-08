@@ -20,7 +20,7 @@
       <div class="menu-drawer__inner-container">
         <div class="menu-drawer__navigation-container">
           <nav class="menu-drawer__navigation">
-            <ul class="menu-drawer__menu has-submenu list-menu" role="list">
+            <ul class="menu-drawer__menu has-submenu list-menu lst:flex-col lst:lg:flex-row" role="list">
               {%- for link in section.settings.menu.links -%}
                 <li>
                   {%- if link.links != blank -%}
@@ -43,7 +43,7 @@
                             {% render 'icon-arrow' %}
                             {{ link.title | escape }}
                           </button>
-                          <ul class="menu-drawer__menu list-menu" role="list" tabindex="-1">
+                          <ul class="menu-drawer__menu list-menu lst:flex-col lst:lg:flex-row" role="list" tabindex="-1">
                             {%- for childlink in link.links -%}
                               <li>
                                 {%- if childlink.links == blank -%}
@@ -123,7 +123,7 @@
               {%- endfor -%}
             </ul>
           </nav>
-          <div class="menu-drawer__utility-links lst-px-12">
+          <div class="menu-drawer__utility-links lst:px-12">
             {%- if localization.available_countries or localization.available_languages -%}
               <div class="menu-drawer__localization header-localization">
                 <!--
@@ -158,9 +158,9 @@
             {%- if shop.customer_accounts_enabled -%}
               <a
                 href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}"
-                class="menu-drawer__account link focus-inset h5 lst-block lg:lst-hidden"
+                class="menu-drawer__account link focus-inset h5 lst:block lst:lg:hidden"
               >
-                <account-icon class="lst-mr-3">
+                <account-icon class="lst:mr-3">
                   {%- if customer and customer.has_avatar? -%}
                     {{ customer | avatar }}
                   {%- else -%}

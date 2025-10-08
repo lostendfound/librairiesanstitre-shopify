@@ -38,3 +38,7 @@ dist-ssr
 .shopify
 docs/.vitepress/cache
 docs/.vitepress/temp
+# Utility scripts (local only)
+restore-products.js
+tag-images.js
+.git-rewrite

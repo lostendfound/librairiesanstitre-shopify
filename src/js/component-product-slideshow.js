@@ -618,7 +618,7 @@
     if (!carousel.options.ariaLive) return;
     // create an element that will be used to announce the new visible slide to SR
     var srLiveArea = document.createElement('div');
-    srLiveArea.setAttribute('class', 'lst-sr-only js-slideshow__aria-live');
+    srLiveArea.setAttribute('class', 'lst:sr-only js-slideshow__aria-live');
     srLiveArea.setAttribute('aria-live', 'polite');
     srLiveArea.setAttribute('aria-atomic', 'true');
     carousel.element.appendChild(srLiveArea);
@@ -657,12 +657,12 @@
 
   function getCarouselWidth(carousel, computedWidth) {
     // retrieve carousel width if carousel is initially hidden
-    var closestHidden = carousel.listWrapper.closest('.lst-sr-only');
+    var closestHidden = carousel.listWrapper.closest('.lst:sr-only');
     if (closestHidden) {
       // carousel is inside an .sr-only (visually hidden) element
-      closestHidden.classList.remove('lst-sr-only');
+      closestHidden.classList.remove('lst:sr-only');
       computedWidth = carousel.listWrapper.offsetWidth;
-      closestHidden.classList.add('lst-sr-only');
+      closestHidden.classList.add('lst:sr-only');
     } else if (isNaN(computedWidth)) {
       computedWidth = getHiddenParentWidth(carousel.element, carousel);
     }
@@ -731,7 +731,7 @@
     var navigation = document.createElement('ol'),
       navChildren = '';
 
-    var navClasses = carousel.options.navigationClass + ' js-slideshow__navigation';
+    var navClasses = carousel.options.navigationClass + ' js-slideshow__navigation lst:sr-only';
     if (carousel.items.length <= carousel.visibItemsNb) {
       navClasses = navClasses + ' hidden';
     }
@@ -739,7 +739,7 @@
 
     var dotsNr = Math.ceil(carousel.items.length / carousel.visibItemsNb),
       selectedDot = getSelectedDot(carousel),
-      indexClass = carousel.options.navigationPagination ? '' : 'lst-sr-only';
+      indexClass = carousel.options.navigationPagination ? '' : 'lst:sr-only';
     for (var i = 0; i < dotsNr; i++) {
       var className =
         i == selectedDot

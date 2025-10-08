@@ -117,6 +117,7 @@ Util.extend = function () {
     initAriaLive(this); // set aria-live region for SR
     initCarouselEvents(this); // listen to events
     initCarouselCounter(this);
+    updateArrowPosition(this); // calculate and set arrow position based on image height
     this.element.classList.add('carousel--loaded');
   };
 
@@ -382,23 +383,27 @@ Util.extend = function () {
   }
 
   function noLoopTranslateValue(carousel, direction) {
-    var translate = carousel.totTranslate;
-    if (direction == 'next') {
-      translate = carousel.totTranslate + carousel.translateContainer;
-    } else if (direction == 'prev') {
-      translate = carousel.totTranslate - carousel.translateContainer;
-    } else if (direction == 'click') {
-      translate = carousel.selectedDotIndex * carousel.translateContainer;
-    }
+    // Calculate translate based on the current selectedItem, not totTranslate
+    // This prevents getting stuck at boundaries
+    var translate = -carousel.selectedItem * (carousel.itemsWidth + parseFloat(getComputedStyle(carousel.items[0]).marginRight));
+
+    // Apply boundary constraints
     if (translate > 0) {
       translate = 0;
       carousel.selectedItem = 0;
     }
-    if (translate < -carousel.translateContainer - carousel.containerWidth) {
-      translate = -carousel.translateContainer - carousel.containerWidth;
+
+    var maxTranslate = -carousel.translateContainer - carousel.containerWidth;
+    if (translate < maxTranslate) {
+      translate = maxTranslate;
       carousel.selectedItem = carousel.items.length - carousel.visibItemsNb;
     }
-    if (carousel.visibItemsNb > carousel.items.length) translate = 0;
+
+    if (carousel.visibItemsNb >= carousel.items.length) {
+      translate = 0;
+      carousel.selectedItem = 0;
+    }
+
     carousel.totTranslate = translate;
     return translate + 'px';
   }
@@ -548,7 +553,7 @@ Util.extend = function () {
     if (!carousel.options.ariaLive) return;
     // create an element that will be used to announce the new visible slide to SR
     var srLiveArea = document.createElement('div');
-    srLiveArea.setAttribute('class', 'lst-sr-only js-carousel__aria-live');
+    srLiveArea.setAttribute('class', 'lst:sr-only js-carousel__aria-live');
     srLiveArea.setAttribute('aria-live', 'polite');
     srLiveArea.setAttribute('aria-atomic', 'true');
     carousel.element.appendChild(srLiveArea);
@@ -590,9 +595,9 @@ Util.extend = function () {
     var closestHidden = carousel.listWrapper.closest('.sr-only');
     if (closestHidden) {
       // carousel is inside an .sr-only (visually hidden) element
-      closestHidden.classList.remove('lst-sr-only');
+      closestHidden.classList.remove('lst:sr-only');
       computedWidth = carousel.listWrapper.offsetWidth;
-      closestHidden.classList.add('lst-sr-only');
+      closestHidden.classList.add('lst:sr-only');
     } else if (isNaN(computedWidth)) {
       computedWidth = getHiddenParentWidth(carousel.element, carousel);
     }
@@ -661,7 +666,7 @@ Util.extend = function () {
     var navigation = document.createElement('ol'),
       navChildren = '';
 
-    var navClasses = carousel.options.navigationClass + ' js-carousel__navigation';
+    var navClasses = carousel.options.navigationClass + ' js-carousel__navigation lst:sr-only';
     if (carousel.items.length <= carousel.visibItemsNb) {
       navClasses = navClasses + ' hidden';
     }
@@ -669,7 +674,7 @@ Util.extend = function () {
 
     var dotsNr = Math.ceil(carousel.items.length / carousel.visibItemsNb),
       selectedDot = getSelectedDot(carousel),
-      indexClass = carousel.options.navigationPagination ? '' : 'lst-sr-only';
+      indexClass = carousel.options.navigationPagination ? '' : 'lst:sr-only';
     for (var i = 0; i < dotsNr; i++) {
       var className =
         i == selectedDot
@@ -871,6 +876,48 @@ Util.extend = function () {
         rightArrow.style.color = rightBrightness > 128 ? '#000000' : '#ffffff';
       }
     }
+  }
+
+  function updateArrowPosition(carousel) {
+    // Find the first carousel item with an image
+    if (carousel.items.length === 0) return;
+
+    const firstItem = carousel.items[0];
+
+    // Try to find image container - support both product cards and collection cards
+    let imageContainer = firstItem.querySelector('.lst\\:aspect-square, [class*="aspect"]');
+
+    // If not found, try collection card structure
+    if (!imageContainer) {
+      imageContainer = firstItem.querySelector('.card__media, .card__inner');
+    }
+
+    if (!imageContainer) return;
+
+    // Wait for images to load, then calculate position
+    const img = imageContainer.querySelector('img');
+
+    function calculatePosition() {
+      const cardHeight = firstItem.offsetHeight;
+      const imageHeight = imageContainer.offsetHeight;
+
+      if (cardHeight > 0 && imageHeight > 0) {
+        // Calculate the center of the image as a percentage of total card height
+        const imageCenterPosition = (imageHeight / 2) / cardHeight * 100;
+        carousel.element.style.setProperty('--carousel-arrow-position', imageCenterPosition + '%');
+      }
+    }
+
+    if (img && img.complete) {
+      calculatePosition();
+    } else if (img) {
+      img.addEventListener('load', calculatePosition);
+    }
+
+    // Recalculate on window resize
+    window.addEventListener('resize', function() {
+      calculatePosition();
+    });
   }
 
   var extendProps = function () {

@@ -155,7 +155,7 @@ Util.extend = function () {
     // create an element that will be used to announce the new visible slide to SR
     var srLiveArea = document.createElement('div');
     Util.setAttributes(srLiveArea, {
-      class: 'lst-sr-only js-slideshow__aria-live',
+      class: 'lst:sr-only js-slideshow__aria-live',
       'aria-live': 'polite',
       'aria-atomic': 'true',
     });
@@ -172,7 +172,7 @@ Util.extend = function () {
         var navigation = document.createElement('ol'),
           navChildren = '';
 
-        var navClasses = slideshow.options.navigationClass + ' js-slideshow__navigation lst-col-start-3';
+        var navClasses = slideshow.options.navigationClass + ' js-slideshow__navigation lst:col-start-3';
         if (slideshow.items.length <= 1) {
           navClasses = navClasses + ' hidden';
         }
@@ -189,13 +189,13 @@ Util.extend = function () {
                 : 'class="' + slideshow.options.navigationItemClass + ' js-slideshow__nav-item"',
             navCurrentLabel =
               i == slideshow.selectedSlide
-                ? '<span class="lst-sr-only js-slideshow__nav-current-label">Current Item</span>'
+                ? '<span class="lst:sr-only js-slideshow__nav-current-label">Current Item</span>'
                 : '';
           navChildren =
             navChildren +
             '<li ' +
             className +
-            '><button class="reset"><span class="lst-sr-only">' +
+            '><button class="reset"><span class="lst:sr-only">' +
             (i + 1) +
             '</span>' +
             navCurrentLabel +

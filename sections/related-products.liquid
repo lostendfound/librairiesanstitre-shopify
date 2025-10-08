@@ -23,15 +23,17 @@
 <div class="color-{{ section.settings.color_scheme }} gradient">
   <product-recommendations
     style="--grid-desktop-horizontal-spacing: 0px"
-    class="related-products !lst-py-0 lst-border-t lst-border-black page-width lst-block section-{{ section.id }}-padding isolate{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+    class="related-products lst:py-0! lst:border-t lst:border-black page-width lst:block section-{{ section.id }}-padding isolate{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
     data-url="{{ routes.product_recommendations_url }}?section_id={{ section.id }}&product_id={{ product.id }}&limit={{ section.settings.products_to_show }}"
   >
     {% if recommendations.performed and recommendations.products_count > 0 %}
-      <div class="lst-px-3 lg:lst-px-5 lst-py-5 lst-border-b lst-border-black lst-text-left lst-uppercase">
-        <h2 class="h2">{{ section.settings.heading }}</h2>
+      <div class="lst:px-3 lst:lg:px-[1.2273rem] lst:pt-5 lst:pb-12 lst:border-b lst:border-black lst:before:content-[''] ">
+        <h2 class="h2 lst:text-6xl lst:lg:text-hero lst:text-center">
+          {{ section.settings.heading }}
+        </h2>
       </div>
       <ul
-        class="grid lst-divide-x lst-divide-black product-grid grid--{{ section.settings.columns_desktop }}-col-desktop grid--{{ section.settings.columns_mobile }}-col-tablet-down"
+        class="grid lst:divide-x lst:divide-black product-grid lst:gap-0! grid--{{ section.settings.columns_desktop }}-col-desktop grid--{{ section.settings.columns_mobile }}-col-tablet-down"
         role="list"
       >
         {% for recommendation in recommendations.products %}

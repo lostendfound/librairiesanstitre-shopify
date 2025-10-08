@@ -1,6 +1,6 @@
 .price {
   font-size: 1.0rem;
-  letter-spacing: 0.0625rem;
+  letter-spacing: 0;
   line-height: calc(1 + 0.5 / var(--font-body-scale));
   color: rgb(var(--color-foreground));
 }
@@ -40,7 +40,7 @@
 .price--large {
   font-size: 1.0rem;
   line-height: calc(1 + 0.5 / var(--font-body-scale));
-  letter-spacing: 0.08125rem;
+  letter-spacing: 0;
 }
 
 @media screen and (min-width: 750px) {
@@ -93,7 +93,7 @@
 .unit-price {
   display: block;
   font-size: 0.6875rem;
-  letter-spacing: 0.025rem;
+  letter-spacing: 0;
   line-height: calc(1 + 0.2 / var(--font-body-scale));
   margin-top: 0.125rem;
   text-transform: uppercase;
