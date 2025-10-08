@@ -12,20 +12,20 @@
     "carousel_BJXnET": {
       "type": "carousel",
       "blocks": {
-        "slide_PhcJgp": {
+        "slide_tP7ML4": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/banniere_886b19c5-dac9-412a-9c77-9137c7f07c9e.jpg",
-            "heading": "Lancement PASÉ BÉL TAN : FRANCOPHONIES AND CREOLITIES IN LOUISIANA",
+            "image": "shopify://shop_images/banner-template_9a74187b-dad3-42a6-b621-c4638fd47fec.jpg",
+            "heading": "Vendredi 17 octobre à 18h",
             "heading_size": "h1",
-            "subheading": "Vendredi 26 septembre de 18h à 21h",
-            "button_label": "Plus d'infos",
-            "link": "shopify://blogs/events/lancement-session-decoute-pour-le-livre-pase-bel-tan-francophonies-et-creolites-en-louisiane"
+            "subheading": "Exposition & lancement : Le sentier / The path de Sammy Stein",
+            "button_label": "Button label",
+            "link": ""
           }
         }
       },
       "block_order": [
-        "slide_PhcJgp"
+        "slide_tP7ML4"
       ],
       "settings": {}
     },

@@ -1394,9 +1394,6 @@
   .lst\:pb-\[4rem\] {
     padding-bottom: 4rem;
   }
-  .lst\:pb-\[7\.7636rem\] {
-    padding-bottom: 7.7636rem;
-  }
   .lst\:pl-3 {
     padding-left: calc(var(--lst-spacing) * 3);
   }
@@ -2020,19 +2017,9 @@
       padding-inline: calc(var(--lst-spacing) * 4);
     }
   }
-  .lst\:lg\:px-5 {
-    @media (width >= 64rem) {
-      padding-inline: calc(var(--lst-spacing) * 5);
-    }
-  }
   .lst\:lg\:px-\[1\.2273rem\] {
     @media (width >= 64rem) {
       padding-inline: 1.2273rem;
-    }
-  }
-  .lst\:lg\:px-\[2\.7rem\] {
-    @media (width >= 64rem) {
-      padding-inline: 2.7rem;
     }
   }
   .lst\:lg\:px-\[2\.7rem\]\! {

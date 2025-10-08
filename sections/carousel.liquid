@@ -23,7 +23,11 @@
             </div>
           {% endif %}
 
-          <a href="{{ block.settings.link | default: '#' }}" class="lst:absolute lst:inset-0 {% if block.settings.link != blank %}lst:cursor-pointer{% endif %} lst:z-10" aria-label="{{ block.settings.heading | default: 'View slide' }}">
+          {% if block.settings.link != blank %}
+            <a href="{{ block.settings.link }}" class="lst:absolute lst:inset-0 lst:cursor-pointer lst:z-10" aria-label="{{ block.settings.heading | default: 'View slide' }}">
+          {% else %}
+            <div class="lst:absolute lst:inset-0 lst:z-10">
+          {% endif %}
             {%- comment -%} Dark overlay - 60% opacity {%- endcomment -%}
             <div class="lst:absolute lst:inset-0 lst:bg-black/60 lst:!block"></div>
 
@@ -64,8 +68,8 @@
               <div></div>
             {% endif %}
 
-            {%- comment -%} CTA Button - bottom right {%- endcomment -%}
-            {% if block.settings.button_label != blank %}
+            {%- comment -%} CTA Button - bottom right (only show if link exists) {%- endcomment -%}
+            {% if block.settings.link != blank and block.settings.button_label != blank %}
               <span
                 class="button button--white"
                 style="position: absolute; right: 1.2273rem; bottom: 2.7000rem;"
@@ -74,7 +78,11 @@
               </span>
             {% endif %}
             </div>
-          </a>
+          {% if block.settings.link != blank %}
+            </a>
+          {% else %}
+            </div>
+          {% endif %}
         </div>
       </li>
     {%- endfor -%}
