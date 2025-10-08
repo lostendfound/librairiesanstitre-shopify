@@ -170,7 +170,7 @@
 
     {%- comment -%} Footer Bottom Links {%- endcomment -%}
     <div class="footer__bottom lst:border-t lst:border-[#808080] lst:pt-0 ">
-      <div class="lst:grid lst:sm:grid-cols-2 lst:lg:grid-cols-4 lst:gap-0 lst:sm:divide-y lst:divide-x lst:divide-[#808080] lst:border-b lst:border-[#808080]">
+      <div class="lst:grid lst:sm:grid-cols-2 lst:lg:grid-cols-4 lst:gap-0 lst:divide-x lst:divide-y lst:lg:divide-y-0 lst:divide-[#808080] lst:border-b lst:border-[#808080]">
         {% if section.settings.link_cvg != blank %}
           <a
             href="{{ section.settings.link_cvg }}"

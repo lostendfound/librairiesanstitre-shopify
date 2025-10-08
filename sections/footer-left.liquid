@@ -14,7 +14,7 @@
 
 <section class="lst:bg-primary lst:h-full lst:sm:border-r lst:border-black">
   <div class="footer lst:h-full lst:flex lst:flex-col lst:justify-between">
-    <div class="section-{{ section.id }} lst:px-3 lst:lg:px-5 lst:py-8">
+    <div class="section-{{ section.id }} lst:px-3 lst:lg:px-[1.2273rem]lst:py-8">
       <div class="lst:prose prose lst:text-black">
         <p>{{ settings.store_address }}</p>
         <p>
@@ -45,7 +45,7 @@
           {% when 'link_with_icon' %}
             <a
               href="{{ block.settings.link_with_icon_url }}"
-              class="lst:flex lst:space-x-4 lst:items-center lst:border-b lst:border-black lst:lg:border-l lst:lg:first:border-l-0! lst:lg:justify-center lst:py-1 lst:min-w-52 lst:px-3 lst:lg:px-5 lst:h-[45px] {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+              class="lst:flex lst:space-x-4 lst:items-center lst:border-b lst:border-black lst:lg:border-l lst:lg:first:border-l-0! lst:lg:justify-center lst:py-1 lst:min-w-52 lst:px-3 lst:lg:px-[1.2273rem]lst:h-[45px] {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
               {% if settings.animations_reveal_on_scroll %}
                 data-cascade
               {% endif %}

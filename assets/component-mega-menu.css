@@ -1,24 +1,24 @@
 /* Ensure the web component doesn't break flex chain */
-header-menu {
+/* header-menu {
     display: flex;
     align-items: stretch;
     height: 100%;
-}
+} */
 
 /* Ensure details stretches to full height */
 .mega-menu {
     position: static;
-    display: flex;
-    align-items: stretch;
+    /* display: flex; */
+    /* align-items: stretch; */
     height: 100%;
 }
 
 /* Ensure summary stretches and centers content */
-.mega-menu summary {
+/* .mega-menu summary {
     display: flex;
     align-items: center;
     flex: 1;
-}
+} */
 
 .mega-menu__content {
     background-color: rgb(var(--color-background));
@@ -68,7 +68,7 @@ header-menu {
         transform 0.3s ease;
 }
 
-.mega-menu[open] > .header__menu-item {
+.mega-menu[open]>.header__menu-item {
     text-decoration: none;
 }
 
@@ -136,7 +136,7 @@ header-menu {
     column-gap: 0;
 }
 
-.header--top-center .mega-menu__list > li {
+.header--top-center .mega-menu__list>li {
     width: 16%;
     padding-right: 1.5rem;
 }

@@ -290,7 +290,7 @@
     border-color: rgba(var(--lst-color--black), var(--popup-border-opacity));
     border-radius: var(--popup-corner-radius);
     box-shadow: var(--popup-shadow-horizontal-offset) var(--popup-shadow-vertical-offset) var(--popup-shadow-blur-radius) rgba(var(--color-shadow), var(--popup-shadow-opacity));
-    background-color: #FFFF00;
+    background-color: #ffed00;
     position: absolute;
     top: calc(100%);
     left: -1px;
@@ -307,7 +307,7 @@
     line-height: var(--lst-text-body--line-height);
     position: sticky;
     top: 0;
-    background-color: #FFFF00;
+    background-color: #ffed00;
     z-index: 1;
 }
 
@@ -530,7 +530,7 @@
 }
 
 .facet-checkbox>svg {
-    background-color: rgb(var(--color-background));
+    /* background-color: rgb(var(--color-background)); */
     margin-right: 0.75rem;
     flex-shrink: 0;
     border-radius: 50%;
@@ -539,9 +539,9 @@
 .facet-checkbox .icon-checkmark {
     visibility: hidden;
     position: absolute;
-    left: 0.25rem;
+    left: 0.1rem;
     z-index: 5;
-    top: 0.75rem;
+    top: 0.6rem;
 }
 
 .facet-checkbox>input[type='checkbox']:checked~.icon-checkmark {

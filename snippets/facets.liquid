@@ -169,7 +169,7 @@
                           <facet-remove>
                             <a
                               href="{{ filter.url_to_remove }}"
-                              class="facets__reset link lst:no-underline! lst:text-body"
+                              class="facets__reset link lst:no-underline! lst:text-body lst:text-gray!"
                             >
                               {{ 'products.facets.reset' | t }}
                             </a>
@@ -215,7 +215,7 @@
 
                             {%- capture text_value -%}
                               <span class="facet-checkbox__text lst:text-heading" aria-hidden="true">
-                                <span class="facet-checkbox__text-label lst:text-heading">{{- value.label | escape }}</span> ({{- value.count -}})
+                                <span class="facet-checkbox__text-label lst:text-heading">{{- value.label | escape }}</span> <span class="lst:text-gray">({{- value.count -}})</span>
                               </span>
                               <span class="visually-hidden">
                                 {{- value.label | escape }} (
@@ -247,9 +247,10 @@
                                   {{ text_value }}
                                 </div>
                               {%- else -%}
-                                <label for="{{ input_id }}" class="{{ label_class }}">
+                                <label for="{{ input_id }}" class="{{ label_class }} lst:flex lst:items-center">
                                   <input
                                     type="checkbox"
+                                    class="lst:peer"
                                     name="{{ value.param_name }}"
                                     value="{{ value.value }}"
                                     id="{{ input_id }}"
@@ -272,30 +273,37 @@
                                       {%- endif -%}
                                     </div>
                                   {%- else -%}
-                                    <svg
-                                      width="1.6rem"
-                                      height="1.6rem"
-                                      viewBox="0 0 16 16"
-                                      aria-hidden="true"
-                                      focusable="false"
-                                    >
-                                      <circle cx="8" cy="8" r="8" stroke="currentColor" fill="none" stroke-width="2"></circle>
-                                    </svg>
+                                    <div
+                                      class="lst:w-[1rem] lst:h-[1rem] lst:bg-white lst:rounded-full lst:block! lst:mr-[0.5rem] lst:border-black lst:border-[1px] lst:peer-checked:bg-black"
+                                    ></div>
 
+                                    {% comment %}
+                                      <svg
+
+                                        class="icon icon-checkmark"
+                                        width="1.1rem"
+                                        height="0.7rem"
+                                        viewBox="0 0 11 7"
+                                        fill="none"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                      >
+                                        <path d="M1.5 3.5L2.83333 4.75L4.16667 6L9.5 1"
+                                          stroke="currentColor"
+                                          stroke-width="1.75"
+                                          stroke-linecap="round"
+                                          stroke-linejoin="round" />
+                                      </svg>
+                                    {% endcomment %}
                                     <svg
+                                      class="icon icon-checkmark lst:size-[0.8rem] lst:text-primary"
                                       aria-hidden="true"
-                                      class="icon icon-checkmark"
-                                      width="1.1rem"
-                                      height="0.7rem"
-                                      viewBox="0 0 11 7"
-                                      fill="none"
                                       xmlns="http://www.w3.org/2000/svg"
+                                      fill="none"
+                                      viewBox="0 0 24 24"
+                                      stroke-width="2"
+                                      stroke="currentColor"
                                     >
-                                      <path d="M1.5 3.5L2.83333 4.75L4.16667 6L9.5 1"
-                                        stroke="currentColor"
-                                        stroke-width="1.75"
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round" />
+                                      <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
                                     </svg>
                                   {%- endif -%}
 
@@ -354,7 +362,7 @@
                           <facet-remove>
                             <a
                               href="{{ filter.url_to_remove }}"
-                              class="facets__reset link lst:no-underline! lst:text-body"
+                              class="facets__reset link lst:no-underline! lst:text-body lst:text-gray!"
                             >
                               {{ 'products.facets.reset' | t }}
                             </a>

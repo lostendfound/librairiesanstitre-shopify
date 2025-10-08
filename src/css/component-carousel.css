@@ -85,11 +85,11 @@ Usage: codyhouse.co/license
 }
 
 .carousel__control:first-of-type {
-    left: var(--carousel-btn-offset, 0.5rem);
+    left: var(--carousel-btn-offset, 1.2273rem);
 }
 
 .carousel__control:last-of-type {
-    right: var(--carousel-btn-offset, 0.5rem);
+    right: var(--carousel-btn-offset, 1.2273rem);
 }
 
 @media (min-width: 64rem) {

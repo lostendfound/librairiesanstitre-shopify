@@ -31,7 +31,7 @@
   endif
 -%}
 
-<div class="card-wrapper animate-arrow {% if wrapper_class and wrapper_class != 'none' %}{{ wrapper_class }}{% else %}collection-card-wrapper{% endif %} lst:bg-[#ECECEC] lst:hover:bg-[#FFFF00] lst:transition-colors">
+<div class="card-wrapper animate-arrow {% if wrapper_class and wrapper_class != 'none' %}{{ wrapper_class }}{% else %}collection-card-wrapper{% endif %} lst:bg-[#ECECEC] lst:hover:bg-[#ffed00] lst:transition-colors">
   <div
     class="
       card
@@ -82,7 +82,7 @@
         </div>
       {%- else -%}
         <div class="card__content">
-          <div class="card__information lst:text-left lst:px-[0.9rem]!">
+          <div class="card__information lst:text-left lst:px-[0.9rem]! lst:pt-[0.6136rem]! lst:pb-[0.8591rem]!">
             <h3 class="card__heading h3 lst:heading!">
               <a
                 {% if card_collection == blank %}
@@ -114,15 +114,15 @@
     </div>
     {%- if card_collection != blank and card_style == 'card' or card_collection.featured_image -%}
       <div class="card__content">
-        <div class="card__information lst:text-left lst:px-[0.9rem]!">
-          <h3 class="card__heading h3 lst:heading!">
+        <div class="card__information lst:text-left lst:px-[0.9rem]! lst:pt-[0.6136rem]! lst:pb-[0.8591rem]!">
+          <h3 class="lst:text-heading!">
             <a
               {% if card_collection == blank %}
                 role="link" aria-disabled="true"
               {% else %}
                 href="{{ card_collection.url }}"
               {% endif %}
-              class="full-unstyled-link"
+              class="full-unstyled-link lst:text-heading!"
             >
               {%- if card_collection.title != blank -%}
                 {{- card_collection.title | escape -}}
@@ -145,7 +145,7 @@
     {%- endif -%}
     {%- if card_collection == blank -%}
       <div class="card__content">
-        <div class="card__information lst:text-left lst:px-[0.9rem]!">
+        <div class="card__information lst:text-left lst:px-[0.9rem]! lst:pt-[0.6136rem]! lst:pb-[0.8591rem]!">
           <h3 class="card__heading h3 card__heading h3--placeholder lst:heading!">
             <a role="link" aria-disabled="true" class="full-unstyled-link">
               {{ 'onboarding.collection_title' | t }}

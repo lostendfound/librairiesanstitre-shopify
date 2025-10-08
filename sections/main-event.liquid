@@ -10,6 +10,11 @@
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
   }
+
+  /* Title fade transition */
+  [data-title-fade] {
+    transition: opacity 0.1s ease-out;
+  }
 {%- endstyle -%}
 
 <section
@@ -71,6 +76,7 @@
               {%- when 'title' -%}
                 <div
                   class="event__title lst:px-4 lst:pt-6 lst:lg:w-[200%]! lst:lg:sticky lst:lg:top-[2.25rem] lst:z-10"
+                  data-title-fade
                   {{ block.shopify_attributes }}
                 >
                   <h1 class="lst:text-hero lst:text-center">{{ article.title | escape }}</h1>
@@ -87,6 +93,54 @@
                     </span>
                   {% endif %}
                 </div>
+
+                <script>
+                  document.addEventListener('DOMContentLoaded', function () {
+                    const titleElement = document.querySelector('[data-title-fade]');
+                    if (!titleElement) return;
+
+                    let ticking = false;
+                    let titleHeight = null;
+
+                    function updateTitleOpacity() {
+                      // Get title height on first run
+                      if (titleHeight === null) {
+                        titleHeight = titleElement.offsetHeight;
+                      }
+
+                      const scrollY = window.scrollY || window.pageYOffset;
+                      
+                      // Calculate opacity: 1 at top (scrollY = 0), 0 when scrolled past title height
+                      const scrollProgress = scrollY / titleHeight;
+                      let opacity = 1 - Math.max(0, Math.min(1, scrollProgress));
+                      
+                      titleElement.style.opacity = opacity;
+                      ticking = false;
+                    }
+
+                    function requestTick() {
+                      if (!ticking) {
+                        requestAnimationFrame(updateTitleOpacity);
+                        ticking = true;
+                      }
+                    }
+
+                    // Initial call
+                    updateTitleOpacity();
+                    
+                    // Listen for scroll events
+                    window.addEventListener('scroll', requestTick, { passive: true });
+                    window.addEventListener(
+                      'resize',
+                      function () {
+                        // Reset title height on resize
+                        titleHeight = null;
+                        requestTick();
+                      },
+                      { passive: true }
+                    );
+                  });
+                </script>
 
               {%- when 'event_details' -%}
                 <div class="event-details-container lst:lg:w-[200%]!  lst:lg:sticky lst:lg:bottom-[1.6364rem] lst:mb-[1.6364rem]">
@@ -116,7 +170,7 @@
                   {% endif %}
                 </div>
               {%- when 'content' -%}
-                <div class="lst:px-3 lst:lg:px-5 lst:lg:sticky lst:top-0 js-event-info-content lst:pb-[7.7636rem]">
+                <div class="lst:px-3 lst:lg:px-[1.2273rem]lst:lg:sticky lst:top-0 js-event-info-content lst:pb-[7.7636rem]">
                   <div class="js-fold"></div>
                   <div
                     class="event__content lst:text-base lst:text-black lst:prose prose lst:max-w-none rte"

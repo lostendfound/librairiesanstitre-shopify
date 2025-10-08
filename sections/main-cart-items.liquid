@@ -28,21 +28,21 @@
 <cart-items class="gradient color-{{ section.settings.color_scheme }} isolate{% if cart == empty %} is-empty{% else %} section-{{ section.id }}-padding{% endif %}">
   <div class="page-width">
     <div class="title-wrapper-with-link lst:px-5">
-      <h1 class="title title--primary">{{ 'sections.cart.title' | t }}</h1>
-      <a href="{{ routes.all_products_collection_url }}" class="underlined-link">
+      <h1 class="title title--primary lst:text-hero">{{ 'sections.cart.title' | t }}</h1>
+      <a href="{{ routes.all_products_collection_url }}" class="button button--primary">
         {{- 'general.continue_shopping' | t -}}
       </a>
     </div>
 
     <div class="cart__warnings lst:px-5">
-      <h1 class="cart__empty-text">{{ 'sections.cart.empty' | t }}</h1>
-      <a href="{{ routes.all_products_collection_url }}" class="button">
+      <h1 class="cart__empty-text lst:text-hero">{{ 'sections.cart.empty' | t }}</h1>
+      <a href="{{ routes.all_products_collection_url }}" class="button button--primary">
         {{ 'general.continue_shopping' | t }}
       </a>
 
       {%- if shop.customer_accounts_enabled and customer == null -%}
-        <h2 class="cart__login-title">{{ 'sections.cart.login.title' | t }}</h2>
-        <p class="cart__login-paragraph">
+        <h2 class="cart__login-title lst:text-heading">{{ 'sections.cart.login.title' | t }}</h2>
+        <p class="cart__login-paragraph lst:text-heading">
           {{ 'sections.cart.login.paragraph_html' | t: link: routes.account_login_url }}
         </p>
       {%- endif -%}
@@ -102,25 +102,27 @@
                         <p class="caption-with-letter-spacing">{{ item.product.vendor }}</p>
                       {%- endif -%}
 
-                      <a href="{{ item.url }}" class="cart-item__name h4 break">{{ item.product.title | escape }}</a>
+                      <a href="{{ item.url }}" class="cart-item__name lst:text-heading break lst:text-black">
+                        {{- item.product.title | escape -}}
+                      </a>
 
                       {%- if item.original_price != item.final_price -%}
                         <div class="cart-item__discounted-prices">
                           <span class="visually-hidden">
                             {{ 'products.product.price.regular_price' | t }}
                           </span>
-                          <s class="cart-item__old-price product-option">
+                          <s class="cart-item__old-price product-option lst:text-heading!">
                             {{- item.original_price | money -}}
                           </s>
                           <span class="visually-hidden">
                             {{ 'products.product.price.sale_price' | t }}
                           </span>
-                          <strong class="cart-item__final-price product-option">
+                          <strong class="cart-item__final-price product-option lst:text-heading!">
                             {{ item.final_price | money }}
                           </strong>
                         </div>
                       {%- else -%}
-                        <div class="product-option">
+                        <div class="product-option lst:text-heading!">
                           {{ item.original_price | money }}
                         </div>
                       {%- endif -%}
@@ -132,7 +134,7 @@
                         <dl>
                           {%- if item.product.has_only_default_variant == false -%}
                             {%- for option in item.options_with_values -%}
-                              <div class="product-option">
+                              <div class="product-option lst:text-heading!">
                                 <dt>{{ option.name }}:</dt>
                                 <dd>{{ option.value }}</dd>
                               </div>
@@ -142,7 +144,7 @@
                           {%- for property in item.properties -%}
                             {%- assign property_first_char = property.first | slice: 0 -%}
                             {%- if property.last != blank and property_first_char != '_' -%}
-                              <div class="product-option">
+                              <div class="product-option lst:text-heading!">
                                 <dt>{{ property.first }}:</dt>
                                 <dd>
                                   {%- if property.last contains '/uploads/' -%}
@@ -158,7 +160,9 @@
                           {%- endfor -%}
                         </dl>
 
-                        <p class="product-option">{{ item.selling_plan_allocation.selling_plan.name }}</p>
+                        <p class="product-option lst:text-heading!">
+                          {{ item.selling_plan_allocation.selling_plan.name }}
+                        </p>
                       {%- endif -%}
 
                       <ul class="discounts list-unstyled" role="list" aria-label="{{ 'customer.order.discount' | t }}">

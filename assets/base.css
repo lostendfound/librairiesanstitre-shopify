@@ -400,10 +400,9 @@ blockquote {
 
 
 .caption-with-letter-spacing {
-    font-size: 0.625rem;
+    font-size: var(--lst-text-heading);
+    line-height: var(--lst-text-heading--line-height);
     letter-spacing: 0;
-    line-height: calc(1 + 0.2 / var(--font-body-scale));
-    text-transform: uppercase;
 }
 
 .caption-with-letter-spacing--medium {
@@ -1252,7 +1251,7 @@ deferred-media {
 }
 
 .button--secondary:hover {
-    background-color: #ffff00 !important;
+    background-color: #ffed00 !important;
 }
 
 .button--secondary:hover::after {
@@ -1271,7 +1270,7 @@ deferred-media {
 }
 
 .button--white:hover {
-    background-color: #ffff00 !important;
+    background-color: #ffed00 !important;
 }
 
 .button--white:hover::after {
@@ -2883,7 +2882,7 @@ details[open]>.header__submenu {
 .header__menu-item {
     text-decoration: none;
     /* color: rgba(var(--color-foreground), 0.75); */
-    padding: 1rem 0.7rem;
+    /* padding: 1rem 0.7rem; */
 }
 
 .header__menu-item span {

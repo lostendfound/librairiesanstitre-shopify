@@ -79,7 +79,7 @@ All components are built as Web Components extending `HTMLElement`.
 - Tailwind CSS with custom configuration:
   - Prefix: `lst:` (all Tailwind classes must be prefixed)
   - Custom font: Vermeille
-  - Primary color: `#FFFF00` (yellow)
+  - Primary color: `#ffed00` (yellow)
   - Typography plugin configured with custom sizes (xl, 3xl) and black theme variant
   - Forms plugin included
 
