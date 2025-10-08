@@ -1325,6 +1325,9 @@
   .lst\:py-3 {
     padding-block: calc(var(--lst-spacing) * 3);
   }
+  .lst\:py-8 {
+    padding-block: calc(var(--lst-spacing) * 8);
+  }
   .lst\:py-12 {
     padding-block: calc(var(--lst-spacing) * 12);
   }
@@ -1345,6 +1348,9 @@
   }
   .lst\:pt-4 {
     padding-top: calc(var(--lst-spacing) * 4);
+  }
+  .lst\:pt-5 {
+    padding-top: calc(var(--lst-spacing) * 5);
   }
   .lst\:pt-6 {
     padding-top: calc(var(--lst-spacing) * 6);
@@ -2017,6 +2023,11 @@
   .lst\:lg\:px-5 {
     @media (width >= 64rem) {
       padding-inline: calc(var(--lst-spacing) * 5);
+    }
+  }
+  .lst\:lg\:px-\[1\.2273rem\] {
+    @media (width >= 64rem) {
+      padding-inline: 1.2273rem;
     }
   }
   .lst\:lg\:px-\[2\.7rem\] {

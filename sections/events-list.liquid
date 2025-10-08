@@ -38,7 +38,7 @@
 {% if upcoming_events.size != 0 %}
   <div class="color-{{ section.settings.color_scheme }} isolate gradient lst:border-b lst:border-black">
     <div class="slideshow js-slideshow " data-swipe="on">
-      <div class="lst:px-3 lst:lg:px-[1.2273rem]lst:pt-5 lst:pb-12 lst:border-b lst:border-black lst:before:content-['']  lst:flex lst:items-center">
+      <div class="lst:px-3 lst:lg:px-[1.2273rem] lst:pt-5 lst:pb-12 lst:border-b lst:border-black lst:before:content-['']  lst:flex lst:items-center">
         <h2 class="h2 lst:text-left lst:text-6xl lst:lg:text-hero {{ section.settings.heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
           {{ 'sections.events.events' | t }}
         </h2>
@@ -101,7 +101,7 @@
               {% endif %}
             </a>
             <a
-              class="event-more-info h4 lst:text-black lst:hover:bg-primary lst:peer-hover:bg-primary lst:px-3 lst:lg:px-[1.2273rem]lst:lg:border-r lst:lg:border-black lst:items-center lst:space-x-2 lst:lg:col-span-1 lst:grid lst:lg:grid-cols-4 lst:h-[45px] lst:border-t lst:border-black"
+              class="event-more-info h4 lst:text-black lst:hover:bg-primary lst:peer-hover:bg-primary lst:px-3 lst:lg:px-[1.2273rem] lst:lg:border-r lst:lg:border-black lst:items-center lst:space-x-2 lst:lg:col-span-1 lst:grid lst:lg:grid-cols-4 lst:h-[45px] lst:border-t lst:border-black"
               href="{{ article.url }}"
             >
               {% render 'icon-arrow' %}
@@ -111,7 +111,7 @@
         {% endfor %}
       </ul>
       <div class="lst:h-[45px] lst:grid lst:grid-cols-4 lst:lg:-mt-[46px] lst:py-2 lst:border-t lst:border-black">
-        <ul class="lst:col-start-3 lst:flex lst:px-3 lst:lg:px-[1.2273rem]lst:divide-x lst:divide-black">
+        <ul class="lst:col-start-3 lst:flex lst:px-3 lst:lg:px-[1.2273rem] lst:divide-x lst:divide-black">
           <li class="js-slideshow__control  lst:h-full lst:transform lst:rotate-180 lst:flex lst:items-center lst:relative lst:z-10 lst:pl-3">
             <button class="js-tab-focus lst:flex lst:items-center lst:h-full">
               <span class="lst:sr-only">Show previous slide</span>
@@ -125,7 +125,7 @@
             </button>
           </li>
         </ul>
-        <div class="js-slideshow__numbers lst:px-3 lst:lg:px-[1.2273rem]lst:flex lst:items-center lst:justify-end">
+        <div class="js-slideshow__numbers lst:px-3 lst:lg:px-[1.2273rem] lst:flex lst:items-center lst:justify-end">
           <p class="h4 lst:text-right">
             <i class="lst:not-italic js-carousel__counter"></i>/<i class="lst:not-italic js-carousel__counter-tot"></i>
           </p>
