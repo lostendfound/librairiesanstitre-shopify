@@ -435,15 +435,15 @@ table:not([class]) {
     border-collapse: collapse;
     font-size: 0.875rem;
     border-style: hidden;
-    box-shadow: 0 0 0 0.0625rem rgba(var(--color-foreground), 0.2);
+    /* box-shadow: 0 0 0 0.0625rem rgba(var(--color-foreground), 0.2); */
     /* draws the table border  */
 }
-
+/* 
 table:not([class]) td,
 table:not([class]) th {
     padding: 1em;
     border: 0.0625rem solid rgba(var(--color-foreground), 0.2);
-}
+} */
 
 @media screen and (max-width: 749px) {
     .small-hide {
@@ -552,16 +552,11 @@ a:not([href]) {
 hr {
     border: none;
     height: 0.0625rem;
-    background-color: rgba(var(--color-foreground), 0.2);
+    background-color: rgba(var(--color-foreground), 1);
     display: block;
-    margin: 3.125rem 0;
+    margin: 2.125rem 0;
 }
 
-@media screen and (min-width: 750px) {
-    hr {
-        margin: 4.375rem 0;
-    }
-}
 
 .full-unstyled-link {
     text-decoration: none;

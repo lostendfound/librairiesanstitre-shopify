@@ -16,9 +16,12 @@
           "type": "slide",
           "settings": {
             "image": "shopify://shop_images/banner-template_9a74187b-dad3-42a6-b621-c4638fd47fec.jpg",
-            "heading": "Vendredi 17 octobre à 18h",
+            "text_top": "Exposition & lancement",
+            "text_middle": "\"Le sentier / The path\" de Sammy Stein",
+            "text_bottom": "17 oct, 18h",
+            "heading": "",
             "heading_size": "h1",
-            "subheading": "Exposition & lancement : Le sentier / The path de Sammy Stein",
+            "subheading": "",
             "button_label": "Button label",
             "link": ""
           }

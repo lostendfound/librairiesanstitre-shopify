@@ -32,7 +32,7 @@
             <div class="lst:absolute lst:inset-0 lst:bg-black/60 lst:!block"></div>
 
             {%- comment -%} Content overlay - white text {%- endcomment -%}
-            <div class="lst:absolute lst:inset-0 lst:flex lst:flex-col lst:items-center lst:justify-between lst:text-white lst:px-6 lst:py-12">
+            <div class="lst:absolute lst:inset-0 lst:flex lst:flex-col lst:items-center lst:justify-between lst:text-white lst:px-6 lst:py-12 lst:lg:py-[1.7500rem]!">
             {%- comment -%} Top text {%- endcomment -%}
             {% assign top_text = block.settings.text_top | default: block.settings.heading %}
             {% if top_text != blank %}
@@ -93,16 +93,16 @@
   {%- comment -%} Arrow controls {%- endcomment -%}
   <ul class="lst:hidden">
     <li class="slideshow__control js-slideshow__control">
-      <button class="carousel__btn lst:text-hero lst:text-black lst:bg-white! lst:hover:bg-white/60! lst:flex! lst:items-center lst:justify-center lst:rounded-full! js-tab-focus">
+      <button class="carousel__btn lst:lg:text-hero lst:text-black lst:bg-white! lst:hover:bg-white/60! lst:flex! lst:items-center lst:justify-center lst:rounded-full! js-tab-focus">
         <span class="lst:sr-only">Show next slide</span>
-        <span class="lst:transform lst:translate-y-[-0.0325em]"><-</span>
+        <span class="lst:transform lst:lg:translate-y-[-0.0325em]"><-</span>
       </button>
     </li>
 
     <li class="slideshow__control js-slideshow__control">
-      <button class="carousel__btn lst:text-hero lst:text-black lst:bg-white! lst:hover:bg-white/60! lst:flex! lst:items-center lst:justify-center lst:rounded-full! js-tab-focus">
+      <button class="carousel__btn lst:lg:text-hero lst:text-black lst:bg-white! lst:hover:bg-white/60! lst:flex! lst:items-center lst:justify-center lst:rounded-full! js-tab-focus">
         <span class="lst:sr-only">Show next slide</span>
-        <span class="lst:transform lst:translate-y-[-0.0325em]">-></span>
+        <span class="lst:transform lst:lg:translate-y-[-0.0325em]">-></span>
       </button>
     </li>
   </ul>

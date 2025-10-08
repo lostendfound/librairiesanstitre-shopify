@@ -983,10 +983,6 @@
     --tw-translate-y: calc(calc(1/2 * 100%) * -1);
     translate: var(--tw-translate-x) var(--tw-translate-y);
   }
-  .lst\:translate-y-\[-0\.0325em\] {
-    --tw-translate-y: -0.0325em;
-    translate: var(--tw-translate-x) var(--tw-translate-y);
-  }
   .lst\:rotate-90 {
     rotate: 90deg;
   }
@@ -1927,6 +1923,12 @@
       flex-grow: 0;
     }
   }
+  .lst\:lg\:translate-y-\[-0\.0325em\] {
+    @media (width >= 64rem) {
+      --tw-translate-y: -0.0325em;
+      translate: var(--tw-translate-x) var(--tw-translate-y);
+    }
+  }
   .lst\:lg\:grid-cols-2 {
     @media (width >= 64rem) {
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -2032,6 +2034,11 @@
       padding-inline: 2.7000rem;
     }
   }
+  .lst\:lg\:py-\[1\.7500rem\]\! {
+    @media (width >= 64rem) {
+      padding-block: 1.7500rem !important;
+    }
+  }
   .lst\:lg\:py-\[2\.2091rem\] {
     @media (width >= 64rem) {
       padding-block: 2.2091rem;
@@ -2095,6 +2102,22 @@
     @media (width >= 80rem) {
       font-size: var(--lst-text-base);
       line-height: var(--tw-leading, var(--lst-text-base--line-height));
+    }
+  }
+  .lst\:prose-table\:mb-0\! {
+    & :is(:where(table):not(:where([class~="not-prose"],[class~="not-prose"] *))) {
+      margin-bottom: calc(var(--lst-spacing) * 0) !important;
+    }
+  }
+  .lst\:prose-table\:text-heading\! {
+    & :is(:where(table):not(:where([class~="not-prose"],[class~="not-prose"] *))) {
+      font-size: var(--lst-text-heading) !important;
+      line-height: var(--tw-leading, var(--lst-text-heading--line-height)) !important;
+    }
+  }
+  .lst\:prose-td\:p-0\! {
+    & :is(:where(td):not(:where([class~="not-prose"],[class~="not-prose"] *))) {
+      padding: calc(var(--lst-spacing) * 0) !important;
     }
   }
 }
