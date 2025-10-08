@@ -383,23 +383,27 @@ Util.extend = function () {
   }
 
   function noLoopTranslateValue(carousel, direction) {
-    var translate = carousel.totTranslate;
-    if (direction == 'next') {
-      translate = carousel.totTranslate + carousel.translateContainer;
-    } else if (direction == 'prev') {
-      translate = carousel.totTranslate - carousel.translateContainer;
-    } else if (direction == 'click') {
-      translate = carousel.selectedDotIndex * carousel.translateContainer;
-    }
+    // Calculate translate based on the current selectedItem, not totTranslate
+    // This prevents getting stuck at boundaries
+    var translate = -carousel.selectedItem * (carousel.itemsWidth + parseFloat(getComputedStyle(carousel.items[0]).marginRight));
+
+    // Apply boundary constraints
     if (translate > 0) {
       translate = 0;
       carousel.selectedItem = 0;
     }
-    if (translate < -carousel.translateContainer - carousel.containerWidth) {
-      translate = -carousel.translateContainer - carousel.containerWidth;
+
+    var maxTranslate = -carousel.translateContainer - carousel.containerWidth;
+    if (translate < maxTranslate) {
+      translate = maxTranslate;
       carousel.selectedItem = carousel.items.length - carousel.visibItemsNb;
     }
-    if (carousel.visibItemsNb > carousel.items.length) translate = 0;
+
+    if (carousel.visibItemsNb >= carousel.items.length) {
+      translate = 0;
+      carousel.selectedItem = 0;
+    }
+
     carousel.totTranslate = translate;
     return translate + 'px';
   }

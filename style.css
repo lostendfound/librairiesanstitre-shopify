@@ -3,6 +3,12 @@
 @plugin "@tailwindcss/typography";
 @plugin "@tailwindcss/forms";
 
+:root {
+    --lst-text-base: 1.2273rem;
+    --lst-text-base--line-height: 1.4318rem;
+
+}
+
 @theme {
     /* Font Families */
     --font-sans: 'Vermeille', ui-sans-serif, system-ui, sans-serif;
@@ -25,48 +31,77 @@
     --animate-blink: blink 1s step-end infinite;
 
     /* Design System Font Sizes (at 1920px: 1rem = 24.44px) */
-    --lst-text-hero: 5.5227rem; /* 135px at 1920px */
-    --lst-text-hero--line-height: 5.3182rem; /* 130px at 1920px */
+    --lst-text-hero: 5.5227rem;
+    /* 135px at 1920px */
+    --lst-text-hero--line-height: 5.3182rem;
+    /* 130px at 1920px */
 
-    --text-hero: 5.5227rem; /* 135px at 1920px */
-    --text-hero--line-height: 5.3182rem; /* 130px at 1920px */
+    --text-hero: 5.5227rem;
+    /* 135px at 1920px */
+    --text-hero--line-height: 5.3182rem;
+    /* 130px at 1920px */
 
-    --lst-text-heading: 1.2273rem; /* 30px at 1920px */
-    --lst-text-heading--line-height: 1.4318rem; /* 35px at 1920px */
+    --lst-text-heading: 1.2273rem;
+    /* 30px at 1920px */
+    --lst-text-heading--line-height: 1.4318rem;
+    /* 35px at 1920px */
 
-    --text-heading: 1.2273rem; /* 30px at 1920px */
-    --text-heading--line-height: 1.4318rem; /* 35px at 1920px */
+    --text-heading: 1.2273rem;
+    /* 30px at 1920px */
+    --text-heading--line-height: 1.4318rem;
+    /* 35px at 1920px */
 
-    --lst-text-subtitle: 1.2273rem; /* 30px at 1920px */
-    --lst-text-subtitle--line-height: 1.7182rem; /* 42px at 1920px */
-    
-    --text-subtitle: 1.2273rem; /* 30px at 1920px */
-    --text-subtitle--line-height: 1.7182rem; /* 42px at 1920px */
+    --lst-text-subtitle: 1.2273rem;
+    /* 30px at 1920px */
+    --lst-text-subtitle--line-height: 1.7182rem;
+    /* 42px at 1920px */
 
-    --lst-text-body: 0.8184rem; /* 20px at 1920px */
-    --lst-text-body--line-height: 0.9411rem; /* 23px at 1920px */
+    --text-subtitle: 1.2273rem;
+    /* 30px at 1920px */
+    --text-subtitle--line-height: 1.7182rem;
+    /* 42px at 1920px */
 
-    --text-body: 0.8184rem; /* 20px at 1920px */
-    --text-body--line-height: 0.9411rem; /* 23px at 1920px */
+    --lst-text-body: 0.8184rem;
+    /* 20px at 1920px */
+    --lst-text-body--line-height: 0.9411rem;
+    /* 23px at 1920px */
 
-    --lst-text-meta: 0.8184rem; /* 20px at 1920px */
-    --lst-text-meta--line-height: 1.1455rem; /* 28px at 1920px */
+    --text-body: 0.8184rem;
+    /* 20px at 1920px */
+    --text-body--line-height: 0.9411rem;
+    /* 23px at 1920px */
 
-    --text-meta: 0.8184rem; /* 20px at 1920px */
-    --text-meta--line-height: 1.1455rem; /* 28px at 1920px */
+    --lst-text-base: 0.8184rem;
+    --lst-text-base--line-height: 0.9411rem;
 
-    --lst-text-large: 1.0636rem; /* 26px at 1920px */
-    --lst-text-large--line-height: 1.1864rem; /* 29px at 1920px */
+    --lst-text-meta: 0.8184rem;
+    /* 20px at 1920px */
+    --lst-text-meta--line-height: 1.1455rem;
+    /* 28px at 1920px */
 
-    --text-large: 1.0636rem; /* 26px at 1920px */
-    --text-large--line-height: 1.1864rem; /* 29px at 1920px */
+    --text-meta: 0.8184rem;
+    /* 20px at 1920px */
+    --text-meta--line-height: 1.1455rem;
+    /* 28px at 1920px */
+
+    --lst-text-large: 1.0636rem;
+    /* 26px at 1920px */
+    --lst-text-large--line-height: 1.1864rem;
+    /* 29px at 1920px */
+
+    --text-large: 1.0636rem;
+    /* 26px at 1920px */
+    --text-large--line-height: 1.1864rem;
+    /* 29px at 1920px */
 }
 
 @keyframes blink {
+
     0%,
     100% {
         opacity: 1;
     }
+
     50% {
         opacity: 0;
     }
@@ -81,6 +116,7 @@
   color utility to any element that depends on these defaults.
 */
 @layer base {
+
     *,
     ::after,
     ::before,
@@ -91,8 +127,9 @@
 }
 
 @utility button {
-    @apply lst:bg-primary lst:text-black lst:border lst:border-black lst:uppercase lst:border-transparent lst:py-2 lst:px-4  lst:hover:bg-primary/90;
+    @apply lst:bg-primary lst:text-black lst:border lst:border-black lst:uppercase lst:border-transparent lst:py-2 lst:px-4 lst:hover:bg-primary/90;
 }
+
 /* 
 @utility h1 {
     @apply lst:text-[48px] lst:leading-tight;
@@ -113,7 +150,8 @@
         margin-top: 0.5rem;
         margin-bottom: 0.5rem;
     }
-    & p + p {
+
+    & p+p {
         margin-top: 0.5rem;
         margin-bottom: 0.5rem;
     }
@@ -127,22 +165,26 @@
         margin-top: 1.5rem;
         margin-bottom: 1.5rem;
     }
-    & p + p {
+
+    & p+p {
         margin-top: 1.5rem;
         margin-bottom: 1.5rem;
     }
+
     & h1 {
         font-size: 4rem;
         line-height: 4.5rem;
         margin-top: 0;
         margin-bottom: 2rem;
     }
+
     & h2 {
         font-size: 3rem;
         line-height: 3.5rem;
         margin-top: 3rem;
         margin-bottom: 1.5rem;
     }
+
     & h3 {
         font-size: 2.25rem;
         line-height: 2.75rem;

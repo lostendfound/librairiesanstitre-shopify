@@ -1,5 +1,23 @@
+/* Ensure the web component doesn't break flex chain */
+header-menu {
+    display: flex;
+    align-items: stretch;
+    height: 100%;
+}
+
+/* Ensure details stretches to full height */
 .mega-menu {
     position: static;
+    display: flex;
+    align-items: stretch;
+    height: 100%;
+}
+
+/* Ensure summary stretches and centers content */
+.mega-menu summary {
+    display: flex;
+    align-items: center;
+    flex: 1;
 }
 
 .mega-menu__content {

@@ -15,7 +15,7 @@
 {%- endstyle -%}
 
 <div class="lst:bg-primary lst:py-16 lst:min-h-[calc(100vh-8.4273rem-2.25rem)]">
-  <div class="contact page-width lst:max-w-7xl lst:mx-auto lst:px-8 section-{{ section.id }}-padding">
+  <div class="contact page-width lst:mx-auto lst:px-8 section-{{ section.id }}-padding">
     {%- if section.settings.heading != blank -%}
       <h2 class="lst:sr-only">
         {{ section.settings.heading }}
@@ -51,7 +51,7 @@
           </li>
         </ul>
       {%- endif -%}
-      <div class="lst:grid lst:lg:grid-cols-2 lst:gap-6 lst:mb-6">
+      <div class="lst:grid lst:lg:grid-cols-2 lst:gap-[0.6545rem] lst:mb-6 lst:max-w-[57.9273rem] lst:mx-auto">
         <div class="lst:space-y-6">
           <div class="field lst:after:rounded-[0.9000rem]! lst:before:rounded-[0.9000rem]! lst:w-full lst:border-0">
             <input
@@ -113,7 +113,7 @@
         </div>
         <div class="field lst:after:rounded-[0.9000rem]! lst:before:rounded-[0.9000rem]! lst:w-full lst:border-0">
           <textarea
-            rows="10"
+            rows="6"
             id="ContactForm-body"
             class=" lst:rounded-[0.9rem] lst:w-full"
             name="contact[{{ 'templates.contact.form.comment' | t }}]"
@@ -125,7 +125,7 @@
         </div>
       </div>
       <div class="contact__button lst:text-center">
-          <button type="submit" class="button button--default">
+        <button type="submit" class="button button--default lst:lg:w-[19.7182rem]">
           {{ 'templates.contact.form.send' | t }}
         </button>
       </div>

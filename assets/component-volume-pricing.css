@@ -13,7 +13,7 @@ volume-pricing ul {
 
 volume-pricing li {
   font-size: 0.875rem;
-  letter-spacing: 0.0375rem;
+  letter-spacing: 0;
   padding: 0.375rem 0.5rem;
   display: flex;
   justify-content: space-between;
@@ -34,7 +34,7 @@ volume-pricing li {
 .volume-pricing-note span,
 volume-pricing .label-show-more {
   font-size: 0.75rem;
-  letter-spacing: 0.043750000000000004rem;
+  letter-spacing: 0;
 }
 
 volume-pricing show-more-button {
@@ -51,7 +51,7 @@ volume-pricing show-more-button {
 .product-form__input .price-per-item {
   color: rgba(var(--color-foreground));
   font-size: 0.875rem;
-  letter-spacing: 0.0375rem;
+  letter-spacing: 0;
 }
 
 .price-per-item dl {
@@ -66,5 +66,5 @@ volume-pricing show-more-button {
 .price__regular .variant-item__old-price {
   color: rgba(var(--color-foreground), 0.75);
   font-size: 0.75rem;
-  letter-spacing: 0.043750000000000004rem;
+  letter-spacing: 0;
 }

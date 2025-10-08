@@ -92,8 +92,14 @@ if (!customElements.get('mega-menu-grid')) {
           pointer-events: none;
           z-index: 1;
         `;
-        list.appendChild(line);
-        console.log('MegaMenuGrid: vertical line added at', leftPosition + 'px');
+
+        // Defensive check before appendChild
+        if (list && list.appendChild) {
+          list.appendChild(line);
+          console.log('MegaMenuGrid: vertical line added at', leftPosition + 'px');
+        } else {
+          console.error('MegaMenuGrid: Cannot append line - list is invalid', list);
+        }
       }
 
       // Draw horizontal lines (between rows)
@@ -120,11 +126,20 @@ if (!customElements.get('mega-menu-grid')) {
             pointer-events: none;
             z-index: 1;
           `;
-          list.appendChild(line);
+
+          // Defensive check before appendChild
+          if (list && list.appendChild) {
+            list.appendChild(line);
+          } else {
+            console.error('MegaMenuGrid: Cannot append line - list is invalid', list);
+          }
         }
       }
 
-      console.log('MegaMenuGrid: drawGridLines complete. Total lines added:', list.querySelectorAll('.mega-menu-grid-line').length);
+      // Final verification
+      if (list && list.querySelectorAll) {
+        console.log('MegaMenuGrid: drawGridLines complete. Total lines added:', list.querySelectorAll('.mega-menu-grid-line').length);
+      }
     }
   }
 

@@ -74,6 +74,8 @@
                   {{ block.shopify_attributes }}
                 >
                   <h1 class="lst:text-hero lst:text-center">{{ article.title | escape }}</h1>
+                </div>
+                <div class="lst:px-3 lst:lg:px-5">
                   {% if block.settings.blog_show_date %}
                     <span class="event__date caption-with-letter-spacing">
                       {{- article.published_at | date: format: 'date' -}}
@@ -85,8 +87,9 @@
                     </span>
                   {% endif %}
                 </div>
+
               {%- when 'event_details' -%}
-                <div class="event-details-container lst:lg:w-[200%]!  lst:lg:sticky lst:lg:bottom-0">
+                <div class="event-details-container lst:lg:w-[200%]!  lst:lg:sticky lst:lg:bottom-[1.6364rem] lst:mb-[1.6364rem]">
                   {% if article.metafields.blog_event.start_date_time %}
                     {%- assign start_date = article.metafields.blog_event.start_date_time.value | date: '%d %b %Y' -%}
                     {%- assign end_date = article.metafields.blog_event.end_date_time.value | date: '%d %b %Y' -%}
@@ -113,7 +116,7 @@
                   {% endif %}
                 </div>
               {%- when 'content' -%}
-                <div class="lst:px-3 lst:lg:px-5 lst:lg:sticky lst:top-0 js-event-info-content lst:pb-8">
+                <div class="lst:px-3 lst:lg:px-5 lst:lg:sticky lst:top-0 js-event-info-content lst:pb-[7.7636rem]">
                   <div class="js-fold"></div>
                   <div
                     class="event__content lst:text-base lst:text-black lst:prose prose lst:max-w-none rte"

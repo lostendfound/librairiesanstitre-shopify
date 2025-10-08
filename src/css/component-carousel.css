@@ -1,4 +1,5 @@
 @reference "../../style.css";
+
 /* --------------------------------
 
 File#: _2_carousel
@@ -12,6 +13,7 @@ Usage: codyhouse.co/license
     --carousel-item-auto-size: 260px;
     --carousel-transition-duration: 0.5s;
 }
+
 @media (min-width: 64rem) {
     :root {
         --carousel-grid-gap: 0rem;
@@ -22,8 +24,7 @@ Usage: codyhouse.co/license
     position: relative;
 }
 
-.carousel__wrapper {
-}
+.carousel__wrapper {}
 
 .carousel__list {
     display: flex;
@@ -39,9 +40,9 @@ Usage: codyhouse.co/license
     border-right-width: 1px;
     border-right-style: solid;
     border-right-color: #000000;
-    border-bottom-width: 1px;
+    /* border-bottom-width: 1px;
     border-bottom-style: solid;
-    border-bottom-color: #000000;
+    border-bottom-color: #000000; */
 }
 
 .carousel__list--animating {
@@ -53,22 +54,24 @@ Usage: codyhouse.co/license
     transition-duration: var(--carousel-transition-duration);
     transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
 }
+
 .carousel__item {
     opacity: 0;
     margin-bottom: 0;
 }
+
 .carousel--loaded .carousel__item {
     opacity: 1;
 }
-.carousel:not(.carousel--is-dragging)
-    .carousel__list:not(.carousel__list--animating)
-    .carousel__item[tabindex='-1']
-    > * {
+
+.carousel:not(.carousel--is-dragging) .carousel__list:not(.carousel__list--animating) .carousel__item[tabindex='-1']>* {
     visibility: hidden;
 }
+
 .carousel[data-drag='on'] .carousel__item {
     user-select: none;
 }
+
 .carousel[data-drag='on'] .carousel__item img {
     pointer-events: none;
 }
@@ -127,6 +130,7 @@ Usage: codyhouse.co/license
     .carousel__btn {
         background-color: transparent;
     }
+
     .carousel__btn .icon {
         @apply lst:text-gray-900;
     }
@@ -159,11 +163,13 @@ Usage: codyhouse.co/license
     display: inline-block;
     @apply lst:my-0 lst:mx-1 lst:lg:mx-1.5;
 }
+
 @supports (grid-area: auto) {
     .carousel__nav-item {
         margin: 0;
     }
 }
+
 .carousel__nav-item button {
     display: block;
     position: relative;
@@ -176,6 +182,7 @@ Usage: codyhouse.co/license
     cursor: pointer;
     transition: background 0.3s;
 }
+
 .carousel__nav-item button::before {
     content: '';
     position: absolute;
@@ -190,9 +197,11 @@ Usage: codyhouse.co/license
     transform: scale(0);
     transition: 3s;
 }
+
 .carousel__nav-item button:focus {
     outline: none;
 }
+
 .carousel__nav-item button:focus::before {
     opacity: 1;
     transform: scale(1);
@@ -205,6 +214,7 @@ Usage: codyhouse.co/license
 .carousel__navigation--pagination {
     grid-template-columns: repeat(auto-fit, 24px);
 }
+
 .carousel__navigation--pagination .carousel__nav-item button {
     width: 24px;
     height: 24px;
@@ -214,6 +224,7 @@ Usage: codyhouse.co/license
     @apply lst:rounded;
     text-align: center;
 }
+
 .carousel__navigation--pagination .carousel__nav-item button:focus {
     @apply lst:outline lst:outline-indigo-700;
     outline-offset: 2px;
