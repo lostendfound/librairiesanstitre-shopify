@@ -15,6 +15,11 @@
   [data-title-fade] {
     transition: opacity 0.1s ease-out;
   }
+
+  /* Event details fade transition */
+  [data-details-fade] {
+    transition: opacity 0.1s ease-out;
+  }
 {%- endstyle -%}
 
 <section
@@ -75,15 +80,15 @@
                 {% render block %}
               {%- when 'title' -%}
                 <div
-                  class="event__title lst:px-4 lst:pt-6 lst:lg:w-[200%]! lst:lg:sticky lst:lg:top-[2.25rem] lst:z-10"
+                  class="event__title lst:px-4 lst:lg:px-[2.7rem]!  lst:pt-6 lst:lg:w-[200%]! lst:lg:sticky lst:lg:top-[2.25rem] lst:z-10"
                   data-title-fade
                   {{ block.shopify_attributes }}
                 >
                   <h1 class="lst:text-hero lst:text-center">{{ article.title | escape }}</h1>
                 </div>
-                <div class="lst:px-3 lst:lg:px-5">
+                <div class="lst:px-3 lst:lg:px-[2.7rem]!">
                   {% if block.settings.blog_show_date %}
-                    <span class="event__date caption-with-letter-spacing">
+                    <span class="event__date caption-with-letter-spacing lst:sr-only">
                       {{- article.published_at | date: format: 'date' -}}
                     </span>
                   {% endif %}
@@ -97,44 +102,64 @@
                 <script>
                   document.addEventListener('DOMContentLoaded', function () {
                     const titleElement = document.querySelector('[data-title-fade]');
-                    if (!titleElement) return;
+                    const detailsElement = document.querySelector('[data-details-fade]');
 
                     let ticking = false;
                     let titleHeight = null;
+                    let detailsHeight = null;
 
-                    function updateTitleOpacity() {
-                      // Get title height on first run
-                      if (titleHeight === null) {
-                        titleHeight = titleElement.offsetHeight;
+                    function updateOpacity() {
+                      const scrollY = window.scrollY || window.pageYOffset;
+
+                      // Handle title fade
+                      if (titleElement) {
+                        // Get title height on first run
+                        if (titleHeight === null) {
+                          titleHeight = titleElement.offsetHeight;
+                        }
+
+                        // Calculate opacity: 1 at top (scrollY = 0), 0 when scrolled past title height
+                        const titleScrollProgress = scrollY / titleHeight;
+                        let titleOpacity = 1 - Math.max(0, Math.min(1, titleScrollProgress));
+
+                        titleElement.style.opacity = titleOpacity;
                       }
 
-                      const scrollY = window.scrollY || window.pageYOffset;
-                      
-                      // Calculate opacity: 1 at top (scrollY = 0), 0 when scrolled past title height
-                      const scrollProgress = scrollY / titleHeight;
-                      let opacity = 1 - Math.max(0, Math.min(1, scrollProgress));
-                      
-                      titleElement.style.opacity = opacity;
+                      // Handle details fade
+                      if (detailsElement) {
+                        // Get details height on first run
+                        if (detailsHeight === null) {
+                          detailsHeight = detailsElement.offsetHeight;
+                        }
+
+                        // Calculate opacity: 1 at top (scrollY = 0), 0 when scrolled past details height
+                        const detailsScrollProgress = scrollY / detailsHeight;
+                        let detailsOpacity = 1 - Math.max(0, Math.min(1, detailsScrollProgress));
+
+                        detailsElement.style.opacity = detailsOpacity;
+                      }
+
                       ticking = false;
                     }
 
                     function requestTick() {
                       if (!ticking) {
-                        requestAnimationFrame(updateTitleOpacity);
+                        requestAnimationFrame(updateOpacity);
                         ticking = true;
                       }
                     }
 
                     // Initial call
-                    updateTitleOpacity();
-                    
+                    updateOpacity();
+
                     // Listen for scroll events
                     window.addEventListener('scroll', requestTick, { passive: true });
                     window.addEventListener(
                       'resize',
                       function () {
-                        // Reset title height on resize
+                        // Reset heights on resize
                         titleHeight = null;
+                        detailsHeight = null;
                         requestTick();
                       },
                       { passive: true }
@@ -143,7 +168,10 @@
                 </script>
 
               {%- when 'event_details' -%}
-                <div class="event-details-container lst:lg:w-[200%]!  lst:lg:sticky lst:lg:bottom-[1.6364rem] lst:mb-[1.6364rem]">
+                <div
+                  class="event-details-container lst:lg:w-[200%]! lst:lg:sticky lst:lg:bottom-[1.6364rem] lst:mb-[1.6364rem]"
+                  data-details-fade
+                >
                   {% if article.metafields.blog_event.start_date_time %}
                     {%- assign start_date = article.metafields.blog_event.start_date_time.value | date: '%d %b %Y' -%}
                     {%- assign end_date = article.metafields.blog_event.end_date_time.value | date: '%d %b %Y' -%}
@@ -170,8 +198,7 @@
                   {% endif %}
                 </div>
               {%- when 'content' -%}
-                <div class="lst:px-3 lst:lg:px-[1.2273rem]lst:lg:sticky lst:top-0 js-event-info-content lst:pb-[7.7636rem]">
-                  <div class="js-fold"></div>
+                <div class="lst:px-3 lst:lg:px-[2.7rem]!  js-event-info-content ">
                   <div
                     class="event__content lst:text-base lst:text-black lst:prose prose lst:max-w-none rte"
                     {{ block.shopify_attributes }}
@@ -180,7 +207,7 @@
                   </div>
                 </div>
               {%- when 'share' -%}
-                <div class="event__share lst:px-4 lst:py-2" {{ block.shopify_attributes }}>
+                <div class="event__share lst:px-4  lst:lg:px-[2.7rem]!  lst:py-2" {{ block.shopify_attributes }}>
                   {% render 'share-button', block: block %}
                   <script src="{{ 'share.js' | asset_url }}" defer="defer"></script>
                 </div>
