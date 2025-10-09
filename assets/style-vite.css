@@ -31,6 +31,8 @@
     --lst-text-xl--line-height: calc(1.75 / 1.25);
     --lst-text-2xl: 1.5rem;
     --lst-text-2xl--line-height: calc(2 / 1.5);
+    --lst-text-4xl: 2.25rem;
+    --lst-text-4xl--line-height: calc(2.5 / 2.25);
     --lst-text-6xl: 3.75rem;
     --lst-text-6xl--line-height: 1;
     --lst-font-weight-thin: 100;
@@ -1408,6 +1410,10 @@
   .lst\:text-2xl {
     font-size: var(--lst-text-2xl);
     line-height: var(--tw-leading, var(--lst-text-2xl--line-height));
+  }
+  .lst\:text-4xl {
+    font-size: var(--lst-text-4xl);
+    line-height: var(--tw-leading, var(--lst-text-4xl--line-height));
   }
   .lst\:text-6xl {
     font-size: var(--lst-text-6xl);

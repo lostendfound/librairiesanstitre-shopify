@@ -37,7 +37,7 @@
             {% assign top_text = block.settings.text_top | default: block.settings.heading %}
             {% if top_text != blank %}
               <div class="lst:text-center lst:max-w-4xl">
-                <p class="lst:text-hero lst:!text-white">
+                <p class="lst:text-6xl lst:lg:text-hero lst:!text-white">
                   {{ top_text }}
                 </p>
               </div>
@@ -60,7 +60,7 @@
             {%- comment -%} Bottom text {%- endcomment -%}
             {% if block.settings.text_bottom != blank %}
               <div class="lst:text-center lst:max-w-4xl">
-                <p class="lst:text-hero lst:!text-white">
+                <p class="lst:text-6xl lst:lg:text-hero lst:!text-white">
                   {{ block.settings.text_bottom }}
                 </p>
               </div>
