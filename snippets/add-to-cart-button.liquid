@@ -8,29 +8,10 @@
 <div>
   {%- if product != blank -%}
     {%- assign variant_weight = product.selected_or_first_available_variant.weight -%}
+    {%- assign variant_available = product.selected_or_first_available_variant.available -%}
 
-    {%- if variant_weight == 0 -%}
-      {%- comment -%} Zero weight product - show inquiry button instead of add to cart {%- endcomment -%}
-      <div class="product-form lst:my-0! lst:border-y lst:border-black">
-        <div class="product-form__buttons lst:min-h-[2.25rem] lst:grid lst:grid-cols-2 lst:items-center">
-          <div class="lst:px-4 lst:border-r lst:border-black lst:bg-[#F7F2EB] lst:text-center lst:flex lst:items-center lst:justify-center lst:h-full">
-            <span class="lst:text-subtitle">
-              {{ product.selected_or_first_available_variant.price | money }}
-            </span>
-          </div>
-
-          <a
-            href="/pages/contact"
-            class="button button--full-width button--primary lst:uppercase lst:rounded-[0px]! lst:mb-0! lst:py-0! lst:h-full lst:flex lst:items-center lst:justify-center lst:no-underline"
-          >
-            <span class="lst:text-subtitle">
-              {{ 'products.product.inquire_about_book' | t }}
-            </span>
-          </a>
-        </div>
-      </div>
-    {%- else -%}
-      {%- comment -%} Normal product with weight - show add to cart {%- endcomment -%}
+    {%- if variant_available == false or variant_weight != 0 -%}
+      {%- comment -%} Sold out OR normal product with weight - show add to cart form {%- endcomment -%}
       <product-form
         id="product-form-{{ section.id }}"
         class="product-form lst:my-0! lst:border-y lst:border-black"
@@ -99,6 +80,26 @@
           </div>
         {%- endform -%}
       </product-form>
+    {%- else -%}
+      {%- comment -%} Zero weight AND available product - show inquiry button {%- endcomment -%}
+      <div class="product-form lst:my-0! lst:border-y lst:border-black">
+        <div class="product-form__buttons lst:min-h-[2.25rem] lst:grid lst:grid-cols-2 lst:items-center">
+          <div class="lst:px-4 lst:border-r lst:border-black lst:bg-[#F7F2EB] lst:text-center lst:flex lst:items-center lst:justify-center lst:h-full">
+            <span class="lst:text-subtitle">
+              {{ product.selected_or_first_available_variant.price | money }}
+            </span>
+          </div>
+
+          <a
+            href="/pages/contact"
+            class="button button--full-width button--primary lst:uppercase lst:rounded-[0px]! lst:mb-0! lst:py-0! lst:h-full lst:flex lst:items-center lst:justify-center lst:no-underline"
+          >
+            <span class="lst:text-subtitle">
+              {{ 'products.product.inquire_about_book' | t }}
+            </span>
+          </a>
+        </div>
+      </div>
     {%- endif -%}
   {%- else -%}
     <div class="product-form">
