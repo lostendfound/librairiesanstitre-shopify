@@ -12,23 +12,53 @@
     "carousel_BJXnET": {
       "type": "carousel",
       "blocks": {
-        "slide_tP7ML4": {
+        "slide_7mWgNa": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/banner-template_9a74187b-dad3-42a6-b621-c4638fd47fec.jpg",
-            "text_top": "Exposition & lancement",
-            "text_middle": "\"Le sentier / The path\" de Sammy Stein",
-            "text_bottom": "17 oct, 18h",
-            "heading": "",
+            "image": "shopify://shop_images/banner_793082a0-5382-436f-9856-1572d63a726d.jpg",
+            "text_top": "",
+            "text_middle": "",
+            "text_bottom": "",
+            "heading": "November 25th, 6-8pm",
             "heading_size": "h1",
-            "subheading": "",
-            "button_label": "Button label",
+            "subheading": "Book launch \"Dirty Looks\" by Jon Astbury & Karen Van Godtsenhoven",
+            "button_label": "More infos",
+            "link": "shopify://blogs/events/book-launch-dirty-looks-desire-and-decay-in-fashion"
+          }
+        },
+        "slide_rVTLJJ": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/banner_90003ee4-eebe-45b9-8a23-15a7c6822098.jpg",
+            "text_top": "",
+            "text_middle": "",
+            "text_bottom": "",
+            "heading": "Mardi 02 décembre, 18h-20h",
+            "heading_size": "h1",
+            "subheading": "Les étoiles d'Ivry, une aventure familiale de Evan Renaudie",
+            "button_label": "",
+            "link": ""
+          }
+        },
+        "slide_HYjJyt": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/banner_c72c494e-c94f-4030-916a-16abb965121c.jpg",
+            "text_top": "",
+            "text_middle": "",
+            "text_bottom": "",
+            "heading": "From nov 12-30, 2025",
+            "heading_size": "h1",
+            "subheading": "Juan Brenner's exhibition and book launch",
+            "button_label": "",
             "link": ""
           }
         }
       },
       "block_order": [
-        "slide_tP7ML4"
+        "slide_7mWgNa",
+        "slide_rVTLJJ",
+        "slide_HYjJyt"
       ],
       "settings": {}
     },

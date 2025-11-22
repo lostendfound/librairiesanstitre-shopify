@@ -52,7 +52,7 @@
         "type": "text",
         "id": "store_address",
         "label": "t:settings_schema.store_information.settings.store_address.label",
-        "default": "2 rue Auguste Barbier 75011 Paris"
+        "default": "143 avenue Parmentier 75010 Paris"
       },
       {
         "type": "text",
