@@ -1411,10 +1411,6 @@
     font-size: var(--lst-text-2xl);
     line-height: var(--tw-leading, var(--lst-text-2xl--line-height));
   }
-  .lst\:text-4xl {
-    font-size: var(--lst-text-4xl);
-    line-height: var(--tw-leading, var(--lst-text-4xl--line-height));
-  }
   .lst\:text-6xl {
     font-size: var(--lst-text-6xl);
     line-height: var(--tw-leading, var(--lst-text-6xl--line-height));
