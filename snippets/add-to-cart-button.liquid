@@ -7,46 +7,11 @@
 
 <div>
   {%- if product != blank -%}
-    <product-form
-      id="product-form-{{ section.id }}"
-      class="product-form lst:my-0! lst:border-y lst:border-black"
-      data-section-id="{{ section.id }}"
-    >
-      <div
-        class="product-form__error-message-wrapper lst:bg-red-500 lst:mb-0! lst:p-4 lst:border-b lst:border-black"
-        role="alert"
-        hidden
-      >
-        <svg
-          aria-hidden="true"
-          focusable="false"
-          class="icon icon-error lst:w-[1.25rem]! lst:h-[1.25rem]!"
-          viewBox="0 0 13 13"
-        >
-          <circle cx="6.5" cy="6.50049" r="5.5" stroke="white" stroke-width="2"/>
-          <circle cx="6.5" cy="6.5" r="5.5" fill="#EB001B" stroke="#EB001B" stroke-width="0.7"/>
-          <path d="M5.87413 3.52832L5.97439 7.57216H7.02713L7.12739 3.52832H5.87413ZM6.50076 9.66091C6.88091 9.66091 7.18169 9.37267 7.18169 9.00504C7.18169 8.63742 6.88091 8.34917 6.50076 8.34917C6.12061 8.34917 5.81982 8.63742 5.81982 9.00504C5.81982 9.37267 6.12061 9.66091 6.50076 9.66091Z" fill="white"/>
-        </svg>
-        <span class="product-form__error-message lst:text-[1rem]"></span>
-      </div>
+    {%- assign variant_weight = product.selected_or_first_available_variant.weight -%}
 
-      {%- form 'product',
-        product,
-        id: product_form_id,
-        class: 'form',
-        novalidate: 'novalidate',
-        data-type: 'add-to-cart-form'
-      -%}
-        <input
-          type="hidden"
-          name="id"
-          value="{{ product.selected_or_first_available_variant.id }}"
-          {% if product.selected_or_first_available_variant.available == false %}
-            disabled
-          {% endif %}
-          class="product-variant-id"
-        >
-
+    {%- if variant_weight == 0 -%}
+      {%- comment -%} Zero weight product - show inquiry button instead of add to cart {%- endcomment -%}
+      <div class="product-form lst:my-0! lst:border-y lst:border-black">
         <div class="product-form__buttons lst:min-h-[2.25rem] lst:grid lst:grid-cols-2 lst:items-center">
           <div class="lst:px-4 lst:border-r lst:border-black lst:bg-[#F7F2EB] lst:text-center lst:flex lst:items-center lst:justify-center lst:h-full">
             <span class="lst:text-subtitle">
@@ -54,27 +19,87 @@
             </span>
           </div>
 
-          <button
-            id="ProductSubmitButton-{{ section_id }}"
-            type="submit"
-            name="add"
-            class="product-form__submit lst:uppercase lst:rounded-[0px]! button button--full-width button--primary lst:mb-0! lst:py-0! lst:h-full lst:disabled:bg-yellow-200 lst:disabled:text-gray-600 lst:disabled:opacity-100"
+          <a
+            href="/pages/contact"
+            class="button button--full-width button--primary lst:uppercase lst:rounded-[0px]! lst:mb-0! lst:py-0! lst:h-full lst:flex lst:items-center lst:justify-center lst:no-underline"
+          >
+            <span class="lst:text-subtitle">
+              {{ 'products.product.inquire_about_book' | t }}
+            </span>
+          </a>
+        </div>
+      </div>
+    {%- else -%}
+      {%- comment -%} Normal product with weight - show add to cart {%- endcomment -%}
+      <product-form
+        id="product-form-{{ section.id }}"
+        class="product-form lst:my-0! lst:border-y lst:border-black"
+        data-section-id="{{ section.id }}"
+      >
+        <div
+          class="product-form__error-message-wrapper lst:bg-red-500 lst:mb-0! lst:p-4 lst:border-b lst:border-black"
+          role="alert"
+          hidden
+        >
+          <svg
+            aria-hidden="true"
+            focusable="false"
+            class="icon icon-error lst:w-[1.25rem]! lst:h-[1.25rem]!"
+            viewBox="0 0 13 13"
+          >
+            <circle cx="6.5" cy="6.50049" r="5.5" stroke="white" stroke-width="2"/>
+            <circle cx="6.5" cy="6.5" r="5.5" fill="#EB001B" stroke="#EB001B" stroke-width="0.7"/>
+            <path d="M5.87413 3.52832L5.97439 7.57216H7.02713L7.12739 3.52832H5.87413ZM6.50076 9.66091C6.88091 9.66091 7.18169 9.37267 7.18169 9.00504C7.18169 8.63742 6.88091 8.34917 6.50076 8.34917C6.12061 8.34917 5.81982 8.63742 5.81982 9.00504C5.81982 9.37267 6.12061 9.66091 6.50076 9.66091Z" fill="white"/>
+          </svg>
+          <span class="product-form__error-message lst:text-[1rem]"></span>
+        </div>
+
+        {%- form 'product',
+          product,
+          id: product_form_id,
+          class: 'form',
+          novalidate: 'novalidate',
+          data-type: 'add-to-cart-form'
+        -%}
+          <input
+            type="hidden"
+            name="id"
+            value="{{ product.selected_or_first_available_variant.id }}"
             {% if product.selected_or_first_available_variant.available == false %}
               disabled
             {% endif %}
+            class="product-variant-id"
           >
-            <span class="lst:text-subtitle">
-              {%- if product.selected_or_first_available_variant.available == false -%}
-                {{ 'products.product.sold_out' | t }}
-              {%- else -%}
-                {{ 'products.product.add_to_cart' | t }}
-              {%- endif -%}
-            </span>
-            {%- render 'loading-spinner' -%}
-          </button>
-        </div>
-      {%- endform -%}
-    </product-form>
+
+          <div class="product-form__buttons lst:min-h-[2.25rem] lst:grid lst:grid-cols-2 lst:items-center">
+            <div class="lst:px-4 lst:border-r lst:border-black lst:bg-[#F7F2EB] lst:text-center lst:flex lst:items-center lst:justify-center lst:h-full">
+              <span class="lst:text-subtitle">
+                {{ product.selected_or_first_available_variant.price | money }}
+              </span>
+            </div>
+
+            <button
+              id="ProductSubmitButton-{{ section_id }}"
+              type="submit"
+              name="add"
+              class="product-form__submit lst:uppercase lst:rounded-[0px]! button button--full-width button--primary lst:mb-0! lst:py-0! lst:h-full lst:disabled:bg-yellow-200 lst:disabled:text-gray-600 lst:disabled:opacity-100"
+              {% if product.selected_or_first_available_variant.available == false %}
+                disabled
+              {% endif %}
+            >
+              <span class="lst:text-subtitle">
+                {%- if product.selected_or_first_available_variant.available == false -%}
+                  {{ 'products.product.sold_out' | t }}
+                {%- else -%}
+                  {{ 'products.product.add_to_cart' | t }}
+                {%- endif -%}
+              </span>
+              {%- render 'loading-spinner' -%}
+            </button>
+          </div>
+        {%- endform -%}
+      </product-form>
+    {%- endif -%}
   {%- else -%}
     <div class="product-form">
       <div class="product-form__buttons lst:grid lst:grid-cols-2 lst:items-center">
