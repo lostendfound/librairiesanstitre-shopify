@@ -12,18 +12,18 @@
     "carousel_BJXnET": {
       "type": "carousel",
       "blocks": {
-        "slide_7mWgNa": {
+        "slide_K9EXD9": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/banner_793082a0-5382-436f-9856-1572d63a726d.jpg",
+            "image": "shopify://shop_images/bannerjpg_3c86f8b5-d937-47a1-98f9-61d851b6d2d1.jpg",
             "text_top": "",
             "text_middle": "",
             "text_bottom": "",
-            "heading": "November 25th, 6-8pm",
+            "heading": "",
             "heading_size": "h1",
-            "subheading": "Book launch \"Dirty Looks\" by Jon Astbury & Karen Van Godtsenhoven",
-            "button_label": "More infos",
-            "link": "shopify://blogs/events/book-launch-dirty-looks-desire-and-decay-in-fashion"
+            "subheading": "",
+            "button_label": "",
+            "link": ""
           }
         },
         "slide_rVTLJJ": {
@@ -36,6 +36,20 @@
             "heading": "Mardi 02 décembre, 18h-20h",
             "heading_size": "h1",
             "subheading": "Les étoiles d'Ivry, une aventure familiale de Evan Renaudie",
+            "button_label": "",
+            "link": ""
+          }
+        },
+        "slide_tFPjPn": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/banner_886b7d1c-aaf4-4c4a-b7a3-5a74cd8e9e23.jpg",
+            "text_top": "",
+            "text_middle": "",
+            "text_bottom": "",
+            "heading": "From dec 04-24, 2025",
+            "heading_size": "h1",
+            "subheading": "Maria Medem's exhibition and book launch",
             "button_label": "",
             "link": ""
           }
@@ -56,8 +70,9 @@
         }
       },
       "block_order": [
-        "slide_7mWgNa",
+        "slide_K9EXD9",
         "slide_rVTLJJ",
+        "slide_tFPjPn",
         "slide_HYjJyt"
       ],
       "settings": {}
