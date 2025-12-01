@@ -24,15 +24,19 @@
           {% endif %}
 
           {% if block.settings.link != blank %}
-            <a href="{{ block.settings.link }}" class="lst:absolute lst:inset-0 lst:cursor-pointer lst:z-10" aria-label="{{ block.settings.heading | default: 'View slide' }}">
+            <a
+              href="{{ block.settings.link }}"
+              class="lst:absolute lst:inset-0 lst:cursor-pointer lst:z-10"
+              aria-label="{{ block.settings.heading | default: 'View slide' }}"
+            >
           {% else %}
             <div class="lst:absolute lst:inset-0 lst:z-10">
           {% endif %}
-            {%- comment -%} Dark overlay - 60% opacity {%- endcomment -%}
-            <div class="lst:absolute lst:inset-0 lst:bg-black/60 lst:!block"></div>
+          {%- comment -%} Dark overlay - 60% opacity {%- endcomment -%}
+          <div class="lst:absolute lst:inset-0 lst:bg-black/60 lst:!block"></div>
 
-            {%- comment -%} Content overlay - white text {%- endcomment -%}
-            <div class="lst:absolute lst:inset-0 lst:flex lst:flex-col lst:items-center lst:justify-between lst:text-white lst:px-6 lst:py-12 lst:lg:py-[1.7500rem]!">
+          {%- comment -%} Content overlay - white text {%- endcomment -%}
+          <div class="lst:absolute lst:inset-0 lst:flex lst:flex-col lst:items-center lst:justify-between lst:text-white lst:px-6 lst:py-12 lst:lg:py-[1.7500rem]!">
             {%- comment -%} Top text {%- endcomment -%}
             {% assign top_text = block.settings.text_top | default: block.settings.heading %}
             {% if top_text != blank %}
@@ -77,7 +81,7 @@
                 {{- block.settings.button_label -}}
               </span>
             {% endif %}
-            </div>
+          </div>
           {% if block.settings.link != blank %}
             </a>
           {% else %}
@@ -91,21 +95,19 @@
   <div class="js-slideshow-bullets lst:absolute lst:bottom-8 lst:left-1/2 lst:-translate-x-1/2 lst:z-10"></div>
 
   {%- comment -%} Arrow controls {%- endcomment -%}
-  <ul class="lst:hidden">
-    <li class="slideshow__control js-slideshow__control">
-      <button class="carousel__btn lst:lg:text-hero lst:text-black lst:bg-white! lst:hover:bg-white/60! lst:flex! lst:items-center lst:justify-center lst:rounded-full! js-tab-focus">
-        <span class="lst:sr-only">Show next slide</span>
-        <span class="lst:transform lst:lg:translate-y-[-0.0325em]"><-</span>
-      </button>
-    </li>
+  <div class="js-slideshow__control lst:absolute lst:left-4 lst:lg:left-[1.2273rem] lst:top-1/2 lst:-translate-y-1/2 lst:z-20">
+    <button class="carousel__btn lst:lg:text-hero lst:text-black lst:bg-white! lst:hover:bg-white/60! lst:flex! lst:items-center lst:justify-center lst:rounded-full! js-tab-focus">
+      <span class="lst:sr-only">Show previous slide</span>
+      <span class="lst:transform lst:lg:translate-y-[-0.0325em]"><-</span>
+    </button>
+  </div>
 
-    <li class="slideshow__control js-slideshow__control">
-      <button class="carousel__btn lst:lg:text-hero lst:text-black lst:bg-white! lst:hover:bg-white/60! lst:flex! lst:items-center lst:justify-center lst:rounded-full! js-tab-focus">
-        <span class="lst:sr-only">Show next slide</span>
-        <span class="lst:transform lst:lg:translate-y-[-0.0325em]">-></span>
-      </button>
-    </li>
-  </ul>
+  <div class="js-slideshow__control lst:absolute lst:right-4 lst:lg:right-[1.2273rem] lst:top-1/2 lst:-translate-y-1/2 lst:z-20">
+    <button class="carousel__btn lst:lg:text-hero lst:text-black lst:bg-white! lst:hover:bg-white/60! lst:flex! lst:items-center lst:justify-center lst:rounded-full! js-tab-focus">
+      <span class="lst:sr-only">Show next slide</span>
+      <span class="lst:transform lst:lg:translate-y-[-0.0325em]">-></span>
+    </button>
+  </div>
 </div>
 
 {% schema %}
