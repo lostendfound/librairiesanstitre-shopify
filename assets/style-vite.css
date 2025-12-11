@@ -227,9 +227,6 @@
   .lst\:relative {
     position: relative;
   }
-  .lst\:static\! {
-    position: static !important;
-  }
   .lst\:sticky {
     position: sticky;
   }
@@ -1006,14 +1003,8 @@
   .lst\:rotate-90 {
     rotate: 90deg;
   }
-  .lst\:rotate-180 {
-    rotate: 180deg;
-  }
   .lst\:transform {
     transform: var(--tw-rotate-x,) var(--tw-rotate-y,) var(--tw-rotate-z,) var(--tw-skew-x,) var(--tw-skew-y,);
-  }
-  .lst\:transform-none\! {
-    transform: none !important;
   }
   .lst\:cursor-pointer {
     cursor: pointer;
@@ -1081,9 +1072,6 @@
       margin-block-start: calc(calc(var(--lst-spacing) * 6) * var(--tw-space-y-reverse));
       margin-block-end: calc(calc(var(--lst-spacing) * 6) * calc(1 - var(--tw-space-y-reverse)));
     }
-  }
-  .lst\:gap-x-3 {
-    column-gap: calc(var(--lst-spacing) * 3);
   }
   .lst\:gap-x-4 {
     column-gap: calc(var(--lst-spacing) * 4);
@@ -1416,9 +1404,6 @@
   .lst\:pb-\[4rem\] {
     padding-bottom: 4rem;
   }
-  .lst\:pl-3 {
-    padding-left: calc(var(--lst-spacing) * 3);
-  }
   .lst\:pl-5 {
     padding-left: calc(var(--lst-spacing) * 5);
   }
@@ -1724,13 +1709,6 @@
         @supports (color: color-mix(in lab, red, red)) {
           background-color: color-mix(in oklab, var(--lst-color-white) 60%, transparent) !important;
         }
-      }
-    }
-  }
-  .lst\:hover\:bg-yellow-500 {
-    &:hover {
-      @media (hover: hover) {
-        background-color: var(--lst-color-yellow-500);
       }
     }
   }

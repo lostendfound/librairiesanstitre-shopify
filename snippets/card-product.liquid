@@ -336,9 +336,14 @@
             {%- else -%}
               {%- assign card_variant_weight = card_product.selected_or_first_available_variant.weight -%}
               {%- assign card_variant_available = card_product.selected_or_first_available_variant.available -%}
+              {%- assign card_product_type_downcase = card_product.type | downcase -%}
+              {%- assign card_is_non_shippable = false -%}
+              {%- if card_product.gift_card? or card_product_type_downcase contains 'événement' or card_product_type_downcase contains 'event' or card_product_type_downcase contains 'numérique' or card_product_type_downcase contains 'digital' -%}
+                {%- assign card_is_non_shippable = true -%}
+              {%- endif -%}
 
-              {%- if card_variant_available == false or card_variant_weight != 0 -%}
-                {%- comment -%} Sold out OR normal product with weight - show add to cart {%- endcomment -%}
+              {%- if card_variant_available == false or card_variant_weight != 0 or card_is_non_shippable -%}
+                {%- comment -%} Sold out OR has weight OR is non-shippable - show add to cart {%- endcomment -%}
                 <product-form data-section-id="{{ section.id }}">
                   {%- form 'product',
                     card_product,
@@ -387,7 +392,7 @@
                   {%- endform -%}
                 </product-form>
               {%- else -%}
-                {%- comment -%} Zero weight AND available product - show inquiry link {%- endcomment -%}
+                {%- comment -%} Zero weight, available, shippable product - show inquiry link {%- endcomment -%}
                 <div class="quick-add no-js-hidden">
                   <a
                     href="/pages/contact"

@@ -9,9 +9,14 @@
   {%- if product != blank -%}
     {%- assign variant_weight = product.selected_or_first_available_variant.weight -%}
     {%- assign variant_available = product.selected_or_first_available_variant.available -%}
+    {%- assign product_type_downcase = product.type | downcase -%}
+    {%- assign is_non_shippable = false -%}
+    {%- if product.gift_card? or product_type_downcase contains 'événement' or product_type_downcase contains 'event' or product_type_downcase contains 'numérique' or product_type_downcase contains 'digital' -%}
+      {%- assign is_non_shippable = true -%}
+    {%- endif -%}
 
-    {%- if variant_available == false or variant_weight != 0 -%}
-      {%- comment -%} Sold out OR normal product with weight - show add to cart form {%- endcomment -%}
+    {%- if variant_available == false or variant_weight != 0 or is_non_shippable -%}
+      {%- comment -%} Sold out OR has weight OR is non-shippable - show add to cart form {%- endcomment -%}
       <product-form
         id="product-form-{{ section.id }}"
         class="product-form lst:my-0! lst:border-y lst:border-black"
@@ -81,7 +86,7 @@
         {%- endform -%}
       </product-form>
     {%- else -%}
-      {%- comment -%} Zero weight AND available product - show inquiry button {%- endcomment -%}
+      {%- comment -%} Zero weight, available, shippable product - show inquiry button {%- endcomment -%}
       <div class="product-form lst:my-0! lst:border-y lst:border-black">
         <div class="product-form__buttons lst:min-h-[2.25rem] lst:grid lst:grid-cols-2 lst:items-center">
           <div class="lst:px-4 lst:border-r lst:border-black lst:bg-[#F7F2EB] lst:text-center lst:flex lst:items-center lst:justify-center lst:h-full">
