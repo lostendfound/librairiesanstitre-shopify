@@ -26,16 +26,30 @@
             "link": ""
           }
         },
-        "slide_rVTLJJ": {
+        "slide_BGRm8h": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/banner_90003ee4-eebe-45b9-8a23-15a7c6822098.jpg",
+            "image": "shopify://shop_images/banner_479f7a3d-12f2-4c26-8cea-fc323f6f6d59.jpg",
             "text_top": "",
             "text_middle": "",
             "text_bottom": "",
-            "heading": "Mardi 02 décembre, 18h-20h",
+            "heading": "Mercredi 10 déc, 18-20h",
             "heading_size": "h1",
-            "subheading": "Les étoiles d'Ivry, une aventure familiale de Evan Renaudie",
+            "subheading": "Lancement de Atlas of Echoes de Sarah van Rij",
+            "button_label": "",
+            "link": ""
+          }
+        },
+        "slide_84LzNb": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/banner_da49a808-2cbb-48b4-9738-e8a8e557c9a3.jpg",
+            "text_top": "",
+            "text_middle": "",
+            "text_bottom": "",
+            "heading": "Jeudi 11 déc, 18-22h",
+            "heading_size": "h1",
+            "subheading": "Lancement de Un dernier jours sur terre d'Émilie Désir et Romain Pereira",
             "button_label": "",
             "link": ""
           }
@@ -53,27 +67,13 @@
             "button_label": "",
             "link": ""
           }
-        },
-        "slide_HYjJyt": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/banner_c72c494e-c94f-4030-916a-16abb965121c.jpg",
-            "text_top": "",
-            "text_middle": "",
-            "text_bottom": "",
-            "heading": "From nov 12-30, 2025",
-            "heading_size": "h1",
-            "subheading": "Juan Brenner's exhibition and book launch",
-            "button_label": "",
-            "link": ""
-          }
         }
       },
       "block_order": [
         "slide_K9EXD9",
-        "slide_rVTLJJ",
-        "slide_tFPjPn",
-        "slide_HYjJyt"
+        "slide_BGRm8h",
+        "slide_84LzNb",
+        "slide_tFPjPn"
       ],
       "settings": {}
     },
