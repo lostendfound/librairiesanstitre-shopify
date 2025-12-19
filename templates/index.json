@@ -26,34 +26,6 @@
             "link": ""
           }
         },
-        "slide_BGRm8h": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/banner_479f7a3d-12f2-4c26-8cea-fc323f6f6d59.jpg",
-            "text_top": "",
-            "text_middle": "",
-            "text_bottom": "",
-            "heading": "Mercredi 10 déc, 18-20h",
-            "heading_size": "h1",
-            "subheading": "Lancement de Atlas of Echoes de Sarah van Rij",
-            "button_label": "",
-            "link": ""
-          }
-        },
-        "slide_84LzNb": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/banner_da49a808-2cbb-48b4-9738-e8a8e557c9a3.jpg",
-            "text_top": "",
-            "text_middle": "",
-            "text_bottom": "",
-            "heading": "Jeudi 11 déc, 18-22h",
-            "heading_size": "h1",
-            "subheading": "Lancement de Un dernier jours sur terre d'Émilie Désir et Romain Pereira",
-            "button_label": "",
-            "link": ""
-          }
-        },
         "slide_tFPjPn": {
           "type": "slide",
           "settings": {
@@ -71,8 +43,6 @@
       },
       "block_order": [
         "slide_K9EXD9",
-        "slide_BGRm8h",
-        "slide_84LzNb",
         "slide_tFPjPn"
       ],
       "settings": {}
