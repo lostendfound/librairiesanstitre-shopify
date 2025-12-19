@@ -6,7 +6,7 @@
   <ul class="slideshow__content">
     {%- for block in section.blocks -%}
       <li
-        class="slideshow__item js-slideshow__item lst:relative"
+        class="slideshow__item js-slideshow__item lst:relative{% if forloop.first %} slideshow__item--selected{% endif %}"
       >
         <div class="lst:relative lst:w-full">
           {% if block.settings.image != blank %}
@@ -32,8 +32,8 @@
           {% else %}
             <div class="lst:absolute lst:inset-0 lst:z-10">
           {% endif %}
-          {%- comment -%} Dark overlay - 60% opacity {%- endcomment -%}
-          <div class="lst:absolute lst:inset-0 lst:bg-black/60 lst:!block"></div>
+          {%- comment -%} Dark overlay - 20% opacity {%- endcomment -%}
+          <div class="lst:absolute lst:inset-0 lst:bg-black/20 lst:!block"></div>
 
           {%- comment -%} Content overlay - white text {%- endcomment -%}
           <div class="lst:absolute lst:inset-0 lst:flex lst:flex-col lst:items-center lst:justify-between lst:text-white lst:px-6 lst:py-12 lst:lg:py-[1.7500rem]!">
@@ -92,20 +92,20 @@
     {%- endfor -%}
   </ul>
   {%- comment -%} Navigation bullets container {%- endcomment -%}
-  <div class="js-slideshow-bullets lst:absolute lst:bottom-8 lst:left-1/2 lst:-translate-x-1/2 lst:z-10"></div>
+  <div class="js-slideshow-bullets lst:absolute lst:bottom-8 lst:right-4 lst:lg:right-[1.2273rem] lst:z-10"></div>
 
   {%- comment -%} Arrow controls {%- endcomment -%}
   <div class="js-slideshow__control lst:absolute lst:left-4 lst:lg:left-[1.2273rem] lst:top-1/2 lst:-translate-y-1/2 lst:z-20">
-    <button class="carousel__btn lst:lg:text-hero lst:text-black lst:bg-white! lst:hover:bg-white/60! lst:flex! lst:items-center lst:justify-center lst:rounded-full! js-tab-focus">
+    <button class="carousel__btn lst:text-black lst:bg-white! lst:hover:bg-white/60! lst:flex! lst:items-center lst:justify-center lst:rounded-full! js-tab-focus" style="--carousel-btn-width: 2.5rem; --carousel-btn-height: 2.5rem;">
       <span class="lst:sr-only">Show previous slide</span>
-      <span class="lst:transform lst:lg:translate-y-[-0.0325em]"><-</span>
+      <span><-</span>
     </button>
   </div>
 
   <div class="js-slideshow__control lst:absolute lst:right-4 lst:lg:right-[1.2273rem] lst:top-1/2 lst:-translate-y-1/2 lst:z-20">
-    <button class="carousel__btn lst:lg:text-hero lst:text-black lst:bg-white! lst:hover:bg-white/60! lst:flex! lst:items-center lst:justify-center lst:rounded-full! js-tab-focus">
+    <button class="carousel__btn lst:text-black lst:bg-white! lst:hover:bg-white/60! lst:flex! lst:items-center lst:justify-center lst:rounded-full! js-tab-focus" style="--carousel-btn-width: 2.5rem; --carousel-btn-height: 2.5rem;">
       <span class="lst:sr-only">Show next slide</span>
-      <span class="lst:transform lst:lg:translate-y-[-0.0325em]">-></span>
+      <span>-></span>
     </button>
   </div>
 </div>

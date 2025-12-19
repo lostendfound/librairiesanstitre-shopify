@@ -296,6 +296,16 @@ Usage: codyhouse.co/license
     }
 }
 
+/* Arrows - hidden by default, show on hover */
+.slideshow .js-slideshow__control {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.slideshow:hover .js-slideshow__control {
+    opacity: 1;
+}
+
 .slideshow__btn {
     display: block;
     @apply lst:bg-gray-900/75;
